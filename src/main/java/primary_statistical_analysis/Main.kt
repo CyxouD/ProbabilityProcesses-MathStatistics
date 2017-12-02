@@ -21,6 +21,8 @@ fun main(args: Array<String>) {
     val input = file.readLines().map { it.toDouble() }
     val variationalSeries = VariationalSeries(input)
     println(variationalSeries)
+    TableDisplaying(variationalSeries).createAndShowGUI()
     val dividedAtClasses = variationalSeries.divideAtClasses(ranges)
     println(dividedAtClasses)
+    TableDisplaying(dividedAtClasses).createAndShowGUI()
 }

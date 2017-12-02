@@ -13,38 +13,55 @@ class VariationalSeries(sample: List<Double>) {
         }
     }
 
+    fun getEmpiricalDistributionFunction(value: Double) =
+            variationalSeriesRows.filter { it.result <= value }
+                    .map { it.relativeFrequency }
+                    .sum()
 
-    class DoubleRange(override val start: Double, override val endInclusive: Double) : ClosedRange<Double> {
-        override fun toString(): String {
-            return "[$start;$endInclusive]"
-        }
-    }
 
     fun divideAtClasses(ranges: List<DoubleRange>) = VariationalSeriesDividedByClasses(ranges)
 
+
     inner class VariationalSeriesDividedByClasses(ranges: List<DoubleRange>) {
-        val variationalSeriesDividedByClasses: List<Pair<DoubleRange, List<VariationalSeriesRow>>>
+
+        val variationalSeriesDividedByClasses: List<VariationalClass>
 
         init {
             variationalSeriesDividedByClasses = ranges.map { range ->
-                Pair(range, variationalSeriesRows.filter { it.result in range })
+                VariationalClass(range, variationalSeriesRows.filter { it.result in range })
             }
         }
 
+
+        inner class VariationalClass(val range: DoubleRange, val rows: List<VariationalSeriesRow>) {
+
+            val empiricalDistributionFunction =
+                    getEmpiricalDistributionFunction(range.endInclusive) - getEmpiricalDistributionFunction(range.start)
+            val frequency = rows.map { it.frequency }.sum()
+            val relativeFrequency = rows.map { it.relativeFrequency }.sum()
+        }
+
+
         override fun toString(): String {
-            return variationalSeriesDividedByClasses.joinToString(separator = "\n") { (range, rows) ->
-                "$range: {\n" +
-                        rows.joinToString(separator = "\n") { row -> "\t$row" } +
+            return variationalSeriesDividedByClasses.joinToString(separator = "\n") { `class` ->
+                "${`class`.range}: {\n" +
+                        `class`.rows.joinToString(separator = "\n") { row -> "\t$row" } +
                         "\n}"
             }
         }
     }
 
+    override fun toString(): String {
+        return variationalSeriesRows.joinToString("\n")
+    }
+
 
     data class VariationalSeriesRow(val result: Double, val frequency: Int, val relativeFrequency: Double)
 
-    override fun toString(): String {
-        return variationalSeriesRows.joinToString("\n")
+    class DoubleRange(override val start: Double, override val endInclusive: Double) : ClosedRange<Double> {
+        override fun toString(): String {
+            return "[$start;$endInclusive]"
+        }
     }
 
 
