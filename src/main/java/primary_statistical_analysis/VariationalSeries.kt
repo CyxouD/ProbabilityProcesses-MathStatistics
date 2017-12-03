@@ -1,6 +1,5 @@
 package primary_statistical_analysis
 
-import org.nield.kotlinstatistics.median
 import primary_statistical_analysis.Main.Companion.preciseFloatingPoints
 
 /**
@@ -23,18 +22,7 @@ class VariationalSeries(sample: List<Double>) {
                     .map { it.relativeFrequency }
                     .sum()
 
-    fun Double.square() = Math.pow(this, 2.0)
-
-    fun average() = if (size() != 0.0) {
-        variationalSeriesRows.map { it.result }.average()
-    } else null
-
-    fun averageStandartDeviation() = if (size() != 0.0) {
-        standartDeviation()!! / Math.sqrt(size())
-    } else {
-        null
-    }
-
+    
     fun median() = variationalSeriesRows.map { it.result }.let { results ->
         if (size() != 0.0) {
             if (size().toInt() % 2 == 0) {
@@ -51,113 +39,161 @@ class VariationalSeries(sample: List<Double>) {
         Math.sqrt(results.map { it.square() }.sum().div(results.size))
     }
 
-    fun variance() = variationalSeriesRows.map { it.result }.let { results ->
-        when (size()) {
-            0.0 -> null
-            1.0 -> 0.0
-            else -> results.map { result -> (result - average()!!).square() }.sum().div(results.size.dec())
+    inner class Variance : SampleCharacteristic() {
+        override fun biasedValue() = variationalSeriesRows.map { it.result }.let { results ->
+            when (size()) {
+                0.0 -> null
+                1.0 -> 0.0
+                else -> results.map { result -> (result - Average().unBiasedValue()!!).square() }.sum().div(results.size.dec())
+            }
         }
+
+        override fun unBiasedValue() = biasedValue()
+
+        override fun standartDeviation() = unBiasedValue()!!.div(Math.sqrt(2 * size())).square()
     }
 
-    /**
-     * The asymmetry coefficient
-     */
-    fun biasedSkewness() = if (size() > 1.0) {
-        variationalSeriesRows.map { it.result }.let { results ->
-            results.map { result ->
-                Math.pow(result - average()!!, 3.0)
-            }.sum().div(results.size * Math.pow(standartDeviation()!!, 3.0))
+    inner class Average : SampleCharacteristic() {
+        override fun biasedValue() = if (size() != 0.0) {
+            variationalSeriesRows.map { it.result }.average()
+        } else null
+
+
+        override fun unBiasedValue() = biasedValue()
+
+        override fun standartDeviation() = if (size() != 0.0) {
+            StandartDeviation().unBiasedValue()!! / Math.sqrt(size())
+        } else {
+            null
         }
-    } else {
-        null
+
     }
 
-    fun unbiasedSkewness() = when (size()) {
-        0.0, 1.0 -> null
-        2.0 -> 0.0
-        else -> biasedSkewness()!! * Math.sqrt(size() * size().dec()).div(size() - 2)
-    }
-
-    fun skewnessStandartDeviation() = if (size() > 1) {
-        Math.sqrt(
-                6 * (size() - 2) / size().inc() / (size() + 3)
-        )
-    } else {
-        null
-    }
-
-    fun biasedKurtosis() = if (size() > 1.0) {
-        variationalSeriesRows.map { it.result }.let { results ->
-            results.map { result ->
-                Math.pow(result - average()!!, 4.0)
-            }.sum().div(results.size * Math.pow(standartDeviation()!!, 4.0))
+    inner class Skewness : SampleCharacteristic() {
+        override fun biasedValue() = if (size() > 1.0) {
+            variationalSeriesRows.map { it.result }.let { results ->
+                results.map { result ->
+                    Math.pow(result - Average().unBiasedValue()!!, 3.0)
+                }.sum().div(results.size * Math.pow(StandartDeviation().unBiasedValue()!!, 3.0))
+            }
+        } else {
+            null
         }
-    } else {
-        null
+
+
+        override fun unBiasedValue() = when (size()) {
+            0.0, 1.0 -> null
+            2.0 -> 0.0
+            else -> biasedValue()!! * Math.sqrt(size() * size().dec()).div(size() - 2)
+        }
+
+
+        override fun standartDeviation() = if (size() > 1) {
+            Math.sqrt(
+                    6 * (size() - 2) / size().inc() / (size() + 3)
+            )
+        } else {
+            null
+        }
+
     }
 
-    fun unbiasedKurtosis() = if (size() > 3) {
-        size().square().dec().div((size() - 2) * (size() - 3)) * ((biasedKurtosis()!! - 3) + (6 / size().inc()))
-    } else {
-        null
+    inner class Kurtosis : SampleCharacteristic() {
+        override fun biasedValue() = if (size() > 1.0) {
+            variationalSeriesRows.map { it.result }.let { results ->
+                results.map { result ->
+                    Math.pow(result - Average().unBiasedValue()!!, 4.0)
+                }.sum().div(results.size * Math.pow(StandartDeviation().unBiasedValue()!!, 4.0))
+            }
+        } else {
+            null
+        }
+
+
+        override fun unBiasedValue() = if (size() > 3) {
+            size().square().dec().div((size() - 2) * (size() - 3)) * ((biasedValue()!! - 3) + (6 / size().inc()))
+        } else {
+            null
+        }
+
+        override fun standartDeviation() = if (size() > 3) {
+            Math.sqrt(
+                    24 * size() * (size() - 2) * (size() - 3)
+                            / (size().inc().square()) / (size() + 3) / (size() + 5)
+            )
+        } else {
+            null
+        }
+
     }
 
-    fun kurtosisStandartDeviation() = if (size() > 3) {
-        Math.sqrt(
-                24 * size() * (size() - 2) * (size() - 3)
-                        / (size().inc().square()) / (size() + 3) / (size() + 5)
-        )
-    } else {
-        null
+    inner class AntiKurtosis : SampleCharacteristic() {
+        override fun biasedValue() = if (size() > 1) {
+            1.div(Math.sqrt(Math.abs(Kurtosis().biasedValue()!!)))
+        } else {
+            null
+        }
+
+
+        override fun unBiasedValue() = biasedValue()
+
+        override fun standartDeviation() = if (size() > 1) {
+            Math.sqrt(Kurtosis().biasedValue()!!.div(29 * size())) *
+                    Math.pow(Math.pow(Math.abs(Kurtosis().biasedValue()!!.square().dec()), 3.0), 1 / 4.0)
+        } else {
+            null
+        }
+
     }
 
-    fun antiKurtosis() = if (size() > 1) {
-        1.div(Math.sqrt(Math.abs(biasedKurtosis()!!)))
-    } else {
-        null
+    inner class StandartDeviation : SampleCharacteristic() {
+        override fun biasedValue() = if (size() != 0.0) {
+            Math.sqrt(Variance().biasedValue()!!)
+        } else {
+            null
+        }
+
+        override fun unBiasedValue() = biasedValue()
+
+        override fun standartDeviation() = if (size() != 0.0) {
+            unBiasedValue()!!.div(Math.sqrt(2 * size()))
+        } else {
+            null
+        }
+
     }
 
-    fun antiKurtosisStandartDeviation() = if (size() > 1) {
-        Math.sqrt(biasedKurtosis()!!.div(29 * size())) *
-                Math.pow(Math.pow(Math.abs(biasedKurtosis()!!.square().dec()), 3.0), 1 / 4.0)
-    } else {
-        null
+    inner class CV : SampleCharacteristic() {
+        override fun biasedValue() =
+                if (size() != 0.0) {
+                    StandartDeviation().unBiasedValue()!! / Average().unBiasedValue()!!
+                } else {
+                    null
+                }
+
+        override fun unBiasedValue() = biasedValue()
+
+        override fun standartDeviation() =
+                if (size() != 0.0) {
+                    biasedValue()!! * Math.sqrt(2 * biasedValue()!!.square().inc().div(2 * size()))
+                } else {
+                    null
+                }
+
     }
 
-    fun standartDeviation() = if (size() != 0.0) {
-        Math.sqrt(variance()!!)
-    } else {
-        null
-    }
+    abstract class SampleCharacteristic {
+        abstract fun biasedValue(): Double?
+        abstract fun unBiasedValue(): Double?
+        abstract fun standartDeviation(): Double?
+        fun confidenceInterval() = biasedValue()?.let { value ->
+            val difference = 1.96 * standartDeviation()!!
+            DoubleRange(value - difference, value + difference)
+        }
 
-    fun standartDeviationStandartDeviation() = if (size() != 0.0) {
-        standartDeviation()!!.div(Math.sqrt(2 * size()))
-    } else {
-        null
     }
-
-    /**
-     * Coefficient of variation
-     */
-    fun cv() = if (size() != 0.0) {
-        standartDeviation()!! / average()!!
-    } else {
-        null
-    }
-
-    fun cvStandartDeviation() = if (size() != 0.0) {
-        cv()!! * Math.sqrt(2 * cv()!!.square().inc().div(2 * size()))
-    } else {
-        null
-    }
-
 
     fun divideAtClasses(ranges: List<DoubleRange>) = VariationalSeriesDividedByClasses(ranges)
-
-    fun sampleCharacteristicsConfidenceInterval(sampleCharacteristic: Double, sampleCharacteristicStandartDeviation: Double): DoubleRange {
-        val difference = 1.96 * sampleCharacteristicStandartDeviation
-        return DoubleRange(sampleCharacteristic - difference, sampleCharacteristic + difference)
-    }
 
     private fun size() = variationalSeriesRows.size.toDouble()
 

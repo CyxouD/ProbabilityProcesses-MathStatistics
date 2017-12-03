@@ -35,65 +35,55 @@ class TableDisplaying : JPanel() {
         fun samplingCharacteristics(variationalSeries: VariationalSeries): TableDisplaying {
             val columnNames = arrayOf("", "Значення", "Середньоквадратичне відхилення", "Довірчий інтервал")
 
-            val average = variationalSeries.average()
-            val standartDeviation = variationalSeries.standartDeviation()
-            val unbiasedSkewness = variationalSeries.unbiasedSkewness()
-            val unbiasedKurtosis = variationalSeries.unbiasedKurtosis()
-            val antiKurtosis = variationalSeries.antiKurtosis()
-            val cv = variationalSeries.cv()
             val tableRows = arrayOf(
-                    arrayOf("Середнє арифметичне",
-                            average?.toPreciseFloatingPoints(preciseFloatingPoints)?.toDouble() ?: VALUE_NOT_EXIST,
-                            variationalSeries.averageStandartDeviation()?.toPreciseFloatingPoints(preciseFloatingPoints) ?: VALUE_NOT_EXIST,
-                            average?.let {
-                                variationalSeries.sampleCharacteristicsConfidenceInterval(average,
-                                        variationalSeries.averageStandartDeviation()!!)
-                            } ?: VALUE_NOT_EXIST
-                    ),
+                    with(variationalSeries.Average()) {
+                        arrayOf("Середнє арифметичне",
+                                unBiasedValue()?.toPreciseFloatingPoints(preciseFloatingPoints)?.toDouble() ?: VALUE_NOT_EXIST,
+                                standartDeviation()?.toPreciseFloatingPoints(preciseFloatingPoints) ?: VALUE_NOT_EXIST,
+                                confidenceInterval() ?: VALUE_NOT_EXIST
+                        )
+                    },
                     arrayOf("Медіана",
-                            variationalSeries.median()?.toPreciseFloatingPoints(preciseFloatingPoints)?.toDouble() ?: VALUE_NOT_EXIST, VALUE_NOT_EXIST, VALUE_NOT_EXIST),
-                    arrayOf("Середньоквадратичне відхилення",
-                            standartDeviation?.toPreciseFloatingPoints(preciseFloatingPoints)?.toDouble() ?: VALUE_NOT_EXIST,
-                            variationalSeries.standartDeviationStandartDeviation()?.toPreciseFloatingPoints(preciseFloatingPoints) ?: VALUE_NOT_EXIST,
-                            standartDeviation?.let {
-                                variationalSeries.sampleCharacteristicsConfidenceInterval(standartDeviation,
-                                        variationalSeries.standartDeviationStandartDeviation()!!)
-                            } ?: VALUE_NOT_EXIST
+                            variationalSeries.median()?.toPreciseFloatingPoints(preciseFloatingPoints)?.toDouble() ?: VALUE_NOT_EXIST,
+                            VALUE_NOT_EXIST,
+                            VALUE_NOT_EXIST),
+                    with(variationalSeries.StandartDeviation()) {
+                        arrayOf("Середньоквадратичне відхилення",
+                                unBiasedValue()?.toPreciseFloatingPoints(preciseFloatingPoints)?.toDouble() ?: VALUE_NOT_EXIST,
+                                standartDeviation()?.toPreciseFloatingPoints(preciseFloatingPoints) ?: VALUE_NOT_EXIST,
+                                confidenceInterval() ?: VALUE_NOT_EXIST
 
-                    ),
-                    arrayOf("Коефіцієнт асиметрії",
-                            unbiasedSkewness?.toPreciseFloatingPoints(preciseFloatingPoints)?.toDouble() ?: VALUE_NOT_EXIST,
-                            variationalSeries.skewnessStandartDeviation()?.toPreciseFloatingPoints(preciseFloatingPoints) ?: VALUE_NOT_EXIST,
-                            unbiasedSkewness?.let {
-                                variationalSeries.sampleCharacteristicsConfidenceInterval(unbiasedSkewness,
-                                        variationalSeries.skewnessStandartDeviation()!!)
-                            } ?: VALUE_NOT_EXIST
-                    ),
-                    arrayOf("Коефіцієнт ексцесу",
-                            unbiasedKurtosis?.toPreciseFloatingPoints(preciseFloatingPoints)?.toDouble() ?: VALUE_NOT_EXIST,
-                            variationalSeries.kurtosisStandartDeviation()?.toPreciseFloatingPoints(preciseFloatingPoints)?: VALUE_NOT_EXIST,
-                            unbiasedKurtosis?.let {
-                                variationalSeries.sampleCharacteristicsConfidenceInterval(unbiasedKurtosis,
-                                        variationalSeries.kurtosisStandartDeviation()!!)
-                            } ?: VALUE_NOT_EXIST
-                    ),
-                    arrayOf("Коефіцієнт контрексцесу",
-                            antiKurtosis?.toPreciseFloatingPoints(preciseFloatingPoints)?.toDouble() ?: VALUE_NOT_EXIST,
-                            variationalSeries.antiKurtosisStandartDeviation()?.toPreciseFloatingPoints(preciseFloatingPoints) ?: VALUE_NOT_EXIST,
-                            antiKurtosis?.let {
-                                variationalSeries.sampleCharacteristicsConfidenceInterval(antiKurtosis,
-                                        variationalSeries.antiKurtosisStandartDeviation()!!)
-                            } ?: VALUE_NOT_EXIST
-                    ),
-                    arrayOf("Коефіцієнт варіації",
-                            cv?.toPreciseFloatingPoints(preciseFloatingPoints)?.toDouble() ?: VALUE_NOT_EXIST,
-                            variationalSeries.cvStandartDeviation()?.toPreciseFloatingPoints(preciseFloatingPoints) ?: VALUE_NOT_EXIST,
-                            cv?.let {
-                                variationalSeries.sampleCharacteristicsConfidenceInterval(cv,
-                                        variationalSeries.cvStandartDeviation()!!)
-                            } ?: VALUE_NOT_EXIST
+                        )
+                    },
+                    with(variationalSeries.Skewness()) {
+                        arrayOf("Коефіцієнт асиметрії",
+                                unBiasedValue()?.toPreciseFloatingPoints(preciseFloatingPoints)?.toDouble() ?: VALUE_NOT_EXIST,
+                                standartDeviation()?.toPreciseFloatingPoints(preciseFloatingPoints) ?: VALUE_NOT_EXIST,
+                                confidenceInterval() ?: VALUE_NOT_EXIST
+                        )
+                    },
+                    with(variationalSeries.Kurtosis()) {
+                        arrayOf("Коефіцієнт ексцесу",
+                                unBiasedValue()?.toPreciseFloatingPoints(preciseFloatingPoints)?.toDouble() ?: VALUE_NOT_EXIST,
+                                standartDeviation()?.toPreciseFloatingPoints(preciseFloatingPoints) ?: VALUE_NOT_EXIST,
+                                confidenceInterval() ?: VALUE_NOT_EXIST
+                        )
+                    },
+                    with(variationalSeries.AntiKurtosis()) {
+                        arrayOf("Коефіцієнт контрексцесу",
+                                unBiasedValue()?.toPreciseFloatingPoints(preciseFloatingPoints)?.toDouble() ?: VALUE_NOT_EXIST,
+                                standartDeviation()?.toPreciseFloatingPoints(preciseFloatingPoints) ?: VALUE_NOT_EXIST,
+                                confidenceInterval() ?: VALUE_NOT_EXIST
+                        )
+                    },
+                    with(variationalSeries.CV()) {
+                        arrayOf("Коефіцієнт варіації",
+                                biasedValue()?.toPreciseFloatingPoints(preciseFloatingPoints)?.toDouble() ?: VALUE_NOT_EXIST,
+                                standartDeviation()?.toPreciseFloatingPoints(preciseFloatingPoints) ?: VALUE_NOT_EXIST,
+                                confidenceInterval() ?: VALUE_NOT_EXIST
 
-                    )
+                        )
+                    }
             )
             return addTable(tableRows, columnNames)
         }
