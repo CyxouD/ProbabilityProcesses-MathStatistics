@@ -17,12 +17,18 @@ fun main(args: Array<String>) {
                 .toList()
         VariationalSeries.DoubleRange(start, endInclusive)
     }
-
     val input = file.readLines().map { it.toDouble() }
     val variationalSeries = VariationalSeries(input)
     println(variationalSeries)
-    TableDisplaying(variationalSeries).createAndShowGUI()
+    TableDisplaying.variationSeries(variationalSeries).createAndShowGUI()
+    TableDisplaying.samplingCharacteristics(variationalSeries).createAndShowGUI()
     val dividedAtClasses = variationalSeries.divideAtClasses(ranges)
     println(dividedAtClasses)
-    TableDisplaying(dividedAtClasses).createAndShowGUI()
+    TableDisplaying.variationSeriesByClasses(dividedAtClasses).createAndShowGUI()
+}
+
+class Main {
+    companion object {
+        val preciseFloatingPoints = 3
+    }
 }
