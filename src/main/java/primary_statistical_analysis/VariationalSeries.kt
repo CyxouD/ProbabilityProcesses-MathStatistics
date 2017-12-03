@@ -25,63 +25,131 @@ class VariationalSeries(sample: List<Double>) {
 
     fun Double.square() = Math.pow(this, 2.0)
 
-    fun average() = variationalSeriesRows.map { it.result }.average()
-    fun averageStandartDeviation() = standartDeviation() / Math.sqrt(size())
-    fun median() = variationalSeriesRows.map { it.result }.median()
+    fun average() = if (size() != 0.0) {
+        variationalSeriesRows.map { it.result }.average()
+    } else null
+
+    fun averageStandartDeviation() = if (size() != 0.0) {
+        standartDeviation()!! / Math.sqrt(size())
+    } else {
+        null
+    }
+
+    fun median() = variationalSeriesRows.map { it.result }.let { results ->
+        if (size() != 0.0) {
+            if (size().toInt() % 2 == 0) {
+                results[size().toInt() / 2].plus(results[(size().toInt() / 2).dec()]).div(2)
+            } else {
+                results[size().toInt() / 2]
+            }
+        } else {
+            null
+        }
+    }
+
     fun rootMeanSquare() = variationalSeriesRows.map { it.result }.let { results ->
         Math.sqrt(results.map { it.square() }.sum().div(results.size))
     }
 
     fun variance() = variationalSeriesRows.map { it.result }.let { results ->
-        results.map { result -> (result - average()).square() }.sum().div(results.size.dec())
+        when (size()) {
+            0.0 -> null
+            1.0 -> 0.0
+            else -> results.map { result -> (result - average()!!).square() }.sum().div(results.size.dec())
+        }
     }
 
     /**
      * The asymmetry coefficient
      */
-    fun biasedSkewness() = variationalSeriesRows.map { it.result }.let { results ->
-        results.map { result ->
-            Math.pow(result - average(), 3.0)
-        }.sum().div(results.size * Math.pow(standartDeviation(), 3.0))
+    fun biasedSkewness() = if (size() > 1.0) {
+        variationalSeriesRows.map { it.result }.let { results ->
+            results.map { result ->
+                Math.pow(result - average()!!, 3.0)
+            }.sum().div(results.size * Math.pow(standartDeviation()!!, 3.0))
+        }
+    } else {
+        null
     }
 
-    fun unbiasedSkewness(): Double {
-        return biasedSkewness() * Math.sqrt(size() * size().dec()).div(size() - 2)
+    fun unbiasedSkewness() = when (size()) {
+        0.0, 1.0 -> null
+        2.0 -> 0.0
+        else -> biasedSkewness()!! * Math.sqrt(size() * size().dec()).div(size() - 2)
     }
 
-    fun skewnessStandartDeviation() = Math.sqrt(
-            6 * (size() - 2) / size().inc() / (size() + 3)
-    )
-
-    fun biasedKurtosis() = variationalSeriesRows.map { it.result }.let { results ->
-        results.map { result ->
-            Math.pow(result - average(), 4.0)
-        }.sum().div(results.size * Math.pow(standartDeviation(), 4.0))
+    fun skewnessStandartDeviation() = if (size() > 1) {
+        Math.sqrt(
+                6 * (size() - 2) / size().inc() / (size() + 3)
+        )
+    } else {
+        null
     }
 
-    fun unbiasedKurtosis(): Double {
-        val size = size()
-        return size.square().dec().div((size - 2) * (size - 3)) * ((biasedKurtosis() - 3) + (6 / size.inc()))
+    fun biasedKurtosis() = if (size() > 1.0) {
+        variationalSeriesRows.map { it.result }.let { results ->
+            results.map { result ->
+                Math.pow(result - average()!!, 4.0)
+            }.sum().div(results.size * Math.pow(standartDeviation()!!, 4.0))
+        }
+    } else {
+        null
     }
 
-    fun kurtosisStandartDeviation() = Math.sqrt(
-            24 * size() * (size() - 2) * (size() - 3)
-                    / (size().inc().square()) / (size() + 3) / (size() + 5)
-    )
+    fun unbiasedKurtosis() = if (size() > 3) {
+        size().square().dec().div((size() - 2) * (size() - 3)) * ((biasedKurtosis()!! - 3) + (6 / size().inc()))
+    } else {
+        null
+    }
 
-    fun antiKurtosis() = 1.div(Math.sqrt(Math.abs(biasedKurtosis())))
-    fun antiKurtosisStandartDeviation() = Math.sqrt(biasedKurtosis().div(29 * size())) *
-            Math.pow(Math.pow(Math.abs(biasedKurtosis().square().dec()), 3.0), 1 / 4.0)
+    fun kurtosisStandartDeviation() = if (size() > 3) {
+        Math.sqrt(
+                24 * size() * (size() - 2) * (size() - 3)
+                        / (size().inc().square()) / (size() + 3) / (size() + 5)
+        )
+    } else {
+        null
+    }
 
-    fun standartDeviation() = Math.sqrt(variance())
-    fun standartDeviationStandartDeviation() = standartDeviation().div(Math.sqrt(2 * size()))
+    fun antiKurtosis() = if (size() > 1) {
+        1.div(Math.sqrt(Math.abs(biasedKurtosis()!!)))
+    } else {
+        null
+    }
+
+    fun antiKurtosisStandartDeviation() = if (size() > 1) {
+        Math.sqrt(biasedKurtosis()!!.div(29 * size())) *
+                Math.pow(Math.pow(Math.abs(biasedKurtosis()!!.square().dec()), 3.0), 1 / 4.0)
+    } else {
+        null
+    }
+
+    fun standartDeviation() = if (size() != 0.0) {
+        Math.sqrt(variance()!!)
+    } else {
+        null
+    }
+
+    fun standartDeviationStandartDeviation() = if (size() != 0.0) {
+        standartDeviation()!!.div(Math.sqrt(2 * size()))
+    } else {
+        null
+    }
 
     /**
      * Coefficient of variation
      */
-    fun cv() = standartDeviation() / average()
+    fun cv() = if (size() != 0.0) {
+        standartDeviation()!! / average()!!
+    } else {
+        null
+    }
 
-    fun cvStandartDeviation() = cv() * Math.sqrt(2 * cv().square().inc().div(2 * size()))
+    fun cvStandartDeviation() = if (size() != 0.0) {
+        cv()!! * Math.sqrt(2 * cv()!!.square().inc().div(2 * size()))
+    } else {
+        null
+    }
 
 
     fun divideAtClasses(ranges: List<DoubleRange>) = VariationalSeriesDividedByClasses(ranges)

@@ -1,6 +1,8 @@
 package primary_statistical_analysis
 
 import org.jfree.chart.JFreeChart
+import org.nield.kotlinstatistics.kurtosis
+import org.nield.kotlinstatistics.skewness
 import primary_statistical_analysis.libs.StdIn
 import java.io.File
 import java.util.*
