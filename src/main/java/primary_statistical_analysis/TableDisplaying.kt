@@ -95,7 +95,7 @@ class TableDisplaying : JPanel() {
             val tableRows: Array<Array<Any>> = variationalSeriesDividedByClasses.variationalSeriesDividedByClasses.mapIndexed {
                 classIndex, variationalClass ->
                 arrayOf(classIndex.inc(),
-                        variationalClass.range,
+                        variationalClass.range.toString(),
                         variationalClass.frequency,
                         variationalClass.relativeFrequency
                                 .toPreciseFloatingPoints(preciseFloatingPoints),

@@ -22,7 +22,7 @@ class VariationalSeries(sample: List<Double>) {
                     .map { it.relativeFrequency }
                     .sum()
 
-    
+
     fun median() = variationalSeriesRows.map { it.result }.let { results ->
         if (size() != 0.0) {
             if (size().toInt() % 2 == 0) {
@@ -233,9 +233,15 @@ class VariationalSeries(sample: List<Double>) {
 
     data class VariationalSeriesRow(val result: Double, val frequency: Int, val relativeFrequency: Double)
 
-    class DoubleRange(override val start: Double, override val endInclusive: Double) : ClosedRange<Double> {
+    class DoubleRange(override val start: Double, override val endInclusive: Double) :
+            ClosedRange<Double>,
+            Comparable<DoubleRange> {
         override fun toString(): String {
             return "[${start.toPreciseFloatingPoints(preciseFloatingPoints)};${endInclusive.toPreciseFloatingPoints(3)}]"
+        }
+
+        override fun compareTo(other: DoubleRange): Int {
+            return this.start.compareTo(other.start)
         }
     }
 

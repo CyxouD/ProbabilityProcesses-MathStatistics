@@ -1,11 +1,6 @@
 package primary_statistical_analysis
 
-import org.jfree.chart.JFreeChart
-import org.nield.kotlinstatistics.kurtosis
-import org.nield.kotlinstatistics.skewness
-import primary_statistical_analysis.libs.StdIn
 import java.io.File
-import java.util.*
 
 /**
  * Created by Cyxou on 12/2/17.
@@ -22,11 +17,12 @@ fun main(args: Array<String>) {
     val input = file.readLines().map { it.toDouble() }
     val variationalSeries = VariationalSeries(input)
     println(variationalSeries)
-    TableDisplaying.variationSeries(variationalSeries).createAndShowGUI()
-    TableDisplaying.samplingCharacteristics(variationalSeries).createAndShowGUI()
+//    TableDisplaying.variationSeries(variationalSeries).createAndShowGUI()
+//    TableDisplaying.samplingCharacteristics(variationalSeries).createAndShowGUI()
     val dividedAtClasses = variationalSeries.divideAtClasses(ranges)
     println(dividedAtClasses)
-    TableDisplaying.variationSeriesByClasses(dividedAtClasses).createAndShowGUI()
+//    TableDisplaying.histogramVariationSeriesByClasses(dividedAtClasses).createAndShowGUI()
+    Chart.histogramVariationSeriesByClasses(dividedAtClasses).createAndShowGUI()
 }
 
 class Main {
