@@ -40,8 +40,8 @@ class Chart(title: String) : ApplicationFrame(title) {
             val yaxis = "количество"
             val orientation = PlotOrientation.VERTICAL
             val show = false
-            val toolTips = false
-            val urls = false
+            val toolTips = true
+            val urls = true
             val chart = ChartFactory.createHistogram(plotTitle, xaxis, yaxis,
                     dataset, orientation, show, toolTips, urls)
             val chartPanel = ChartPanel(chart, false)
