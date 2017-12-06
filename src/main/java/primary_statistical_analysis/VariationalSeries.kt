@@ -193,7 +193,45 @@ class VariationalSeries(sample: List<Double>) {
 
     }
 
-    fun divideAtClasses(ranges: List<DoubleRange>) = VariationalSeriesDividedByClasses(ranges)
+    fun divideAtClasses(classNumber: Int): VariationalSeriesDividedByClasses {
+        val results = variationalSeriesRows.map { it.result }
+        return if (size() > 0) {
+            val minValue = results.min()!!
+            val maxValue = results.max()!!
+            val classWidth = maxValue.minus(minValue).div(classNumber)
+            val ranges = (1..classNumber).map { index ->
+                val startClassValue = minValue + classWidth * (index - 1)
+                val endClassValue = if (index != classNumber) {
+                    minValue + classWidth * index
+                } else maxValue //because of classWidth rounding
+                DoubleRange(startClassValue, endClassValue)
+            }
+            divideAtClasses(ranges)
+        } else {
+            VariationalSeriesDividedByClasses(listOf())
+        }
+    }
+
+    fun divideAtClasses(): VariationalSeriesDividedByClasses {
+        val classNumber = if (size() < 100) {
+            val ceilSqrtFromSize = Math.ceil(Math.sqrt(size())).toInt()
+            if (ceilSqrtFromSize % 2 == 0) {
+                ceilSqrtFromSize - 1
+            } else {
+                ceilSqrtFromSize
+            }
+        } else {
+            val ceilCubeSqrtFromSize = Math.ceil(Math.pow(size(), 1 / 3.0)).toInt()
+            if (ceilCubeSqrtFromSize % 2 == 0) {
+                ceilCubeSqrtFromSize - 1
+            } else {
+                ceilCubeSqrtFromSize
+            }
+        }
+        return divideAtClasses(classNumber)
+    }
+
+    private fun divideAtClasses(ranges: List<DoubleRange>) = VariationalSeriesDividedByClasses(ranges)
 
     private fun size() = variationalSeriesRows.size.toDouble()
 
@@ -241,7 +279,12 @@ class VariationalSeries(sample: List<Double>) {
         }
 
         override fun compareTo(other: DoubleRange): Int {
-            return this.start.compareTo(other.start)
+            return this.start.compareTo(other.start).let { startCompare ->
+                if (startCompare != 0) startCompare
+                else {
+                    this.endInclusive.compareTo(other.endInclusive)
+                }
+            }
         }
     }
 
