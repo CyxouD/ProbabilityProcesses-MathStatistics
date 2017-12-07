@@ -14,7 +14,7 @@ fun main(args: Array<String>) {
 //                .toList()
 //        VariationalSeries.DoubleRange(start, endInclusive)
 //    }
-    val input = file.readLines().map { it.toDouble() }
+    val input = file.readLines().map { it.replace(",", ".").toDouble() }
     val enteredClassNumber = if (args.size > 1) {
         args[1].toInt()
     } else {

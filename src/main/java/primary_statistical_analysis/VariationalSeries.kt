@@ -44,13 +44,22 @@ class VariationalSeries(sample: List<Double>) {
             when (size()) {
                 0.0 -> null
                 1.0 -> 0.0
-                else -> results.map { result -> (result - Average().unBiasedValue()!!).square() }.sum().div(results.size.dec())
+                else -> deviationSum(results).div(results.size)
             }
         }
 
-        override fun unBiasedValue() = biasedValue()
+        override fun unBiasedValue() = variationalSeriesRows.map { it.result }.let { results ->
+            when (size()) {
+                0.0 -> null
+                1.0 -> 0.0
+                else -> deviationSum(results).div(results.size.dec())
+            }
+        }
 
         override fun standartDeviation() = unBiasedValue()!!.div(Math.sqrt(2 * size())).square()
+
+
+        private fun deviationSum(results: List<Double>) = results.map { result -> (result - Average().unBiasedValue()!!).square() }.sum()
     }
 
     inner class Average : SampleCharacteristic() {
@@ -74,7 +83,7 @@ class VariationalSeries(sample: List<Double>) {
             variationalSeriesRows.map { it.result }.let { results ->
                 results.map { result ->
                     Math.pow(result - Average().unBiasedValue()!!, 3.0)
-                }.sum().div(results.size * Math.pow(StandartDeviation().unBiasedValue()!!, 3.0))
+                }.sum().div(results.size * Math.pow(StandartDeviation().biasedValue()!!, 3.0))
             }
         } else {
             null
@@ -103,7 +112,7 @@ class VariationalSeries(sample: List<Double>) {
             variationalSeriesRows.map { it.result }.let { results ->
                 results.map { result ->
                     Math.pow(result - Average().unBiasedValue()!!, 4.0)
-                }.sum().div(results.size * Math.pow(StandartDeviation().unBiasedValue()!!, 4.0))
+                }.sum().div(results.size * Math.pow(StandartDeviation().biasedValue()!!, 4.0))
             }
         } else {
             null
@@ -117,10 +126,7 @@ class VariationalSeries(sample: List<Double>) {
         }
 
         override fun standartDeviation() = if (size() > 3) {
-            Math.sqrt(
-                    24 * size() * (size() - 2) * (size() - 3)
-                            / (size().inc().square()) / (size() + 3) / (size() + 5)
-            )
+            Math.sqrt(24.div(size()) * (1 - (225 / (15 * size() + 124))))
         } else {
             null
         }
@@ -153,7 +159,11 @@ class VariationalSeries(sample: List<Double>) {
             null
         }
 
-        override fun unBiasedValue() = biasedValue()
+        override fun unBiasedValue() = if (size() != 0.0) {
+            Math.sqrt(Variance().unBiasedValue()!!)
+        } else {
+            null
+        }
 
         override fun standartDeviation() = if (size() != 0.0) {
             unBiasedValue()!!.div(Math.sqrt(2 * size()))
@@ -175,7 +185,7 @@ class VariationalSeries(sample: List<Double>) {
 
         override fun standartDeviation() =
                 if (size() != 0.0) {
-                    biasedValue()!! * Math.sqrt(2 * biasedValue()!!.square().inc().div(2 * size()))
+                    unBiasedValue()!! * Math.sqrt((2 * unBiasedValue()!!.square() + 1).div(2 * size()))
                 } else {
                     null
                 }
@@ -186,7 +196,7 @@ class VariationalSeries(sample: List<Double>) {
         abstract fun biasedValue(): Double?
         abstract fun unBiasedValue(): Double?
         abstract fun standartDeviation(): Double?
-        fun confidenceInterval() = biasedValue()?.let { value ->
+        fun confidenceInterval() = unBiasedValue()?.let { value ->
             val difference = 1.96 * standartDeviation()!!
             DoubleRange(value - difference, value + difference)
         }
