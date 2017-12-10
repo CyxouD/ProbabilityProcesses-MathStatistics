@@ -17,6 +17,23 @@ class VariationalSeries(sample: List<Double>) {
     }
 
 
+    fun excludeAbnormalValues(k: Double = 2.5) = when (size().toInt()) {
+        0 -> VariationalSeries(listOf())
+        1 -> VariationalSeries(listOf(variationalSeriesRows.map { it.result }.single()))
+        else -> {
+            //first quartile
+            val Q1 = findMedian(variationalSeriesRows.dropLast(size().toInt() / 2).map { it.result })
+            //third quartile
+            val Q3 = findMedian(variationalSeriesRows.drop(size().toInt() / 2).map { it.result })
+            val a = Q1 - k * (Q3 - Q1)
+            val b = Q3 + k * (Q3 - Q1)
+            val notExcludedSamples = variationalSeriesRows.map { it.result }.filter { it in a..b }
+            VariationalSeries(notExcludedSamples)
+
+        }
+    }
+
+
     fun getEmpiricalDistributionFunction(value: Double) =
             variationalSeriesRows.filter { it.result <= value }
                     .map { it.relativeFrequency }
@@ -25,11 +42,7 @@ class VariationalSeries(sample: List<Double>) {
 
     fun median() = variationalSeriesRows.map { it.result }.let { results ->
         if (size() != 0.0) {
-            if (size().toInt() % 2 == 0) {
-                results[size().toInt() / 2].plus(results[(size().toInt() / 2).dec()]).div(2)
-            } else {
-                results[size().toInt() / 2]
-            }
+            findMedian(results)
         } else {
             null
         }
@@ -244,6 +257,14 @@ class VariationalSeries(sample: List<Double>) {
     private fun divideAtClasses(ranges: List<DoubleRange>) = VariationalSeriesDividedByClasses(ranges)
 
     private fun size() = variationalSeriesRows.size.toDouble()
+
+    private fun findMedian(results: List<Double>): Double {
+        return if (results.size % 2 == 0) {
+            results[results.size / 2].plus(results[(results.size / 2).dec()]).div(2)
+        } else {
+            results[results.size / 2]
+        }
+    }
 
     inner class VariationalSeriesDividedByClasses(ranges: List<DoubleRange>) {
 

@@ -47,8 +47,8 @@ class Chart(title: String) : ApplicationFrame(title) {
             }
             dataset.type = HistogramType.FREQUENCY
             val plotTitle = "Гистограмма ряда, разбитого на классы"
-            val xaxis = "частота"
-            val yaxis = "x"
+            val xaxis = "x"
+            val yaxis = "частота"
             val orientation = PlotOrientation.VERTICAL
             val show = false
             val toolTips = true

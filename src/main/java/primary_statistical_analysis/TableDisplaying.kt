@@ -33,7 +33,7 @@ class TableDisplaying : JPanel() {
         }
 
         fun samplingCharacteristics(variationalSeries: VariationalSeries): TableDisplaying {
-            val columnNames = arrayOf("", "Значення", "Середньоквадратичне відхилення", "Довірчий інтервал")
+            val columnNames = arrayOf("", "Значення", "Середньоквадратичне відхилення", "95% Довірчий інтервал")
 
             val tableRows = arrayOf(
                     with(variationalSeries.Average()) {
