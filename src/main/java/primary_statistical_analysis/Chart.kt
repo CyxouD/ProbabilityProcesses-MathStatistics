@@ -1,5 +1,6 @@
 package primary_statistical_analysis
 
+import javafx.geometry.Point2D
 import java.awt.*
 
 import org.jfree.chart.*
@@ -21,7 +22,12 @@ import org.jfree.chart.renderer.category.StandardBarPainter
 import org.jfree.chart.renderer.category.StackedBarRenderer
 import org.jfree.chart.axis.CategoryLabelPositions
 import org.jfree.chart.axis.NumberAxis
+import org.jfree.chart.plot.XYPlot
 import org.jfree.chart.renderer.xy.StackedXYBarRenderer
+import org.jfree.data.xy.DefaultXYDataset
+import org.jfree.data.xy.XYSeries
+import org.jfree.data.xy.XYSeriesCollection
+import java.awt.geom.Ellipse2D
 
 
 fun main(args: Array<String>) {
@@ -105,6 +111,32 @@ class Chart(title: String) : ApplicationFrame(title) {
             barChart.contentPane = chartPanel
             return barChart
         }
+
+        fun probabilityPaper(coordinates: List<Point2D>): Chart {
+
+            val dataset = XYSeriesCollection().apply {
+                addSeries(XYSeries("New coordinates").apply {
+                    coordinates.forEach { point -> add(point.x, point.y) }
+                })
+            }
+
+
+            val title = "Імовірнісної сітка"
+            val chart = ChartFactory.createScatterPlot(title, "ti(x)", "zi(x)", dataset)
+            val chartPanel = ChartPanel(chart)
+            // 5x5 red pixel circle
+            val shape = Ellipse2D.Double(0.0, 0.0, 2.5, 2.5)
+            val xyPlot = chart.plot as XYPlot
+            val renderer = xyPlot.renderer
+            renderer.setSeriesShape(0, shape)
+            renderer.setSeriesPaint(0, Color.BLACK)
+            chartPanel.preferredSize = java.awt.Dimension(560, 367)
+            val xyChart = Chart(title)
+            xyChart.contentPane = chartPanel
+
+            return xyChart
+        }
+
 
         fun empericalDistributionFunctionVariationSeries(variationalSeries: VariationalSeries): Chart {
             val dataset = DefaultCategoryDataset().apply {

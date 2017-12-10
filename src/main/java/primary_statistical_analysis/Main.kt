@@ -1,10 +1,12 @@
 package primary_statistical_analysis
 
 import com.sun.org.apache.xerces.internal.util.SynchronizedSymbolTable
+import identification_and_recovery_of_distributions.ProbabilityPaper
 import java.io.Console
 import java.io.File
 import java.io.FileReader
 import java.util.*
+import java.util.regex.Pattern
 
 /**
  * Created by Cyxou on 12/2/17.
@@ -44,7 +46,7 @@ private fun processInput(inputStr: List<String>) {
 //                .toList()
 //        VariationalSeries.DoubleRange(start, endInclusive)
 //    }
-    val input = file.readLines().flatMap { it.split(" ") }.map { it.replace(",", ".").toDouble() }
+    val input = file.readLines().flatMap { it.split(Pattern.compile("\\s\\s")) }.map { it.replace(",", ".").toDouble() }
 
     val classesIndex = inputStr.map { it.toUpperCase() }.indexOf("-M")
     val enteredClassNumber = if (classesIndex != -1) {
@@ -76,6 +78,8 @@ private fun processInput(inputStr: List<String>) {
 //    TableDisplaying.variationSeriesByClasses(dividedAtClasses).createAndShowGUI()
     Chart.histogramVariationSeriesByClasses(dividedAtClasses).createAndShowGUI()
 //    Chart.empericalDistributionFunctionSeriesByClasses(dividedAtClasses).createAndShowGUI()
+    val probabilityPaper = ProbabilityPaper(variationalSeries)
+    probabilityPaper.identifyUnionDistribution()
 }
 
 class Main {
