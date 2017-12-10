@@ -6,14 +6,14 @@ import primary_statistical_analysis.Main.Companion.preciseFloatingPoints
  * Created by Cyxou on 12/2/17.
  */
 class VariationalSeries(sample: List<Double>) {
-    val variationalSeriesRows: List<VariationalSeriesRow>
+    val variationalSeriesRows: Set<VariationalSeriesRow>
     private val confidenceInterval = 0.95
 
     init {
         variationalSeriesRows = sample.sorted().map { digit ->
             val result = sample.count { it == digit }
             VariationalSeriesRow(digit, result, result / sample.size.toDouble())
-        }
+        }.toSet() //remove not unique value
     }
 
 
@@ -22,7 +22,7 @@ class VariationalSeries(sample: List<Double>) {
         1 -> VariationalSeries(listOf(variationalSeriesRows.map { it.result }.single()))
         else -> {
             //first quartile
-            val Q1 = findMedian(variationalSeriesRows.dropLast(size().toInt() / 2).map { it.result })
+            val Q1 = findMedian(variationalSeriesRows.toList().dropLast(size().toInt() / 2).map { it.result })
             //third quartile
             val Q3 = findMedian(variationalSeriesRows.drop(size().toInt() / 2).map { it.result })
             val a = Q1 - k * (Q3 - Q1)
