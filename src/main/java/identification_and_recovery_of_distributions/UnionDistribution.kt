@@ -63,7 +63,7 @@ class UnionDistribution {
      */
     fun variationOcenkaA(variationalSeries: VariationalSeries): Double {
         val samples = variationalSeries.sample
-        val N = samples.size
+        val N = variationalSeries.N
         val average = variationalSeries.Average().unBiasedValue()!!
         return (1.0.plus(
                 Math.sqrt(3.0.div(N - 1))

@@ -7,6 +7,7 @@ import primary_statistical_analysis.Main.Companion.preciseFloatingPoints
  */
 class VariationalSeries(val sample: List<Double>) {
     val variationalSeriesRows: Set<VariationalSeriesRow>
+    val N = sample.size.toDouble()
     private val confidenceInterval = 0.95
 
     init {
@@ -17,14 +18,14 @@ class VariationalSeries(val sample: List<Double>) {
     }
 
 
-    fun excludeAbnormalValues(k: Double = 2.5) = when (size().toInt()) {
+    fun excludeAbnormalValues(k: Double = 2.5) = when (N.toInt()) {
         0 -> VariationalSeries(listOf())
         1 -> VariationalSeries(listOf(variationalSeriesRows.map { it.result }.single()))
         else -> {
             //first quartile
-            val Q1 = findMedian(variationalSeriesRows.toList().dropLast(size().toInt() / 2).map { it.result })
+            val Q1 = findMedian(variationalSeriesRows.toList().dropLast(N.toInt() / 2).map { it.result })
             //third quartile
-            val Q3 = findMedian(variationalSeriesRows.drop(size().toInt() / 2).map { it.result })
+            val Q3 = findMedian(variationalSeriesRows.drop(N.toInt() / 2).map { it.result })
             val a = Q1 - k * (Q3 - Q1)
             val b = Q3 + k * (Q3 - Q1)
             val notExcludedSamples = variationalSeriesRows.map { it.result }.filter { it in a..b }
@@ -41,7 +42,7 @@ class VariationalSeries(val sample: List<Double>) {
 
 
     fun median() = variationalSeriesRows.map { it.result }.let { results ->
-        if (size() != 0.0) {
+        if (N != 0.0) {
             findMedian(results)
         } else {
             null
@@ -54,7 +55,7 @@ class VariationalSeries(val sample: List<Double>) {
 
     inner class Variance : SampleCharacteristic() {
         override fun biasedValue() = variationalSeriesRows.map { it.result }.let { results ->
-            when (size()) {
+            when (N) {
                 0.0 -> null
                 1.0 -> 0.0
                 else -> deviationSum(results).div(results.size)
@@ -62,29 +63,29 @@ class VariationalSeries(val sample: List<Double>) {
         }
 
         override fun unBiasedValue() = variationalSeriesRows.map { it.result }.let { results ->
-            when (size()) {
+            when (N) {
                 0.0 -> null
                 1.0 -> 0.0
                 else -> deviationSum(results).div(results.size.dec())
             }
         }
 
-        override fun standartDeviation() = unBiasedValue()!!.div(Math.sqrt(2 * size())).square()
+        override fun standartDeviation() = unBiasedValue()!!.div(Math.sqrt(2 * N)).square()
 
 
         private fun deviationSum(results: List<Double>) = results.map { result -> (result - Average().unBiasedValue()!!).square() }.sum()
     }
 
     inner class Average : SampleCharacteristic() {
-        override fun biasedValue() = if (size() != 0.0) {
+        override fun biasedValue() = if (N != 0.0) {
             variationalSeriesRows.map { it.result }.average()
         } else null
 
 
         override fun unBiasedValue() = biasedValue()
 
-        override fun standartDeviation() = if (size() != 0.0) {
-            StandartDeviation().unBiasedValue()!! / Math.sqrt(size())
+        override fun standartDeviation() = if (N != 0.0) {
+            StandartDeviation().unBiasedValue()!! / Math.sqrt(N)
         } else {
             null
         }
@@ -92,7 +93,7 @@ class VariationalSeries(val sample: List<Double>) {
     }
 
     inner class Skewness : SampleCharacteristic() {
-        override fun biasedValue() = if (size() > 1.0) {
+        override fun biasedValue() = if (N > 1.0) {
             variationalSeriesRows.map { it.result }.let { results ->
                 results.map { result ->
                     Math.pow(result - Average().unBiasedValue()!!, 3.0)
@@ -103,16 +104,16 @@ class VariationalSeries(val sample: List<Double>) {
         }
 
 
-        override fun unBiasedValue() = when (size()) {
+        override fun unBiasedValue() = when (N) {
             0.0, 1.0 -> null
             2.0 -> 0.0
-            else -> biasedValue()!! * Math.sqrt(size() * size().dec()).div(size() - 2)
+            else -> biasedValue()!! * Math.sqrt(N * N.dec()).div(N - 2)
         }
 
 
-        override fun standartDeviation() = if (size() > 1) {
+        override fun standartDeviation() = if (N > 1) {
             Math.sqrt(
-                    6 * (size() - 2) / size().inc() / (size() + 3)
+                    6 * (N - 2) / N.inc() / (N + 3)
             )
         } else {
             null
@@ -121,7 +122,7 @@ class VariationalSeries(val sample: List<Double>) {
     }
 
     inner class Kurtosis : SampleCharacteristic() {
-        override fun biasedValue() = if (size() > 1.0) {
+        override fun biasedValue() = if (N > 1.0) {
             variationalSeriesRows.map { it.result }.let { results ->
                 results.map { result ->
                     Math.pow(result - Average().unBiasedValue()!!, 4.0)
@@ -132,14 +133,14 @@ class VariationalSeries(val sample: List<Double>) {
         }
 
 
-        override fun unBiasedValue() = if (size() > 3) {
-            size().square().dec().div((size() - 2) * (size() - 3)) * ((biasedValue()!! - 3) + (6 / size().inc()))
+        override fun unBiasedValue() = if (N > 3) {
+            N.square().dec().div((N - 2) * (N - 3)) * ((biasedValue()!! - 3) + (6 / N.inc()))
         } else {
             null
         }
 
-        override fun standartDeviation() = if (size() > 3) {
-            Math.sqrt(24.div(size()) * (1 - (225 / (15 * size() + 124))))
+        override fun standartDeviation() = if (N > 3) {
+            Math.sqrt(24.div(N) * (1 - (225 / (15 * N + 124))))
         } else {
             null
         }
@@ -147,7 +148,7 @@ class VariationalSeries(val sample: List<Double>) {
     }
 
     inner class AntiKurtosis : SampleCharacteristic() {
-        override fun biasedValue() = if (size() > 1) {
+        override fun biasedValue() = if (N > 1) {
             1.div(Math.sqrt(Math.abs(Kurtosis().biasedValue()!!)))
         } else {
             null
@@ -156,8 +157,8 @@ class VariationalSeries(val sample: List<Double>) {
 
         override fun unBiasedValue() = biasedValue()
 
-        override fun standartDeviation() = if (size() > 1) {
-            Math.sqrt(Kurtosis().biasedValue()!!.div(29 * size())) *
+        override fun standartDeviation() = if (N > 1) {
+            Math.sqrt(Kurtosis().biasedValue()!!.div(29 * N)) *
                     Math.pow(Math.pow(Math.abs(Kurtosis().biasedValue()!!.square().dec()), 3.0), 1 / 4.0)
         } else {
             null
@@ -166,20 +167,20 @@ class VariationalSeries(val sample: List<Double>) {
     }
 
     inner class StandartDeviation : SampleCharacteristic() {
-        override fun biasedValue() = if (size() != 0.0) {
+        override fun biasedValue() = if (N != 0.0) {
             Math.sqrt(Variance().biasedValue()!!)
         } else {
             null
         }
 
-        override fun unBiasedValue() = if (size() != 0.0) {
+        override fun unBiasedValue() = if (N != 0.0) {
             Math.sqrt(Variance().unBiasedValue()!!)
         } else {
             null
         }
 
-        override fun standartDeviation() = if (size() != 0.0) {
-            unBiasedValue()!!.div(Math.sqrt(2 * size()))
+        override fun standartDeviation() = if (N != 0.0) {
+            unBiasedValue()!!.div(Math.sqrt(2 * N))
         } else {
             null
         }
@@ -188,7 +189,7 @@ class VariationalSeries(val sample: List<Double>) {
 
     inner class CV : SampleCharacteristic() {
         override fun biasedValue() =
-                if (size() != 0.0) {
+                if (N != 0.0) {
                     StandartDeviation().unBiasedValue()!! / Average().unBiasedValue()!!
                 } else {
                     null
@@ -197,8 +198,8 @@ class VariationalSeries(val sample: List<Double>) {
         override fun unBiasedValue() = biasedValue()
 
         override fun standartDeviation() =
-                if (size() != 0.0) {
-                    unBiasedValue()!! * Math.sqrt((2 * unBiasedValue()!!.square() + 1).div(2 * size()))
+                if (N != 0.0) {
+                    unBiasedValue()!! * Math.sqrt((2 * unBiasedValue()!!.square() + 1).div(2 * N))
                 } else {
                     null
                 }
@@ -218,7 +219,7 @@ class VariationalSeries(val sample: List<Double>) {
 
     fun divideAtClasses(classNumber: Int): VariationalSeriesDividedByClasses {
         val results = variationalSeriesRows.map { it.result }
-        return if (size() > 0) {
+        return if (N > 0) {
             val minValue = results.min()!!
             val maxValue = results.max()!!
             val classWidth = maxValue.minus(minValue).div(classNumber)
@@ -236,15 +237,15 @@ class VariationalSeries(val sample: List<Double>) {
     }
 
     fun divideAtClasses(): VariationalSeriesDividedByClasses {
-        val classNumber = if (size() < 100) {
-            val ceilSqrtFromSize = Math.ceil(Math.sqrt(size())).toInt()
+        val classNumber = if (N < 100) {
+            val ceilSqrtFromSize = Math.ceil(Math.sqrt(N)).toInt()
             if (ceilSqrtFromSize % 2 == 0) {
                 ceilSqrtFromSize - 1
             } else {
                 ceilSqrtFromSize
             }
         } else {
-            val ceilCubeSqrtFromSize = Math.ceil(Math.pow(size(), 1 / 3.0)).toInt()
+            val ceilCubeSqrtFromSize = Math.ceil(Math.pow(N, 1 / 3.0)).toInt()
             if (ceilCubeSqrtFromSize % 2 == 0) {
                 ceilCubeSqrtFromSize - 1
             } else {
@@ -255,8 +256,6 @@ class VariationalSeries(val sample: List<Double>) {
     }
 
     private fun divideAtClasses(ranges: List<DoubleRange>) = VariationalSeriesDividedByClasses(ranges)
-
-    private fun size() = variationalSeriesRows.size.toDouble()
 
     private fun findMedian(results: List<Double>): Double {
         return if (results.size % 2 == 0) {
