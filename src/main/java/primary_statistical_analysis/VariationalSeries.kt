@@ -42,7 +42,7 @@ class VariationalSeries(val unorderedSample: List<Double>) {
                     .sum()
 
 
-    fun median() = variationalSeriesRows.map { it.result }.let { results ->
+    fun median() = orderedSample.let { results ->
         if (N != 0.0) {
             findMedian(results)
         } else {
