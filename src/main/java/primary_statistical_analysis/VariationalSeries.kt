@@ -55,7 +55,7 @@ class VariationalSeries(val unorderedSample: List<Double>) {
     }
 
     inner class Variance : SampleCharacteristic() {
-        override fun biasedValue() = variationalSeriesRows.map { it.result }.let { results ->
+        override fun biasedValue() = orderedSample.let { results ->
             when (N) {
                 0.0 -> null
                 1.0 -> 0.0
@@ -63,7 +63,7 @@ class VariationalSeries(val unorderedSample: List<Double>) {
             }
         }
 
-        override fun unBiasedValue() = variationalSeriesRows.map { it.result }.let { results ->
+        override fun unBiasedValue() = orderedSample.let { results ->
             when (N) {
                 0.0 -> null
                 1.0 -> 0.0
@@ -79,7 +79,7 @@ class VariationalSeries(val unorderedSample: List<Double>) {
 
     inner class Average : SampleCharacteristic() {
         override fun biasedValue() = if (N != 0.0) {
-            variationalSeriesRows.map { it.result }.average()
+            orderedSample.average()
         } else null
 
 
@@ -95,7 +95,7 @@ class VariationalSeries(val unorderedSample: List<Double>) {
 
     inner class Skewness : SampleCharacteristic() {
         override fun biasedValue() = if (N > 1.0) {
-            variationalSeriesRows.map { it.result }.let { results ->
+            orderedSample.let { results ->
                 results.map { result ->
                     Math.pow(result - Average().unBiasedValue()!!, 3.0)
                 }.sum().div(results.size * Math.pow(StandartDeviation().biasedValue()!!, 3.0))
@@ -124,7 +124,7 @@ class VariationalSeries(val unorderedSample: List<Double>) {
 
     inner class Kurtosis : SampleCharacteristic() {
         override fun biasedValue() = if (N > 1.0) {
-            variationalSeriesRows.map { it.result }.let { results ->
+            orderedSample.let { results ->
                 results.map { result ->
                     Math.pow(result - Average().unBiasedValue()!!, 4.0)
                 }.sum().div(results.size * Math.pow(StandartDeviation().biasedValue()!!, 4.0))
@@ -219,10 +219,9 @@ class VariationalSeries(val unorderedSample: List<Double>) {
     }
 
     fun divideAtClasses(classNumber: Int): VariationalSeriesDividedByClasses {
-        val results = variationalSeriesRows.map { it.result }
         return if (N > 0) {
-            val minValue = results.min()!!
-            val maxValue = results.max()!!
+            val minValue = orderedSample.min()!!
+            val maxValue = orderedSample.max()!!
             val classWidth = maxValue.minus(minValue).div(classNumber)
             val ranges = (1..classNumber).map { index ->
                 val startClassValue = minValue + classWidth * (index - 1)
