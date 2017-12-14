@@ -1,6 +1,5 @@
 package identification_and_recovery_of_distributions
 
-import javafx.geometry.Point2D
 import primary_statistical_analysis.VariationalSeries
 import primary_statistical_analysis.square
 
@@ -62,7 +61,7 @@ class UnionDistribution {
      * @return возвращает D{a} - дисперсию оценки a
      */
     fun variationOcenkaA(variationalSeries: VariationalSeries): Double {
-        val samples = variationalSeries.sample
+        val samples = variationalSeries.unorderedSample
         val N = variationalSeries.N
         val average = variationalSeries.Average().unBiasedValue()!!
         return (1.0.plus(
@@ -77,7 +76,7 @@ class UnionDistribution {
      * @return возвращает D{b} - дисперсию оценки b
      */
     fun variationOcenkaB(variationalSeries: VariationalSeries): Double {
-        val samples = variationalSeries.sample
+        val samples = variationalSeries.unorderedSample
         val N = samples.size
         val average = variationalSeries.Average().unBiasedValue()!!
         return (1.0.minus(

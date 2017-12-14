@@ -5,30 +5,31 @@ import primary_statistical_analysis.Main.Companion.preciseFloatingPoints
 /**
  * Created by Cyxou on 12/2/17.
  */
-class VariationalSeries(val sample: List<Double>) {
+class VariationalSeries(val unorderedSample: List<Double>) {
     val variationalSeriesRows: Set<VariationalSeriesRow>
-    val N = sample.size.toDouble()
+    val orderedSample = unorderedSample.sorted()
+    val N = unorderedSample.size.toDouble()
     private val confidenceInterval = 0.95
 
     init {
-        variationalSeriesRows = sample.sorted().map { digit ->
-            val result = sample.count { it == digit }
-            VariationalSeriesRow(digit, result, result / sample.size.toDouble())
+        variationalSeriesRows = unorderedSample.sorted().map { digit ->
+            val result = unorderedSample.count { it == digit }
+            VariationalSeriesRow(digit, result, result / unorderedSample.size.toDouble())
         }.toSet() //remove not unique value
     }
 
 
     fun excludeAbnormalValues(k: Double = 2.5) = when (N.toInt()) {
         0 -> VariationalSeries(listOf())
-        1 -> VariationalSeries(listOf(variationalSeriesRows.map { it.result }.single()))
+        1 -> VariationalSeries(listOf(orderedSample.single()))
         else -> {
             //first quartile
-            val Q1 = findMedian(variationalSeriesRows.toList().dropLast(N.toInt() / 2).map { it.result })
+            val Q1 = findMedian(orderedSample.toList().dropLast(N.toInt() / 2))
             //third quartile
-            val Q3 = findMedian(variationalSeriesRows.drop(N.toInt() / 2).map { it.result })
+            val Q3 = findMedian(orderedSample.drop(N.toInt() / 2))
             val a = Q1 - k * (Q3 - Q1)
             val b = Q3 + k * (Q3 - Q1)
-            val notExcludedSamples = variationalSeriesRows.map { it.result }.filter { it in a..b }
+            val notExcludedSamples = unorderedSample.filter { it in a..b }
             VariationalSeries(notExcludedSamples)
 
         }
