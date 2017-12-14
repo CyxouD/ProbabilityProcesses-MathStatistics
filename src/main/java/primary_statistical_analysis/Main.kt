@@ -2,6 +2,7 @@ package primary_statistical_analysis
 
 import com.sun.org.apache.xerces.internal.util.SynchronizedSymbolTable
 import identification_and_recovery_of_distributions.ProbabilityPaper
+import identification_and_recovery_of_distributions.UnionDistribution
 import java.io.Console
 import java.io.File
 import java.io.FileReader
@@ -80,6 +81,7 @@ private fun processInput(inputStr: List<String>) {
 //    Chart.empericalDistributionFunctionSeriesByClasses(dividedAtClasses).createAndShowGUI()
     val probabilityPaper = ProbabilityPaper(variationalSeries)
     probabilityPaper.identifyUnionDistribution()
+//    TableDisplaying.ocenkiParametrov(variationalSeries, UnionDistribution()).createAndShowGUI()
 }
 
 class Main {

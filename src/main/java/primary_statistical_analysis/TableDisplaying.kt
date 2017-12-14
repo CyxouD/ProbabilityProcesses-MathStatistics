@@ -4,6 +4,7 @@ package primary_statistical_analysis
  * TableDisplaying.java requires no other files.
  */
 
+import identification_and_recovery_of_distributions.UnionDistribution
 import primary_statistical_analysis.Main.Companion.preciseFloatingPoints
 import javax.swing.JFrame
 import javax.swing.JPanel
@@ -19,11 +20,11 @@ class TableDisplaying : JPanel() {
         fun variationSeries(variationalSeries: VariationalSeries): TableDisplaying {
             val columnNames = arrayOf("№ варіанти", "Значення варіанти", "Частота", "Відносна частота", "Значення емпіричної функції розподілу")
 
-            val tableRows: Array<Array<Any>> = variationalSeries.variationalSeriesRows.mapIndexed {
+            val tableRows: Array<Array<String>> = variationalSeries.variationalSeriesRows.mapIndexed {
                 classIndex, variationalClass ->
-                arrayOf(classIndex.inc(),
-                        variationalClass.result,
-                        variationalClass.frequency,
+                arrayOf(classIndex.inc().toString(),
+                        variationalClass.result.toString(),
+                        variationalClass.frequency.toString(),
                         variationalClass.relativeFrequency
                                 .toPreciseFloatingPoints(preciseFloatingPoints),
                         variationalSeries.getEmpiricalDistributionFunction(variationalClass.result)
@@ -84,7 +85,19 @@ class TableDisplaying : JPanel() {
 
                         )
                     }
-            )
+            ).map { it.map { it.toString() }.toTypedArray() }.toTypedArray()
+            return addTable(tableRows, columnNames)
+        }
+
+        fun ocenkiParametrov(variationalSeries: VariationalSeries, distribution: UnionDistribution): TableDisplaying {
+            val columnNames = arrayOf("Параметр", "Значення оцінки", "Середньоквадратичне відхилення", "95% Довірчий інтервал")
+
+            val tableRows: Array<Array<String>> = distribution.getParametrsOcenki(variationalSeries).map {
+                arrayOf(it.param,
+                        it.ocenka.toPreciseFloatingPoints(preciseFloatingPoints),
+                        it.ocenkaStandartDeviation.toPreciseFloatingPoints(preciseFloatingPoints),
+                        it.confidenceInterval.toString())
+            }.toTypedArray()
             return addTable(tableRows, columnNames)
         }
 
@@ -92,11 +105,11 @@ class TableDisplaying : JPanel() {
         fun variationSeriesByClasses(variationalSeriesDividedByClasses: VariationalSeries.VariationalSeriesDividedByClasses): TableDisplaying {
             val columnNames = arrayOf("№ класу", "Межі класу", "Частота", "Відносна частота", "Значення емпіричної функції розподілу")
 
-            val tableRows: Array<Array<Any>> = variationalSeriesDividedByClasses.variationalSeriesDividedByClasses.mapIndexed {
+            val tableRows: Array<Array<String>> = variationalSeriesDividedByClasses.variationalSeriesDividedByClasses.mapIndexed {
                 classIndex, variationalClass ->
-                arrayOf(classIndex.inc(),
+                arrayOf(classIndex.inc().toString(),
                         variationalClass.range.toString(),
-                        variationalClass.frequency,
+                        variationalClass.frequency.toString(),
                         variationalClass.relativeFrequency
                                 .toPreciseFloatingPoints(preciseFloatingPoints),
                         variationalClass.empiricalDistributionFunction
@@ -105,7 +118,7 @@ class TableDisplaying : JPanel() {
             return addTable(tableRows, columnNames)
         }
 
-        private fun addTable(tableRows: Array<Array<Any>>, columnNames: Array<String>): TableDisplaying {
+        private fun addTable(tableRows: Array<Array<String>>, columnNames: Array<String>): TableDisplaying {
             val table = JTable(tableRows, columnNames)
             table.preferredScrollableViewportSize = Dimension(1000, 400)
             table.fillsViewportHeight = true

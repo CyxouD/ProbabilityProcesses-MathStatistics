@@ -5,7 +5,7 @@ import primary_statistical_analysis.Main.Companion.preciseFloatingPoints
 /**
  * Created by Cyxou on 12/2/17.
  */
-class VariationalSeries(sample: List<Double>) {
+class VariationalSeries(val sample: List<Double>) {
     val variationalSeriesRows: Set<VariationalSeriesRow>
     private val confidenceInterval = 0.95
 
