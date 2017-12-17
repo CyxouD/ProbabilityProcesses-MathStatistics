@@ -1,45 +1,43 @@
 package primary_statistical_analysis
 
-import com.sun.org.apache.xerces.internal.util.SynchronizedSymbolTable
 import identification_and_recovery_of_distributions.ProbabilityPaper
-import identification_and_recovery_of_distributions.UnionDistribution
-import java.io.Console
 import java.io.File
-import java.io.FileReader
 import java.util.*
 import java.util.regex.Pattern
 
 /**
  * Created by Cyxou on 12/2/17.
  */
+val variationalSeriesStack = mutableListOf<VariationalSeries>()
+
 fun main(args: Array<String>) {
+    val file = File(args.toList()[0])
+    val input = file.readLines().flatMap { it.split(Pattern.compile("\\s\\s")) }.map { it.replace(",", ".").toDouble() }
     Scanner(System.`in`).use { sc ->
         try {
-            if (args.isNotEmpty()) {
-                processInput(args.toList())
-            }
-            readInput(sc)
+            readInput(sc, input)
         } catch (e: Exception) {
             try {
                 e.printStackTrace()
-                readInput(sc)
+                readInput(sc, input)
             } catch (e: Exception) {
                 e.printStackTrace()
-                readInput(sc)
+                readInput(sc, input)
             }
         }
     }
 }
 
-private fun readInput(sc: Scanner) {
+private fun readInput(sc: Scanner, input: List<Double>) {
     while (true) {
         val inputStr = sc.nextLine().split(" ")
-        processInput(inputStr)
+        processInput(sc,
+                variationalSeriesStack.let { if (it.size > 0) variationalSeriesStack.last() else VariationalSeries(input) },
+                inputStr)
     }
 }
 
-private fun processInput(inputStr: List<String>) {
-    val file = File(inputStr[0])
+private fun processInput(sc: Scanner, lastVariationalSeries: VariationalSeries, inputStr: List<String>) {
 //    val ranges = inputStr.drop(1).map { strRange ->
 //        val (start, endInclusive) = Regex("-?[0-9]+").findAll(strRange)
 //                .map { it.value }
@@ -47,7 +45,6 @@ private fun processInput(inputStr: List<String>) {
 //                .toList()
 //        VariationalSeries.DoubleRange(start, endInclusive)
 //    }
-    val input = file.readLines().flatMap { it.split(Pattern.compile("\\s\\s")) }.map { it.replace(",", ".").toDouble() }
 
     val classesIndex = inputStr.map { it.toUpperCase() }.indexOf("-M")
     val enteredClassNumber = if (classesIndex != -1) {
@@ -59,13 +56,14 @@ private fun processInput(inputStr: List<String>) {
     } else {
         null
     }
-    val variationalSeries = VariationalSeries(input).let { variationalSeries ->
+    val (excludedValues, variationalSeries) = lastVariationalSeries.let { variationalSeries ->
         if (excVariable == null) {
-            variationalSeries
+            VariationalSeries.ExcludeResult(listOf<Double>(), variationalSeries)
         } else {
             variationalSeries.excludeAbnormalValues(excVariable)
         }
     }
+
 //    println(variationalSeries)
     TableDisplaying.variationSeries(variationalSeries).createAndShowGUI()
     TableDisplaying.samplingCharacteristics(variationalSeries).createAndShowGUI()
@@ -82,6 +80,29 @@ private fun processInput(inputStr: List<String>) {
     val probabilityPaper = ProbabilityPaper(variationalSeries)
     probabilityPaper.identifyUnionDistribution()
 //    TableDisplaying.ocenkiParametrov(variationalSeries, UnionDistribution()).createAndShowGUI()
+
+    if (excludedValues.isNotEmpty()) {
+        println("Excluded ${excludedValues.size} values: $excludedValues")
+        println("Exclude them? (Say 'y' or 'n')")
+        val exclude = when (sc.nextLine().singleOrNull()?.toLowerCase()) {
+            'y' -> {
+                true
+            }
+            'n' -> {
+                false
+            }
+            else -> {
+                false
+            }
+        }
+        if (exclude) {
+            variationalSeriesStack.add(variationalSeries)
+        } else {
+            println("No values excluded")
+        }
+    } else {
+        println("No values excluded")
+    }
 }
 
 class Main {

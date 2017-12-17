@@ -20,8 +20,8 @@ class VariationalSeries(val unorderedSample: List<Double>) {
 
 
     fun excludeAbnormalValues(k: Double = 2.5) = when (N.toInt()) {
-        0 -> VariationalSeries(listOf())
-        1 -> VariationalSeries(listOf(orderedSample.single()))
+        0 -> ExcludeResult(listOf(), VariationalSeries(listOf()))
+        1 -> ExcludeResult(listOf(), VariationalSeries(listOf(orderedSample.single())))
         else -> {
             //first quartile
             val Q1 = findMedian(orderedSample.toList().dropLast(N.toInt() / 2))
@@ -30,9 +30,14 @@ class VariationalSeries(val unorderedSample: List<Double>) {
             val a = Q1 - k * (Q3 - Q1)
             val b = Q3 + k * (Q3 - Q1)
             val notExcludedSamples = unorderedSample.filter { it in a..b }
-            VariationalSeries(notExcludedSamples)
-
+            val excludedSamples = unorderedSample.filter { it !in a..b }
+            ExcludeResult(excludedSamples, VariationalSeries(notExcludedSamples))
         }
+    }
+
+    class ExcludeResult(val excludedValues: List<Double>, val variationalSeries: VariationalSeries) {
+        operator fun component1() = excludedValues
+        operator fun component2() = variationalSeries
     }
 
 
