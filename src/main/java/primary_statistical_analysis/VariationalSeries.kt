@@ -266,20 +266,26 @@ class VariationalSeries(val unorderedSample: List<Double>) {
     }
 
     inner class VariationalSeriesDividedByClasses(ranges: List<DoubleRange>) {
-
         val variationalSeriesDividedByClasses: List<VariationalClass>
 
         init {
-            variationalSeriesDividedByClasses = ranges.map { range ->
-                VariationalClass(range, variationalSeriesRows.filter { it.result in range })
-            }
+            val variationalSeriesDividedByClasses = mutableListOf<VariationalClass>()
+            ranges.map { range ->
+                val rows = variationalSeriesRows.filter { it.result in range }
+                Triple(range, rows, rows.map { it.relativeFrequency }.sum())
+            }.sortedBy { (_, _, classRelativeFrequency) -> classRelativeFrequency }
+                    .fold(mutableListOf<Triple<DoubleRange, List<VariationalSeriesRow>, Double>>(), { acc, (range, rows, classRelativeFrequency) ->
+                        acc.add(Triple(range, rows, classRelativeFrequency))
+                        val empiricalDistributionFunction = acc.map { (_, _, classRelativeFrequency) -> classRelativeFrequency }.sum()
+                        variationalSeriesDividedByClasses.add(VariationalClass(range, rows, empiricalDistributionFunction))
+                        acc
+                    })
+
+            this.variationalSeriesDividedByClasses = variationalSeriesDividedByClasses
         }
 
 
-        inner class VariationalClass(val range: DoubleRange, val rows: List<VariationalSeriesRow>) {
-
-            val empiricalDistributionFunction =
-                    getEmpiricalDistributionFunction(range.endInclusive) - getEmpiricalDistributionFunction(range.start)
+        inner class VariationalClass(val range: DoubleRange, val rows: List<VariationalSeriesRow>, val empiricalDistributionFunction: Double) {
             val frequency = rows.map { it.frequency }.sum()
             val relativeFrequency = rows.map { it.relativeFrequency }.sum()
         }

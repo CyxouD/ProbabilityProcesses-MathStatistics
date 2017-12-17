@@ -74,9 +74,12 @@ class Chart(title: String) : ApplicationFrame(title) {
             val dataset = DefaultCategoryDataset().apply {
                 variationalSeriesDividedByClasses.variationalSeriesDividedByClasses
                         .sortedBy { it.empiricalDistributionFunction }
-                        .forEach { `class` ->
-                            addValue(`class`.relativeFrequency, `class`.range, `class`.range)
-                        }
+                        .forEachIndexed({ index, `class` ->
+                            val roundedRelativeFrequency = `class`.empiricalDistributionFunction.toPreciseFloatingPoints(Main.preciseFloatingPoints)
+                            addValue(`class`.empiricalDistributionFunction,
+                                    "$index: $roundedRelativeFrequency",
+                                    index)
+                        })
             }
 
             val categoryAxis = CategoryAxis("класс")
