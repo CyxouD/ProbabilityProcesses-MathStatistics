@@ -81,6 +81,8 @@ private fun processInput(sc: Scanner, lastVariationalSeries: VariationalSeries, 
     probabilityPaper.identifyUnionDistribution()
 //    TableDisplaying.ocenkiParametrov(variationalSeries, UnionDistribution()).createAndShowGUI()
 
+    println("Divided at ${enteredClassNumber?.let { it } ?: dividedAtClasses.variationalSeriesDividedByClasses.size} classes")
+
     if (excludedValues.isNotEmpty()) {
         println("Excluded ${excludedValues.size} values: $excludedValues")
         println("Exclude them? (Say 'y' or 'n')")
