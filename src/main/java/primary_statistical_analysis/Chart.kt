@@ -155,6 +155,7 @@ class Chart(title: String) : ApplicationFrame(title) {
             categoryAxis.setCategoryMargin(.01)
             categoryAxis.setUpperMargin(.01)
             categoryAxis.setCategoryLabelPositions(CategoryLabelPositions.UP_90)
+            categoryAxis.isTickLabelsVisible = variationalSeries.variationalSeriesRows.size < 50
 
             val valueAxis = NumberAxis("F(x)")
 
@@ -175,7 +176,7 @@ class Chart(title: String) : ApplicationFrame(title) {
             val chart = JFreeChart(plotTitle,
                     JFreeChart.DEFAULT_TITLE_FONT,
                     plot,
-                    true)
+                    false)
             val chartPanel = ChartPanel(chart)
             chartPanel.preferredSize = java.awt.Dimension(560, 367)
             val barChart = Chart(plotTitle)
