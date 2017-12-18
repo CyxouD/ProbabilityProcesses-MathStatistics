@@ -10,7 +10,7 @@ import java.awt.Point
  */
 //    методом моментов
 class UnionDistribution {
-    private fun densityFunction(a: Double, b: Double) = 1 / (b - a) * 1.6542857142857144
+    private fun densityFunction(a: Double, b: Double) = 1 / (b - a)
 
     private fun coordinates(a: Double, b: Double, classWidth: Double, N: Int): List<Point2D> {
         val yCoordinate = densityFunction(a, b) * classWidth * N

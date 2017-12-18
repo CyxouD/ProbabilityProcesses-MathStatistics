@@ -66,8 +66,8 @@ private fun processInput(sc: Scanner, lastVariationalSeries: VariationalSeries, 
     }
 
 //    println(variationalSeries)
-//    TableDisplaying.variationSeries(variationalSeries).createAndShowGUI()
-//    TableDisplaying.samplingCharacteristics(variationalSeries).createAndShowGUI()
+    TableDisplaying.variationSeries(variationalSeries).createAndShowGUI()
+    TableDisplaying.samplingCharacteristics(variationalSeries).createAndShowGUI()
     Chart.empericalDistributionFunctionVariationSeries(variationalSeries).createAndShowGUI()
     val dividedAtClasses = if (enteredClassNumber != null) {
         variationalSeries.divideAtClasses(enteredClassNumber)
@@ -79,13 +79,15 @@ private fun processInput(sc: Scanner, lastVariationalSeries: VariationalSeries, 
     Chart.histogramVariationSeriesByClasses(dividedAtClasses).createAndShowGUI()
     Chart.empericalDistributionFunctionSeriesByClasses(dividedAtClasses).createAndShowGUI()
     val probabilityPaper = ProbabilityPaper(variationalSeries)
-//    probabilityPaper.identifyUnionDistribution()
+    probabilityPaper.identifyUnionDistribution()
     TableDisplaying.ocenkiParametrov(variationalSeries, UnionDistribution()).createAndShowGUI()
-//    Chart.histogramVariationSeriesByClassesWithDensityFunction(dividedAtClasses,
-//            UnionDistribution().normalizedDensityFunctionCoordinates(variationalSeries, dividedAtClasses.classWidth)
-//    ).createAndShowGUI()
+    Chart.histogramVariationSeriesByClassesWithDensityFunction(dividedAtClasses,
+            UnionDistribution().normalizedDensityFunctionCoordinates(variationalSeries, dividedAtClasses.classWidth)
+    ).createAndShowGUI()
     Chart.empericalDistributionFunctionSeriesByClassesWithDistributionFunction(dividedAtClasses,
-            UnionDistribution().distributionFunctionCoordinates(variationalSeries, dividedAtClasses.variationalSeriesDividedByClasses.size)
+            UnionDistribution().distributionFunctionCoordinates(variationalSeries, dividedAtClasses.variationalSeriesDividedByClasses.size),
+            UnionDistribution().confidenceIntervalOcenkaA(variationalSeries),
+            UnionDistribution().confidenceIntervalOcenkaB(variationalSeries)
     ).createAndShowGUI()
 
 

@@ -3,35 +3,21 @@ package primary_statistical_analysis
 import javafx.geometry.Point2D
 import java.awt.*
 
-import org.jfree.chart.*
 import org.jfree.chart.ui.ApplicationFrame
 import org.jfree.chart.ui.UIUtils
 import org.jfree.data.statistics.*
 import org.jfree.chart.plot.PlotOrientation
 import org.jfree.data.statistics.HistogramDataset
-import org.jfree.data.category.DefaultCategoryDataset
 import org.jfree.chart.ChartPanel
 import org.jfree.chart.ChartFactory
 import org.jfree.chart.JFreeChart
 import org.jfree.chart.axis.*
-import org.jfree.chart.plot.CategoryPlot
-import org.jfree.chart.renderer.category.GroupedStackedBarRenderer
-import org.jfree.data.KeyToGroupMap
-import org.jfree.chart.labels.StandardCategoryItemLabelGenerator
-import org.jfree.chart.renderer.category.StandardBarPainter
-import org.jfree.chart.renderer.category.StackedBarRenderer
-import org.jfree.chart.labels.StandardXYToolTipGenerator
 import org.jfree.chart.plot.DatasetRenderingOrder
 import org.jfree.chart.plot.XYPlot
-import org.jfree.chart.renderer.category.LineAndShapeRenderer
 import org.jfree.chart.renderer.xy.*
-import org.jfree.data.category.CategoryDataset
-import org.jfree.data.xy.DefaultXYDataset
 import org.jfree.data.xy.XYSeries
 import org.jfree.data.xy.XYSeriesCollection
 import java.awt.geom.Ellipse2D
-import java.text.DecimalFormat
-import java.text.SimpleDateFormat
 
 
 fun main(args: Array<String>) {
@@ -130,25 +116,10 @@ class Chart(title: String) : ApplicationFrame(title) {
             return barChart
         }
 
-        private fun empricalDistributionDataset(variationalSeriesDividedByClasses: VariationalSeries.VariationalSeriesDividedByClasses): XYSeriesCollection {
-            return XYSeriesCollection().apply {
-                addSeries(XYSeries("Функция распределения").apply {
-                    variationalSeriesDividedByClasses.variationalSeriesDividedByClasses
-                            .sortedBy { it.empiricalDistributionFunction }
-                            .forEachIndexed({ index, `class` ->
-                                add(`class`.range.start,
-                                        `class`.empiricalDistributionFunction
-                                )
-                                add(`class`.range.endInclusive,
-                                        `class`.empiricalDistributionFunction
-                                )
-                            })
-                })
-            }
-        }
-
         fun empericalDistributionFunctionSeriesByClassesWithDistributionFunction(variationalSeriesDividedByClasses: VariationalSeries.VariationalSeriesDividedByClasses,
-                                                                                 coordinates: List<Point2D>): Chart {
+                                                                                 coordinates: List<Point2D>,
+                                                                                 confidenceIntervalOcenkaA: VariationalSeries.DoubleRange,
+                                                                                 confidenceIntervalOcenkaB: VariationalSeries.DoubleRange): Chart {
             val categoryAxis = NumberAxis("класс")
             categoryAxis.setLowerMargin(0.0)
             categoryAxis.setUpperMargin(.01)
@@ -170,6 +141,29 @@ class Chart(title: String) : ApplicationFrame(title) {
             plot.setDataset(1, overlayDataSet);
             plot.setRenderer(1, renderer2);
 
+            val renderer3 = XYLineAndShapeRenderer()
+            val dataset3 = XYSeriesCollection().apply {
+                addSeries(XYSeries("доверительный интервал для А = $confidenceIntervalOcenkaA").apply {
+                    add(confidenceIntervalOcenkaA.start, 0.0)
+                    add(confidenceIntervalOcenkaA.endInclusive, 0.0)
+                })
+
+            }
+            plot.setDataset(2, dataset3);
+            plot.setRenderer(2, renderer3);
+
+            val renderer4 = XYLineAndShapeRenderer()
+            val dataset4 = XYSeriesCollection().apply {
+                addSeries(XYSeries("доверительный интервал для B = $confidenceIntervalOcenkaB").apply {
+                    add(confidenceIntervalOcenkaB.start, 0.0)
+                    add(confidenceIntervalOcenkaB.endInclusive, 0.0)
+                })
+
+            }
+            plot.setDataset(3, dataset4);
+            plot.setRenderer(3, renderer4);
+
+
             plot.datasetRenderingOrder = DatasetRenderingOrder.FORWARD
 
             val plotTitle = "Эмперическая функция ряда, разбитого на классы с функцией распределения"
@@ -183,61 +177,6 @@ class Chart(title: String) : ApplicationFrame(title) {
             histogram.contentPane = chartPanel
             return histogram
         }
-
-
-//        fun empericalDistributionFunctionSeriesByClassesWithDistributionFunction(variationalSeriesDividedByClasses: VariationalSeries.VariationalSeriesDividedByClasses,
-//                                                                                 coordinates: List<Point2D>): Chart {
-//            val dataset = empricalDistributionDataset(variationalSeriesDividedByClasses)
-//
-//
-//            val categoryAxis = CategoryAxis("класс")
-//            categoryAxis.setLowerMargin(0.0)
-//            categoryAxis.setCategoryMargin(.01)
-//            categoryAxis.setUpperMargin(.01)
-//            categoryAxis.setCategoryLabelPositions(CategoryLabelPositions.UP_90)
-//
-//            val valueAxis = NumberAxis("F(класс)")
-//
-//            val renderer = StackedBarRenderer()
-//            renderer.itemMargin = 0.1
-//            renderer.barPainter = StandardBarPainter()
-//            renderer.isDrawBarOutline = false
-//            renderer.setShadowVisible(false)
-//
-//            val plot = CategoryPlot(dataset,
-//                    categoryAxis,
-//                    valueAxis,
-//                    renderer)
-//
-//            plot.orientation = PlotOrientation.VERTICAL
-//            val renderer2 = LineAndShapeRenderer()
-//
-////            val overlayDataSet = XYSeriesCollection().apply {
-////                addSeries(XYSeries("Функция плотности").apply {
-////                    coordinates.forEach { point -> add(point.x, point.y) }
-////                })
-////            }
-//            val overlayDataSet = DefaultCategoryDataset().apply {
-//                addValue(0, "T1", "2")
-//                addValue(1, "T1", "3")
-//            }
-//            plot.setDataset(1, overlayDataSet);
-//            plot.setRenderer(1, renderer2);
-//
-//            plot.datasetRenderingOrder = DatasetRenderingOrder.FORWARD
-//
-//            val plotTitle = "Гистограмма ряда, разбитого на классы с функцией плотности"
-//            val chart = JFreeChart(plotTitle,
-//                    JFreeChart.DEFAULT_TITLE_FONT, plot, true);
-//            val chartPanel = ChartPanel(chart, false)
-//            chartPanel.fillZoomRectangle = true
-//            chartPanel.isMouseWheelEnabled = true
-//            chartPanel.preferredSize = Dimension(500, 270)
-//            val histogram = Chart(plotTitle)
-//            histogram.contentPane = chartPanel
-//            return histogram
-//        }
-
 
         fun probabilityPaper(coordinates: List<Point2D>): Chart {
 
@@ -267,13 +206,26 @@ class Chart(title: String) : ApplicationFrame(title) {
         fun empericalDistributionFunctionVariationSeries(variationalSeries: VariationalSeries): Chart {
             val dataset = XYSeriesCollection().apply {
                 addSeries(XYSeries("Функция распределения").apply {
-                    variationalSeries.variationalSeriesRows
-                            .map { `class` ->
-                                Point2D(`class`.result, variationalSeries.getEmpiricalDistributionFunction(`class`.result))
-                            }
+                    val points = mutableListOf<Pair<Point2D, Point2D>>()
+                    variationalSeries.variationalSeriesRows.fold(mutableListOf<Point2D>(), { acc, (result) ->
+                        acc.lastOrNull()?.let { lastPoint ->
+                            points.add(
+                                    Pair(lastPoint,
+                                            Point2D(result, variationalSeries.getEmpiricalDistributionFunction(result))
+                                    )
+                            )
+                        }
+                        acc.add(Point2D(result, variationalSeries.getEmpiricalDistributionFunction(result)))
+                        acc
+                    })
+                    points.map { (firstP, secondP) -> listOf(firstP, Point2D(secondP.x, firstP.y), secondP) }
+                            .flatten()
                             .forEach { point ->
                                 add(point.x, point.y)
                             }
+                    println(points.map { (firstP, secondP) -> listOf(firstP, Point2D(secondP.x, firstP.y), secondP) }
+                            .flatten()
+                            .size)
                 })
             }
 
@@ -307,7 +259,6 @@ class Chart(title: String) : ApplicationFrame(title) {
 
         }
 
-
         private fun histogramDataset(variationalSeriesDividedByClasses: VariationalSeries.VariationalSeriesDividedByClasses): HistogramDataset {
             return HistogramDataset().apply {
                 variationalSeriesDividedByClasses.variationalSeriesDividedByClasses
@@ -316,6 +267,24 @@ class Chart(title: String) : ApplicationFrame(title) {
                             val data = variationalClass.rows.map { it.result }.toDoubleArray()
                             addSeries(index + 1, data, 1, variationalClass.range.start, variationalClass.range.endInclusive)
                         }
+            }
+        }
+
+
+        private fun empricalDistributionDataset(variationalSeriesDividedByClasses: VariationalSeries.VariationalSeriesDividedByClasses): XYSeriesCollection {
+            return XYSeriesCollection().apply {
+                addSeries(XYSeries("Функция распределения").apply {
+                    variationalSeriesDividedByClasses.variationalSeriesDividedByClasses
+                            .sortedBy { it.empiricalDistributionFunction }
+                            .forEachIndexed({ index, `class` ->
+                                add(`class`.range.start,
+                                        `class`.empiricalDistributionFunction
+                                )
+                                add(`class`.range.endInclusive,
+                                        `class`.empiricalDistributionFunction
+                                )
+                            })
+                })
             }
         }
 
