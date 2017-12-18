@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5ff210ac-b392-496c-839d-183fa470f4c5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/identification_and_recovery_of_distributions/UnionDistribution.kt" afterPath="$PROJECT_DIR$/src/main/java/identification_and_recovery_of_distributions/UnionDistribution.kt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/Chart.kt" afterPath="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/Chart.kt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/Main.kt" afterPath="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/Main.kt" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -68,11 +66,11 @@
       <file leaf-file-name="Chart.kt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/primary_statistical_analysis/Chart.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="226" column="38" lean-forward="false" selection-start-line="226" selection-start-column="38" selection-end-line="226" selection-end-column="38" />
+            <state relative-caret-position="246">
+              <caret line="68" column="22" lean-forward="false" selection-start-line="68" selection-start-column="22" selection-end-line="68" selection-end-column="22" />
               <folding>
-                <element signature="e#38#658#0" expanded="true" />
-                <marker date="1513603928000" expanded="true" signature="11007:12602" ph="{...}" />
+                <element signature="e#38#718#0" expanded="true" />
+                <marker date="1513604776000" expanded="true" signature="11174:12769" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -602,7 +600,7 @@
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="primary_statistical_analysis.MainKt" />
       <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="$PROJECT_DIR$/src/main/resources/500/norm.txt" />
+      <option name="PROGRAM_PARAMETERS" value="$PROJECT_DIR$/src/main/resources/500/ravn1.txt" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -943,7 +941,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/java/primary_statistical_analysis/Chart.kt</url>
-          <line>223</line>
+          <line>228</line>
           <properties />
           <option name="timeStamp" value="67" />
         </line-breakpoint>
@@ -1339,11 +1337,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/primary_statistical_analysis/Chart.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="226" column="38" lean-forward="false" selection-start-line="226" selection-start-column="38" selection-end-line="226" selection-end-column="38" />
+        <state relative-caret-position="246">
+          <caret line="68" column="22" lean-forward="false" selection-start-line="68" selection-start-column="22" selection-end-line="68" selection-end-column="22" />
           <folding>
-            <element signature="e#38#658#0" expanded="true" />
-            <marker date="1513603928000" expanded="true" signature="11007:12602" ph="{...}" />
+            <element signature="e#38#718#0" expanded="true" />
+            <marker date="1513604776000" expanded="true" signature="11174:12769" ph="{...}" />
           </folding>
         </state>
       </provider>

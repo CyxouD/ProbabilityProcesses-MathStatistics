@@ -18,6 +18,9 @@ import org.jfree.chart.renderer.xy.*
 import org.jfree.data.xy.XYSeries
 import org.jfree.data.xy.XYSeriesCollection
 import java.awt.geom.Ellipse2D
+import org.jfree.chart.renderer.category.StandardBarPainter
+
+
 
 
 fun main(args: Array<String>) {
@@ -62,6 +65,8 @@ class Chart(title: String) : ApplicationFrame(title) {
             yAxis.setAutoRangeIncludesZero(false);
 
             val renderer1 = XYBarRenderer(0.0);
+            renderer1.setShadowVisible(false)
+            renderer1.barPainter = StandardXYBarPainter();
 
             val histoDataSet = histogramDataset(variationalSeriesDividedByClasses)
 
