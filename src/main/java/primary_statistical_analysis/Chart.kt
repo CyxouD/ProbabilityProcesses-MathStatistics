@@ -11,13 +11,19 @@ import org.jfree.data.statistics.HistogramDataset
 import org.jfree.chart.ChartPanel
 import org.jfree.chart.ChartFactory
 import org.jfree.chart.JFreeChart
+import org.jfree.chart.StandardChartTheme
 import org.jfree.chart.axis.*
 import org.jfree.chart.plot.DatasetRenderingOrder
+import org.jfree.chart.plot.Plot
 import org.jfree.chart.plot.XYPlot
 import org.jfree.chart.renderer.xy.*
 import org.jfree.data.xy.XYSeries
 import org.jfree.data.xy.XYSeriesCollection
 import java.awt.geom.Ellipse2D
+import org.jfree.chart.renderer.category.StandardBarPainter
+import org.jfree.chart.renderer.category.BarRenderer
+
+
 
 
 fun main(args: Array<String>) {
@@ -270,7 +276,7 @@ class Chart(title: String) : ApplicationFrame(title) {
                 variationalSeriesDividedByClasses.variationalSeriesDividedByClasses
                         .filter { it.rows.isNotEmpty() }
                         .forEachIndexed { index, variationalClass ->
-                            val data = variationalClass.rows.map { it.result }.toDoubleArray()
+                            val data = variationalClass.rows.map { row -> List(row.frequency) { row.result } }.flatten().toDoubleArray()
                             addSeries(index + 1, data, 1, variationalClass.range.start, variationalClass.range.endInclusive)
                         }
             }

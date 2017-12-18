@@ -5,6 +5,7 @@ package primary_statistical_analysis
  */
 
 import identification_and_recovery_of_distributions.UnionDistribution
+import identification_and_recovery_of_distributions.СomplianceСriteria
 import primary_statistical_analysis.Main.Companion.preciseFloatingPoints
 import javax.swing.JFrame
 import javax.swing.JPanel
@@ -118,6 +119,22 @@ class TableDisplaying : JPanel() {
             return addTable(tableRows, columnNames)
         }
 
+        fun poissonComplianceCriteria(variationalSeries: VariationalSeries,
+                                      variationalSeriesDividedByClasses: VariationalSeries.VariationalSeriesDividedByClasses,
+                                      distribution: UnionDistribution): TableDisplaying {
+            val columnNames = arrayOf("Статистическое X^2", "Критическое X^2", "Висновок")
+            val poisson = СomplianceСriteria.poisson(variationalSeries,
+                    variationalSeriesDividedByClasses,
+                    variationalSeries.N.toInt(),
+                    distribution)
+            val tableRows = arrayOf(
+                    arrayOf(poisson.first.toString(), poisson.second.toString(),
+                            "${if (poisson.first < poisson.second) "Вірогідно" else "Не вірогідно"} з 95% відсотковою вірогідностю")
+            )
+            return addTable(tableRows, columnNames)
+
+        }
+
         private fun addTable(tableRows: Array<Array<String>>, columnNames: Array<String>): TableDisplaying {
             val table = JTable(tableRows, columnNames)
             table.preferredScrollableViewportSize = Dimension(1000, 400)
@@ -131,6 +148,7 @@ class TableDisplaying : JPanel() {
             return tableContainer
         }
     }
+
 
     /**
      * Create the GUI and show it.  For thread safety,

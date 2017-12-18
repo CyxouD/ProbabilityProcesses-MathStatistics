@@ -89,6 +89,7 @@ private fun processInput(sc: Scanner, lastVariationalSeries: VariationalSeries, 
             UnionDistribution().confidenceIntervalOcenkaA(variationalSeries),
             UnionDistribution().confidenceIntervalOcenkaB(variationalSeries)
     ).createAndShowGUI()
+    TableDisplaying.poissonComplianceCriteria(variationalSeries, dividedAtClasses, UnionDistribution()).createAndShowGUI()
 
 
     println("Divided at ${enteredClassNumber?.let { it } ?: dividedAtClasses.variationalSeriesDividedByClasses.size} classes")
