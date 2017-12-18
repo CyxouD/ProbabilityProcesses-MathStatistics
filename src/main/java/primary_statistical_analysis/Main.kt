@@ -68,7 +68,7 @@ private fun processInput(sc: Scanner, lastVariationalSeries: VariationalSeries, 
 //    println(variationalSeries)
 //    TableDisplaying.variationSeries(variationalSeries).createAndShowGUI()
 //    TableDisplaying.samplingCharacteristics(variationalSeries).createAndShowGUI()
-//    Chart.empericalDistributionFunctionVariationSeries(variationalSeries).createAndShowGUI()
+    Chart.empericalDistributionFunctionVariationSeries(variationalSeries).createAndShowGUI()
     val dividedAtClasses = if (enteredClassNumber != null) {
         variationalSeries.divideAtClasses(enteredClassNumber)
     } else {
@@ -80,13 +80,13 @@ private fun processInput(sc: Scanner, lastVariationalSeries: VariationalSeries, 
     Chart.empericalDistributionFunctionSeriesByClasses(dividedAtClasses).createAndShowGUI()
     val probabilityPaper = ProbabilityPaper(variationalSeries)
 //    probabilityPaper.identifyUnionDistribution()
-//    TableDisplaying.ocenkiParametrov(variationalSeries, UnionDistribution()).createAndShowGUI()
+    TableDisplaying.ocenkiParametrov(variationalSeries, UnionDistribution()).createAndShowGUI()
 //    Chart.histogramVariationSeriesByClassesWithDensityFunction(dividedAtClasses,
 //            UnionDistribution().normalizedDensityFunctionCoordinates(variationalSeries, dividedAtClasses.classWidth)
 //    ).createAndShowGUI()
-//    Chart.empericalDistributionFunctionSeriesByClassesWithDistributionFunction(dividedAtClasses,
-//            UnionDistribution().distributionFunctionCoordinates(variationalSeries, dividedAtClasses.variationalSeriesDividedByClasses.size)
-//    ).createAndShowGUI()
+    Chart.empericalDistributionFunctionSeriesByClassesWithDistributionFunction(dividedAtClasses,
+            UnionDistribution().distributionFunctionCoordinates(variationalSeries, dividedAtClasses.variationalSeriesDividedByClasses.size)
+    ).createAndShowGUI()
 
 
     println("Divided at ${enteredClassNumber?.let { it } ?: dividedAtClasses.variationalSeriesDividedByClasses.size} classes")

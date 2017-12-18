@@ -155,32 +155,11 @@ class Chart(title: String) : ApplicationFrame(title) {
 
             val valueAxis = NumberAxis("F(класс)")
 
-            val renderer1 = XYSplineRenderer();
+            val renderer1 = XYLineAndShapeRenderer();
 
-            val step = (variationalSeriesDividedByClasses.variationalSeriesDividedByClasses.maxBy { it.range.endInclusive }!!.range.endInclusive
-                    / variationalSeriesDividedByClasses.variationalSeriesDividedByClasses.size.toDouble())
-            val histoDataSet = XYSeriesCollection().apply {
-                variationalSeriesDividedByClasses.variationalSeriesDividedByClasses.forEachIndexed { index, variationalClass ->
-                    addSeries(XYSeries(variationalClass.range).apply {
-                        val y = variationalClass.empiricalDistributionFunction
-                        add(step * index, y)
-                        add(step * (index + 1), y)
-                    })
-                }
+            val dataset = empricalDistributionDataset(variationalSeriesDividedByClasses)
 
-//                addSeries(XYSeries(0).apply {
-//                    val y = variationalSeriesDividedByClasses.variationalSeriesDividedByClasses[0].empiricalDistributionFunction
-//                    add(2, y)
-//                    add(3, y)
-//                })
-//                addSeries(XYSeries(1).apply {
-//                    val y = variationalSeriesDividedByClasses.variationalSeriesDividedByClasses[1].empiricalDistributionFunction
-//                    add(3, y)
-//                    add(4, y)
-//                })
-            }
-
-            val plot = XYPlot(histoDataSet, categoryAxis, valueAxis, renderer1);
+            val plot = XYPlot(dataset, categoryAxis, valueAxis, renderer1);
             val renderer2 = XYLineAndShapeRenderer()
 
             val overlayDataSet = XYSeriesCollection().apply {
@@ -193,7 +172,7 @@ class Chart(title: String) : ApplicationFrame(title) {
 
             plot.datasetRenderingOrder = DatasetRenderingOrder.FORWARD
 
-            val plotTitle = "Гистограмма ряда, разбитого на классы с функцией плотности"
+            val plotTitle = "Эмперическая функция ряда, разбитого на классы с функцией плотности"
             val chart = JFreeChart(plotTitle,
                     JFreeChart.DEFAULT_TITLE_FONT, plot, true);
             val chartPanel = ChartPanel(chart, false)

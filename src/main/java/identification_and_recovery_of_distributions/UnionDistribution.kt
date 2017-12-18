@@ -29,10 +29,10 @@ class UnionDistribution {
     )
 
     fun distributionFunctionCoordinates(variationalSeries: VariationalSeries, classesN: Int)
-            = listOf(Point2D(0.0, 0.0),
+            = listOf(Point2D(variationalSeries.orderedSample.min()!!, 0.0),
             Point2D(ocenkaA(variationalSeries), 0.0),
             Point2D(ocenkaB(variationalSeries), 1.0),
-            Point2D(ocenkaB(variationalSeries) + Math.abs(ocenkaA(variationalSeries)), 1.0))
+            Point2D(variationalSeries.orderedSample.max()!!, 1.0))
 
     //    fun M1(variationalSeries: VariationalSeries) = variationalSeries.Average().unBiasedValue()
 //    fun M2(variationalSeries: VariationalSeries) = variationalSeries.variationalSeriesRows.map { it.result }.let { results ->
