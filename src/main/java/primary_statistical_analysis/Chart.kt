@@ -108,25 +108,14 @@ class Chart(title: String) : ApplicationFrame(title) {
             val dataset = empricalDistributionDataset(variationalSeriesDividedByClasses)
 
 
-            val categoryAxis = CategoryAxis("класс")
+            val categoryAxis = NumberAxis("x")
             categoryAxis.setLowerMargin(0.0)
-            categoryAxis.setCategoryMargin(.01)
             categoryAxis.setUpperMargin(.01)
-            categoryAxis.setCategoryLabelPositions(CategoryLabelPositions.UP_90)
 
             val valueAxis = NumberAxis("F(класс)")
 
-            val renderer = StackedBarRenderer()
-            renderer.itemMargin = 0.1
-            renderer.barPainter = StandardBarPainter()
-            renderer.isDrawBarOutline = false
-            renderer.setShadowVisible(false)
-
-            val plot = CategoryPlot(dataset,
-                    categoryAxis,
-                    valueAxis,
-                    renderer)
-
+            val renderer = XYLineAndShapeRenderer()
+            val plot = XYPlot(dataset, categoryAxis, valueAxis, renderer)
             plot.orientation = PlotOrientation.VERTICAL
 
             val plotTitle = "График эмпирической функции распределения ряда, разбитого на классы"
@@ -141,16 +130,20 @@ class Chart(title: String) : ApplicationFrame(title) {
             return barChart
         }
 
-        private fun empricalDistributionDataset(variationalSeriesDividedByClasses: VariationalSeries.VariationalSeriesDividedByClasses): DefaultCategoryDataset {
-            return DefaultCategoryDataset().apply {
-                variationalSeriesDividedByClasses.variationalSeriesDividedByClasses
-                        .sortedBy { it.empiricalDistributionFunction }
-                        .forEachIndexed({ index, `class` ->
-                            val roundedRelativeFrequency = `class`.empiricalDistributionFunction.toPreciseFloatingPoints(Main.preciseFloatingPoints)
-                            addValue(`class`.empiricalDistributionFunction,
-                                    "$index: $roundedRelativeFrequency",
-                                    "$index")
-                        })
+        private fun empricalDistributionDataset(variationalSeriesDividedByClasses: VariationalSeries.VariationalSeriesDividedByClasses): XYSeriesCollection {
+            return XYSeriesCollection().apply {
+                addSeries(XYSeries("Функция распределения").apply {
+                    variationalSeriesDividedByClasses.variationalSeriesDividedByClasses
+                            .sortedBy { it.empiricalDistributionFunction }
+                            .forEachIndexed({ index, `class` ->
+                                add(`class`.range.start,
+                                        `class`.empiricalDistributionFunction
+                                )
+                                add(`class`.range.endInclusive,
+                                        `class`.empiricalDistributionFunction
+                                )
+                            })
+                })
             }
         }
 
@@ -293,37 +286,36 @@ class Chart(title: String) : ApplicationFrame(title) {
         }
 
         fun empericalDistributionFunctionVariationSeries(variationalSeries: VariationalSeries): Chart {
-            val dataset = DefaultCategoryDataset().apply {
-                variationalSeries.variationalSeriesRows.forEach {
-                    val empiricalDistributionFunction = variationalSeries.getEmpiricalDistributionFunction(it.result)
-                    addValue(empiricalDistributionFunction, it.result, it.result)
-                }
+            val dataset = XYSeriesCollection().apply {
+                addSeries(XYSeries("Функция распределения").apply {
+                    variationalSeries.variationalSeriesRows
+                            .map { `class` ->
+                                Point2D(`class`.result, variationalSeries.getEmpiricalDistributionFunction(`class`.result))
+                            }
+                            .forEach { point ->
+                                add(point.x, point.y)
+                            }
+                })
             }
 
 
-            val categoryAxis = CategoryAxis("x")
+            val categoryAxis = NumberAxis("x")
             categoryAxis.setLowerMargin(0.0)
-            categoryAxis.setCategoryMargin(.01)
             categoryAxis.setUpperMargin(.01)
-            categoryAxis.setCategoryLabelPositions(CategoryLabelPositions.UP_90)
             categoryAxis.isTickLabelsVisible = variationalSeries.variationalSeriesRows.size < 50
 
             val valueAxis = NumberAxis("F(x)")
 
-            val renderer = StackedBarRenderer()
-            renderer.itemMargin = 0.1
-            renderer.barPainter = StandardBarPainter()
-            renderer.isDrawBarOutline = false
-            renderer.setShadowVisible(false)
+            val renderer = XYLineAndShapeRenderer()
 
-            val plot = CategoryPlot(dataset,
+            val plot = XYPlot(dataset,
                     categoryAxis,
                     valueAxis,
                     renderer)
 
             plot.orientation = PlotOrientation.VERTICAL
 
-            val plotTitle = "График эмпирической функции распределения ряда, разбитого на классы"
+            val plotTitle = "График эмпирической функции вариационного ряда"
             val chart = JFreeChart(plotTitle,
                     JFreeChart.DEFAULT_TITLE_FONT,
                     plot,

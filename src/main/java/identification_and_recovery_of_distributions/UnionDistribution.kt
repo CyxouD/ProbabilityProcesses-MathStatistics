@@ -78,30 +78,30 @@ class UnionDistribution {
      * @return возвращает D{a} - дисперсию оценки a
      */
     fun variationOcenkaA(variationalSeries: VariationalSeries): Double {
-        val samples = variationalSeries.unorderedSample
         val N = variationalSeries.N
-        val average = variationalSeries.Average().unBiasedValue()!!
-        return (1.0.plus(
-                Math.sqrt(3.0.div(N - 1))
-                        .times(samples.map { xi -> xi - average }.sum())
-                        .div(Math.sqrt(samples.map { xi -> (xi - average).square() }.sum()))
-        )).square()
-                .times(samples.map { it.square() }.sum().minus(average.square()).div(N))
+        val ocenkaA = ocenkaA(variationalSeries)
+        val ocenkaB = ocenkaB(variationalSeries)
+        val firstPart = 1 + 3 * ((ocenkaA + ocenkaB) / (ocenkaB - ocenkaA))
+        val secondPart = -3 / (ocenkaB - ocenkaA)
+        return variationOcenka(firstPart, ocenkaB, ocenkaA, N, secondPart)
     }
 
     /**
      * @return возвращает D{b} - дисперсию оценки b
      */
     fun variationOcenkaB(variationalSeries: VariationalSeries): Double {
-        val samples = variationalSeries.unorderedSample
-        val N = samples.size
-        val average = variationalSeries.Average().unBiasedValue()!!
-        return (1.0.minus(
-                Math.sqrt(3.0.div(N - 1))
-                        .times(samples.map { xi -> xi - average }.sum())
-                        .div(Math.sqrt(samples.map { xi -> (xi - average).square() }.sum()))
-        )).square()
-                .times(samples.map { it.square() }.sum().minus(average.square()).div(N))
+        val N = variationalSeries.N
+        val ocenkaA = ocenkaA(variationalSeries)
+        val ocenkaB = ocenkaB(variationalSeries)
+        val firstPart = 1 - 3 * ((ocenkaA + ocenkaB) / (ocenkaB - ocenkaA))
+        val secondPart = +3 / (ocenkaB - ocenkaA)
+        return variationOcenka(firstPart, ocenkaB, ocenkaA, N, secondPart)
+    }
+
+    private fun variationOcenka(firstPart: Double, ocenkaB: Double, ocenkaA: Double, N: Double, secondPart: Double): Double {
+        return firstPart.square() * (ocenkaB - ocenkaA).square() / (12 * N) +
+                +secondPart.square() * 1 / (180.0 * N) * (Math.pow((ocenkaB - ocenkaA), 4.0) + 15 * (ocenkaA + ocenkaB).square() * (ocenkaB - ocenkaA).square()) +
+                +2 * firstPart * secondPart * (ocenkaA + ocenkaB) * (ocenkaB - ocenkaA).square() / (12.0 * N)
     }
 
     data class OcenkaParametra(val param: String, val ocenka: Double, val ocenkaStandartDeviation: Double, val confidenceInterval: VariationalSeries.DoubleRange)
