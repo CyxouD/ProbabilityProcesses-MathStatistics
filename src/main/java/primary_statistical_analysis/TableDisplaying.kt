@@ -105,16 +105,16 @@ class TableDisplaying : JPanel() {
         fun variationSeriesByClasses(variationalSeriesDividedByClasses: VariationalSeries.VariationalSeriesDividedByClasses): TableDisplaying {
             val columnNames = arrayOf("№ класу", "Межі класу", "Частота", "Відносна частота", "Значення емпіричної функції розподілу")
 
-            val tableRows: Array<Array<String>> = variationalSeriesDividedByClasses.variationalSeriesDividedByClasses.mapIndexed {
-                classIndex, variationalClass ->
-                arrayOf(classIndex.inc().toString(),
-                        variationalClass.range.toString(),
-                        variationalClass.frequency.toString(),
-                        variationalClass.relativeFrequency
-                                .toPreciseFloatingPoints(preciseFloatingPoints),
-                        variationalClass.empiricalDistributionFunction
-                                .toPreciseFloatingPoints(preciseFloatingPoints))
-            }.toTypedArray()
+            val tableRows: Array<Array<String>> = variationalSeriesDividedByClasses.variationalSeriesDividedByClasses
+                    .mapIndexed { classIndex, variationalClass ->
+                        arrayOf(classIndex.inc().toString(),
+                                variationalClass.range.toString(),
+                                variationalClass.frequency.toString(),
+                                variationalClass.relativeFrequency
+                                        .toPreciseFloatingPoints(preciseFloatingPoints),
+                                variationalClass.empiricalDistributionFunction
+                                        .toPreciseFloatingPoints(preciseFloatingPoints))
+                    }.toTypedArray()
             return addTable(tableRows, columnNames)
         }
 
