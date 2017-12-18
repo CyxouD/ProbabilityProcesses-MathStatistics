@@ -40,7 +40,6 @@ class VariationalSeries(val unorderedSample: List<Double>) {
         operator fun component2() = variationalSeries
     }
 
-
     fun getEmpiricalDistributionFunction(value: Double) =
             variationalSeriesRows.filter { it.result <= value }
                     .map { it.relativeFrequency }
@@ -235,9 +234,9 @@ class VariationalSeries(val unorderedSample: List<Double>) {
                 } else maxValue //because of classWidth rounding
                 DoubleRange(startClassValue, endClassValue)
             }
-            divideAtClasses(ranges)
+            divideAtClasses(classWidth, ranges)
         } else {
-            VariationalSeriesDividedByClasses(listOf())
+            VariationalSeriesDividedByClasses(-1.0, listOf())
         }
     }
 
@@ -260,7 +259,8 @@ class VariationalSeries(val unorderedSample: List<Double>) {
         return divideAtClasses(classNumber)
     }
 
-    private fun divideAtClasses(ranges: List<DoubleRange>) = VariationalSeriesDividedByClasses(ranges)
+    private fun divideAtClasses(classWidth: Double, ranges: List<DoubleRange>)
+            = VariationalSeriesDividedByClasses(classWidth, ranges)
 
     private fun findMedian(results: List<Double>): Double {
         return if (results.size % 2 == 0) {
@@ -270,7 +270,7 @@ class VariationalSeries(val unorderedSample: List<Double>) {
         }
     }
 
-    inner class VariationalSeriesDividedByClasses(ranges: List<DoubleRange>) {
+    inner class VariationalSeriesDividedByClasses(val classWidth: Double, ranges: List<DoubleRange>) {
         val variationalSeriesDividedByClasses: List<VariationalClass>
 
         init {

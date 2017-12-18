@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ff210ac-b392-496c-839d-183fa470f4c5" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/identification_and_recovery_of_distributions/OverlaidXYPlotDemo1.java" afterPath="$PROJECT_DIR$/src/main/java/identification_and_recovery_of_distributions/OverlaidXYPlotDemo1.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/identification_and_recovery_of_distributions/UnionDistribution.kt" afterPath="$PROJECT_DIR$/src/main/java/identification_and_recovery_of_distributions/UnionDistribution.kt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/Chart.kt" afterPath="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/Chart.kt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/Main.kt" afterPath="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/Main.kt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/VariationalSeries.kt" afterPath="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/VariationalSeries.kt" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -16,13 +21,13 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.kt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/primary_statistical_analysis/Main.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="83" column="115" lean-forward="false" selection-start-line="83" selection-start-column="115" selection-end-line="83" selection-end-column="115" />
+            <state relative-caret-position="126">
+              <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
               <folding>
-                <element signature="e#38#176#0" expanded="true" />
+                <element signature="e#38#246#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -38,14 +43,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Chart.kt" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Chart.kt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/primary_statistical_analysis/Chart.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="157" column="62" lean-forward="false" selection-start-line="157" selection-start-column="62" selection-end-line="157" selection-end-column="62" />
+            <state relative-caret-position="264">
+              <caret line="75" column="64" lean-forward="false" selection-start-line="75" selection-start-column="12" selection-end-line="75" selection-end-column="64" />
               <folding>
-                <element signature="e#38#1178#0" expanded="true" />
-                <marker date="1513549805000" expanded="true" signature="3674:7680" ph="{...}" />
+                <element signature="e#38#1230#0" expanded="true" />
+                <marker date="1513553695000" expanded="true" signature="6196:10202" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -101,24 +106,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VariationalSeries.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/primary_statistical_analysis/VariationalSeries.kt">
+      <file leaf-file-name="UnionDistribution.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/identification_and_recovery_of_distributions/UnionDistribution.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="243" column="8" lean-forward="false" selection-start-line="243" selection-start-column="8" selection-end-line="243" selection-end-column="8" />
+            <state relative-caret-position="141">
+              <caret line="19" column="37" lean-forward="false" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
               <folding>
-                <element signature="n#!!block;n#VariationalClass#0;n#!!block;n#VariationalSeriesDividedByClasses#0;n#!!block;n#VariationalSeries#0" expanded="false" />
+                <marker date="1513554928000" expanded="true" signature="848:4243" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProbabilityPaper.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/identification_and_recovery_of_distributions/ProbabilityPaper.kt">
+      <file leaf-file-name="VariationalSeries.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/primary_statistical_analysis/VariationalSeries.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="28" column="41" lean-forward="false" selection-start-line="28" selection-start-column="41" selection-end-line="28" selection-end-column="41" />
-              <folding />
+            <state relative-caret-position="118">
+              <caret line="265" column="31" lean-forward="false" selection-start-line="265" selection-start-column="27" selection-end-line="265" selection-end-column="31" />
+              <folding>
+                <element signature="n#!!block;n#VariationalClass#0;n#!!block;n#VariationalSeriesDividedByClasses#0;n#!!block;n#VariationalSeries#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -144,6 +151,8 @@
       <find>5.00</find>
       <find>median</find>
       <find>getEmpri</find>
+      <find>div</find>
+      <find>size</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -181,11 +190,11 @@
         <option value="$PROJECT_DIR$/src/main/java/identification_and_recovery_of_distributions/OverlaidXYPlotDemo1.java" />
         <option value="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/TableDisplaying.kt" />
         <option value="$PROJECT_DIR$/src/main/resources/500/norm1_2.txt" />
-        <option value="$PROJECT_DIR$/src/main/java/identification_and_recovery_of_distributions/UnionDistribution.kt" />
         <option value="$PROJECT_DIR$/src/main/resources/5/5.txt" />
         <option value="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/Chart.kt" />
         <option value="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/VariationalSeries.kt" />
         <option value="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/Main.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/identification_and_recovery_of_distributions/UnionDistribution.kt" />
       </list>
     </option>
   </component>
@@ -913,6 +922,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="709" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -924,7 +934,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.6304687" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3296875" sideWeight="0.36953124" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3296875" sideWeight="0.36953124" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -974,15 +984,21 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/java/primary_statistical_analysis/Main.kt</url>
-          <line>9</line>
+          <line>10</line>
           <properties />
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/java/identification_and_recovery_of_distributions/UnionDistribution.kt</url>
-          <line>67</line>
+          <line>73</line>
           <properties />
           <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/java/primary_statistical_analysis/Main.kt</url>
+          <line>83</line>
+          <properties />
+          <option name="timeStamp" value="52" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/math/BigDecimal.java</url>
@@ -991,7 +1007,7 @@
           <option name="timeStamp" value="36" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="52" />
+      <option name="time" value="53" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1258,22 +1274,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/identification_and_recovery_of_distributions/UnionDistribution.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding>
-            <marker date="1513549805000" expanded="true" signature="697:4092" ph="{...}" />
-            <marker date="1513549805000" expanded="true" signature="2005:2265" ph="{...}" />
-            <marker date="1513549805000" expanded="true" signature="2370:2630" ph="{...}" />
-            <marker date="1513549805000" expanded="true" signature="2637:2700" ph="/** @return возвращает D{a} - дисперсию оценки a ...*/" />
-            <marker date="1513549805000" expanded="true" signature="2772:3282" ph="{...}" />
-            <marker date="1513549805000" expanded="true" signature="3288:3351" ph="/** @return возвращает D{b} - дисперсию оценки b ...*/" />
-            <marker date="1513549805000" expanded="true" signature="3423:3927" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/primary_statistical_analysis/TableDisplaying.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="31">
@@ -1366,33 +1366,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/primary_statistical_analysis/Chart.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="157" column="62" lean-forward="false" selection-start-line="157" selection-start-column="62" selection-end-line="157" selection-end-column="62" />
-          <folding>
-            <element signature="e#38#1178#0" expanded="true" />
-            <marker date="1513549805000" expanded="true" signature="3674:7680" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/primary_statistical_analysis/VariationalSeries.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="243" column="8" lean-forward="false" selection-start-line="243" selection-start-column="8" selection-end-line="243" selection-end-column="8" />
+        <state relative-caret-position="118">
+          <caret line="265" column="31" lean-forward="false" selection-start-line="265" selection-start-column="27" selection-end-line="265" selection-end-column="31" />
           <folding>
             <element signature="n#!!block;n#VariationalClass#0;n#!!block;n#VariationalSeriesDividedByClasses#0;n#!!block;n#VariationalSeries#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/identification_and_recovery_of_distributions/UnionDistribution.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="19" column="37" lean-forward="false" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
+          <folding>
+            <marker date="1513554928000" expanded="true" signature="848:4243" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/primary_statistical_analysis/Main.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="83" column="115" lean-forward="false" selection-start-line="83" selection-start-column="115" selection-end-line="83" selection-end-column="115" />
+        <state relative-caret-position="126">
+          <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
           <folding>
-            <element signature="e#38#176#0" expanded="true" />
+            <element signature="e#38#246#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/primary_statistical_analysis/Chart.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="75" column="64" lean-forward="false" selection-start-line="75" selection-start-column="12" selection-end-line="75" selection-end-column="64" />
+          <folding>
+            <element signature="e#38#1230#0" expanded="true" />
+            <marker date="1513553695000" expanded="true" signature="6196:10202" ph="{...}" />
           </folding>
         </state>
       </provider>

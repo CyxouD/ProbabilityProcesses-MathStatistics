@@ -1,6 +1,7 @@
 package primary_statistical_analysis
 
 import identification_and_recovery_of_distributions.ProbabilityPaper
+import identification_and_recovery_of_distributions.UnionDistribution
 import java.io.File
 import java.util.*
 import java.util.regex.Pattern
@@ -65,8 +66,8 @@ private fun processInput(sc: Scanner, lastVariationalSeries: VariationalSeries, 
     }
 
 //    println(variationalSeries)
-    TableDisplaying.variationSeries(variationalSeries).createAndShowGUI()
-    TableDisplaying.samplingCharacteristics(variationalSeries).createAndShowGUI()
+//    TableDisplaying.variationSeries(variationalSeries).createAndShowGUI()
+//    TableDisplaying.samplingCharacteristics(variationalSeries).createAndShowGUI()
 //    Chart.empericalDistributionFunctionVariationSeries(variationalSeries).createAndShowGUI()
     val dividedAtClasses = if (enteredClassNumber != null) {
         variationalSeries.divideAtClasses(enteredClassNumber)
@@ -75,11 +76,14 @@ private fun processInput(sc: Scanner, lastVariationalSeries: VariationalSeries, 
     }
 //    println(dividedAtClasses)
 //    TableDisplaying.variationSeriesByClasses(dividedAtClasses).createAndShowGUI()
-    Chart.histogramVariationSeriesByClasses(dividedAtClasses).createAndShowGUI()
+//    Chart.histogramVariationSeriesByClasses(dividedAtClasses).createAndShowGUI()
 //    Chart.empericalDistributionFunctionSeriesByClasses(dividedAtClasses).createAndShowGUI()
     val probabilityPaper = ProbabilityPaper(variationalSeries)
-    probabilityPaper.identifyUnionDistribution()
-//    TableDisplaying.ocenkiParametrov(variationalSeries, UnionDistribution()).createAndShowGUI()
+//    probabilityPaper.identifyUnionDistribution()
+    TableDisplaying.ocenkiParametrov(variationalSeries, UnionDistribution()).createAndShowGUI()
+    Chart.histogramVariationSeriesByClassesWithDensityFunction(dividedAtClasses,
+            UnionDistribution().coordinates(variationalSeries, dividedAtClasses.classWidth)
+    ).createAndShowGUI()
 
     println("Divided at ${enteredClassNumber?.let { it } ?: dividedAtClasses.variationalSeriesDividedByClasses.size} classes")
 

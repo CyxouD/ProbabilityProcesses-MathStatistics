@@ -1,5 +1,6 @@
 package identification_and_recovery_of_distributions
 
+import javafx.geometry.Point2D
 import primary_statistical_analysis.VariationalSeries
 import primary_statistical_analysis.square
 
@@ -8,14 +9,19 @@ import primary_statistical_analysis.square
  */
 //    методом моментов
 class UnionDistribution {
-//    private fun densityFunction(a: Double, b: Double) = 1  / (b - a) * 1.6542857142857144
+    private fun densityFunction(a: Double, b: Double) = 1 / (b - a) * 1.6542857142857144
 
-//    fun coordinates(a: Double, b: Double) = listOf(Point2D(a, densityFunction(a, b)), Point2D(b, densityFunction(a, b)))
+    private fun coordinates(a: Double, b: Double, classWidth: Double, N: Int): List<Point2D> {
+        val yCoordinate = densityFunction(a, b) * classWidth * N
+        return listOf(Point2D(a, yCoordinate), Point2D(b, yCoordinate))
+    }
 
-//    fun coordinates(variationalSeries: VariationalSeries) = coordinates(
-//            variationalSeries.variationalSeriesRows.map { it.result }.min()!!,
-//            variationalSeries.variationalSeriesRows.map { it.result }.max()!!
-//    )
+    fun coordinates(variationalSeries: VariationalSeries, classWidth: Double) = coordinates(
+            ocenkaA(variationalSeries),
+            ocenkaB(variationalSeries),
+            classWidth,
+            variationalSeries.orderedSample.size
+    )
 
     //    fun M1(variationalSeries: VariationalSeries) = variationalSeries.Average().unBiasedValue()
 //    fun M2(variationalSeries: VariationalSeries) = variationalSeries.variationalSeriesRows.map { it.result }.let { results ->

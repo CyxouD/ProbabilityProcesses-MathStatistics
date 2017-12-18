@@ -13,21 +13,23 @@ import org.jfree.data.category.DefaultCategoryDataset
 import org.jfree.chart.ChartPanel
 import org.jfree.chart.ChartFactory
 import org.jfree.chart.JFreeChart
-import org.jfree.chart.axis.CategoryAxis
+import org.jfree.chart.axis.*
 import org.jfree.chart.plot.CategoryPlot
 import org.jfree.chart.renderer.category.GroupedStackedBarRenderer
 import org.jfree.data.KeyToGroupMap
 import org.jfree.chart.labels.StandardCategoryItemLabelGenerator
 import org.jfree.chart.renderer.category.StandardBarPainter
 import org.jfree.chart.renderer.category.StackedBarRenderer
-import org.jfree.chart.axis.CategoryLabelPositions
-import org.jfree.chart.axis.NumberAxis
+import org.jfree.chart.labels.StandardXYToolTipGenerator
+import org.jfree.chart.plot.DatasetRenderingOrder
 import org.jfree.chart.plot.XYPlot
-import org.jfree.chart.renderer.xy.StackedXYBarRenderer
+import org.jfree.chart.renderer.xy.*
 import org.jfree.data.xy.DefaultXYDataset
 import org.jfree.data.xy.XYSeries
 import org.jfree.data.xy.XYSeriesCollection
 import java.awt.geom.Ellipse2D
+import java.text.DecimalFormat
+import java.text.SimpleDateFormat
 
 
 fun main(args: Array<String>) {
@@ -70,6 +72,57 @@ class Chart(title: String) : ApplicationFrame(title) {
             return histogram
         }
 
+
+        fun histogramVariationSeriesByClassesWithDensityFunction(variationalSeriesDividedByClasses: VariationalSeries.VariationalSeriesDividedByClasses,
+                                                                 coordinates: List<Point2D>): Chart {
+            val xAxis = NumberAxis("x");
+            xAxis.setAutoRangeIncludesZero(true);
+            val yAxis = NumberAxis("частота");
+            yAxis.setAutoRangeIncludesZero(false);
+
+            val renderer1 = XYBarRenderer(0.0);
+
+            val histoDataSet = HistogramDataset().apply {
+                variationalSeriesDividedByClasses.variationalSeriesDividedByClasses
+                        .filter { it.rows.isNotEmpty() }
+                        .forEachIndexed { index, variationalClass ->
+                            val data = variationalClass.rows.map { it.result }.toDoubleArray()
+                            addSeries(index, data, 1, data.min()!!, data.max()!!)
+                        }
+            }
+
+            val plot = XYPlot(histoDataSet, xAxis, yAxis, renderer1);
+            val renderer2 = XYSplineRenderer()
+
+            val overlayDataSet = XYSeriesCollection().apply {
+                addSeries(XYSeries("Функция плотности").apply {
+                    //                    variationalSeriesDividedByClasses.variationalSeriesDividedByClasses
+//                            .map {
+//                                val rangeCenter = it.range.endInclusive.plus(it.range.start) / 2.0
+//                                val heightOfRange = it.frequency.toDouble()
+//                                Point2D(rangeCenter, heightOfRange)
+//                            }
+                    coordinates.forEach { point -> add(point.x, point.y) }
+                })
+            }
+            plot.setDataset(1, overlayDataSet);
+            plot.setRenderer(1, renderer2);
+
+            plot.datasetRenderingOrder = DatasetRenderingOrder.FORWARD
+
+            val plotTitle = "Гистограмма ряда, разбитого на классы с функцией плотности"
+            val chart = JFreeChart(plotTitle,
+                    JFreeChart.DEFAULT_TITLE_FONT, plot, true);
+            val chartPanel = ChartPanel(chart, false)
+            chartPanel.fillZoomRectangle = true
+            chartPanel.isMouseWheelEnabled = true
+            chartPanel.preferredSize = Dimension(500, 270)
+            val histogram = Chart(plotTitle)
+            histogram.contentPane = chartPanel
+            return histogram
+        }
+
+
         fun empericalDistributionFunctionSeriesByClasses(variationalSeriesDividedByClasses: VariationalSeries.VariationalSeriesDividedByClasses): Chart {
             val dataset = DefaultCategoryDataset().apply {
                 variationalSeriesDividedByClasses.variationalSeriesDividedByClasses
@@ -81,6 +134,7 @@ class Chart(title: String) : ApplicationFrame(title) {
                                     index)
                         })
             }
+
 
             val categoryAxis = CategoryAxis("класс")
             categoryAxis.setLowerMargin(0.0)
