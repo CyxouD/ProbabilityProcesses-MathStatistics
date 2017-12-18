@@ -68,7 +68,7 @@ private fun processInput(sc: Scanner, lastVariationalSeries: VariationalSeries, 
 //    println(variationalSeries)
     TableDisplaying.variationSeries(variationalSeries).createAndShowGUI()
     TableDisplaying.samplingCharacteristics(variationalSeries).createAndShowGUI()
-    Chart.empericalDistributionFunctionVariationSeries(variationalSeries).createAndShowGUI()
+    Chart.empiricalDistributionFunctionVariationSeries(variationalSeries).createAndShowGUI()
     val dividedAtClasses = if (enteredClassNumber != null) {
         variationalSeries.divideAtClasses(enteredClassNumber)
     } else {
@@ -77,14 +77,14 @@ private fun processInput(sc: Scanner, lastVariationalSeries: VariationalSeries, 
 //    println(dividedAtClasses)
     TableDisplaying.variationSeriesByClasses(dividedAtClasses).createAndShowGUI()
     Chart.histogramVariationSeriesByClasses(dividedAtClasses).createAndShowGUI()
-    Chart.empericalDistributionFunctionSeriesByClasses(dividedAtClasses).createAndShowGUI()
+    Chart.empiricalDistributionFunctionSeriesByClasses(dividedAtClasses).createAndShowGUI()
     val probabilityPaper = ProbabilityPaper(variationalSeries)
     probabilityPaper.identifyUnionDistribution()
     TableDisplaying.ocenkiParametrov(variationalSeries, UnionDistribution()).createAndShowGUI()
     Chart.histogramVariationSeriesByClassesWithDensityFunction(dividedAtClasses,
             UnionDistribution().normalizedDensityFunctionCoordinates(variationalSeries, dividedAtClasses.classWidth)
     ).createAndShowGUI()
-    Chart.empericalDistributionFunctionSeriesByClassesWithDistributionFunction(dividedAtClasses,
+    Chart.empiricalDistributionFunctionVariationalSeriesWithDistributionFunction(variationalSeries,
             UnionDistribution().distributionFunctionCoordinates(variationalSeries, dividedAtClasses.variationalSeriesDividedByClasses.size),
             UnionDistribution().confidenceIntervalOcenkaA(variationalSeries),
             UnionDistribution().confidenceIntervalOcenkaB(variationalSeries)
