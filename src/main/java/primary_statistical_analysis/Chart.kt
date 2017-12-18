@@ -23,7 +23,9 @@ import org.jfree.chart.renderer.category.StackedBarRenderer
 import org.jfree.chart.labels.StandardXYToolTipGenerator
 import org.jfree.chart.plot.DatasetRenderingOrder
 import org.jfree.chart.plot.XYPlot
+import org.jfree.chart.renderer.category.LineAndShapeRenderer
 import org.jfree.chart.renderer.xy.*
+import org.jfree.data.category.CategoryDataset
 import org.jfree.data.xy.DefaultXYDataset
 import org.jfree.data.xy.XYSeries
 import org.jfree.data.xy.XYSeriesCollection
@@ -45,14 +47,7 @@ class Chart(title: String) : ApplicationFrame(title) {
 
     companion object {
         fun histogramVariationSeriesByClasses(variationalSeriesDividedByClasses: VariationalSeries.VariationalSeriesDividedByClasses): Chart {
-            val dataset = HistogramDataset().apply {
-                variationalSeriesDividedByClasses.variationalSeriesDividedByClasses
-                        .filter { it.rows.isNotEmpty() }
-                        .forEachIndexed { index, variationalClass ->
-                            val data = variationalClass.rows.map { it.result }.toDoubleArray()
-                            addSeries(index, data, 1, data.min()!!, data.max()!!)
-                        }
-            }
+            val dataset = histogramDataset(variationalSeriesDividedByClasses)
             dataset.type = HistogramType.FREQUENCY
             val plotTitle = "Гистограмма ряда, разбитого на классы"
             val xaxis = "x"
@@ -82,26 +77,13 @@ class Chart(title: String) : ApplicationFrame(title) {
 
             val renderer1 = XYBarRenderer(0.0);
 
-            val histoDataSet = HistogramDataset().apply {
-                variationalSeriesDividedByClasses.variationalSeriesDividedByClasses
-                        .filter { it.rows.isNotEmpty() }
-                        .forEachIndexed { index, variationalClass ->
-                            val data = variationalClass.rows.map { it.result }.toDoubleArray()
-                            addSeries(index, data, 1, data.min()!!, data.max()!!)
-                        }
-            }
+            val histoDataSet = histogramDataset(variationalSeriesDividedByClasses)
 
             val plot = XYPlot(histoDataSet, xAxis, yAxis, renderer1);
             val renderer2 = XYSplineRenderer()
 
             val overlayDataSet = XYSeriesCollection().apply {
                 addSeries(XYSeries("Функция плотности").apply {
-                    //                    variationalSeriesDividedByClasses.variationalSeriesDividedByClasses
-//                            .map {
-//                                val rangeCenter = it.range.endInclusive.plus(it.range.start) / 2.0
-//                                val heightOfRange = it.frequency.toDouble()
-//                                Point2D(rangeCenter, heightOfRange)
-//                            }
                     coordinates.forEach { point -> add(point.x, point.y) }
                 })
             }
@@ -122,18 +104,8 @@ class Chart(title: String) : ApplicationFrame(title) {
             return histogram
         }
 
-
         fun empericalDistributionFunctionSeriesByClasses(variationalSeriesDividedByClasses: VariationalSeries.VariationalSeriesDividedByClasses): Chart {
-            val dataset = DefaultCategoryDataset().apply {
-                variationalSeriesDividedByClasses.variationalSeriesDividedByClasses
-                        .sortedBy { it.empiricalDistributionFunction }
-                        .forEachIndexed({ index, `class` ->
-                            val roundedRelativeFrequency = `class`.empiricalDistributionFunction.toPreciseFloatingPoints(Main.preciseFloatingPoints)
-                            addValue(`class`.empiricalDistributionFunction,
-                                    "$index: $roundedRelativeFrequency",
-                                    index)
-                        })
-            }
+            val dataset = empricalDistributionDataset(variationalSeriesDividedByClasses)
 
 
             val categoryAxis = CategoryAxis("класс")
@@ -169,6 +141,132 @@ class Chart(title: String) : ApplicationFrame(title) {
             return barChart
         }
 
+        private fun empricalDistributionDataset(variationalSeriesDividedByClasses: VariationalSeries.VariationalSeriesDividedByClasses): DefaultCategoryDataset {
+            return DefaultCategoryDataset().apply {
+                variationalSeriesDividedByClasses.variationalSeriesDividedByClasses
+                        .sortedBy { it.empiricalDistributionFunction }
+                        .forEachIndexed({ index, `class` ->
+                            val roundedRelativeFrequency = `class`.empiricalDistributionFunction.toPreciseFloatingPoints(Main.preciseFloatingPoints)
+                            addValue(`class`.empiricalDistributionFunction,
+                                    "$index: $roundedRelativeFrequency",
+                                    "$index")
+                        })
+            }
+        }
+
+        fun empericalDistributionFunctionSeriesByClassesWithDistributionFunction(variationalSeriesDividedByClasses: VariationalSeries.VariationalSeriesDividedByClasses,
+                                                                                 coordinates: List<Point2D>): Chart {
+            val categoryAxis = NumberAxis("класс")
+            categoryAxis.setLowerMargin(0.0)
+            categoryAxis.setUpperMargin(.01)
+
+            val valueAxis = NumberAxis("F(класс)")
+
+            val renderer1 = XYSplineRenderer();
+
+            val step = (variationalSeriesDividedByClasses.variationalSeriesDividedByClasses.maxBy { it.range.endInclusive }!!.range.endInclusive
+                    / variationalSeriesDividedByClasses.variationalSeriesDividedByClasses.size.toDouble())
+            val histoDataSet = XYSeriesCollection().apply {
+                variationalSeriesDividedByClasses.variationalSeriesDividedByClasses.forEachIndexed { index, variationalClass ->
+                    addSeries(XYSeries(variationalClass.range).apply {
+                        val y = variationalClass.empiricalDistributionFunction
+                        add(step * index, y)
+                        add(step * (index + 1), y)
+                    })
+                }
+
+//                addSeries(XYSeries(0).apply {
+//                    val y = variationalSeriesDividedByClasses.variationalSeriesDividedByClasses[0].empiricalDistributionFunction
+//                    add(2, y)
+//                    add(3, y)
+//                })
+//                addSeries(XYSeries(1).apply {
+//                    val y = variationalSeriesDividedByClasses.variationalSeriesDividedByClasses[1].empiricalDistributionFunction
+//                    add(3, y)
+//                    add(4, y)
+//                })
+            }
+
+            val plot = XYPlot(histoDataSet, categoryAxis, valueAxis, renderer1);
+            val renderer2 = XYLineAndShapeRenderer()
+
+            val overlayDataSet = XYSeriesCollection().apply {
+                addSeries(XYSeries("Функция распределения").apply {
+                    coordinates.forEach { point -> add(point.x, point.y) }
+                })
+            }
+            plot.setDataset(1, overlayDataSet);
+            plot.setRenderer(1, renderer2);
+
+            plot.datasetRenderingOrder = DatasetRenderingOrder.FORWARD
+
+            val plotTitle = "Гистограмма ряда, разбитого на классы с функцией плотности"
+            val chart = JFreeChart(plotTitle,
+                    JFreeChart.DEFAULT_TITLE_FONT, plot, true);
+            val chartPanel = ChartPanel(chart, false)
+            chartPanel.fillZoomRectangle = true
+            chartPanel.isMouseWheelEnabled = true
+            chartPanel.preferredSize = Dimension(500, 270)
+            val histogram = Chart(plotTitle)
+            histogram.contentPane = chartPanel
+            return histogram
+        }
+
+
+//        fun empericalDistributionFunctionSeriesByClassesWithDistributionFunction(variationalSeriesDividedByClasses: VariationalSeries.VariationalSeriesDividedByClasses,
+//                                                                                 coordinates: List<Point2D>): Chart {
+//            val dataset = empricalDistributionDataset(variationalSeriesDividedByClasses)
+//
+//
+//            val categoryAxis = CategoryAxis("класс")
+//            categoryAxis.setLowerMargin(0.0)
+//            categoryAxis.setCategoryMargin(.01)
+//            categoryAxis.setUpperMargin(.01)
+//            categoryAxis.setCategoryLabelPositions(CategoryLabelPositions.UP_90)
+//
+//            val valueAxis = NumberAxis("F(класс)")
+//
+//            val renderer = StackedBarRenderer()
+//            renderer.itemMargin = 0.1
+//            renderer.barPainter = StandardBarPainter()
+//            renderer.isDrawBarOutline = false
+//            renderer.setShadowVisible(false)
+//
+//            val plot = CategoryPlot(dataset,
+//                    categoryAxis,
+//                    valueAxis,
+//                    renderer)
+//
+//            plot.orientation = PlotOrientation.VERTICAL
+//            val renderer2 = LineAndShapeRenderer()
+//
+////            val overlayDataSet = XYSeriesCollection().apply {
+////                addSeries(XYSeries("Функция плотности").apply {
+////                    coordinates.forEach { point -> add(point.x, point.y) }
+////                })
+////            }
+//            val overlayDataSet = DefaultCategoryDataset().apply {
+//                addValue(0, "T1", "2")
+//                addValue(1, "T1", "3")
+//            }
+//            plot.setDataset(1, overlayDataSet);
+//            plot.setRenderer(1, renderer2);
+//
+//            plot.datasetRenderingOrder = DatasetRenderingOrder.FORWARD
+//
+//            val plotTitle = "Гистограмма ряда, разбитого на классы с функцией плотности"
+//            val chart = JFreeChart(plotTitle,
+//                    JFreeChart.DEFAULT_TITLE_FONT, plot, true);
+//            val chartPanel = ChartPanel(chart, false)
+//            chartPanel.fillZoomRectangle = true
+//            chartPanel.isMouseWheelEnabled = true
+//            chartPanel.preferredSize = Dimension(500, 270)
+//            val histogram = Chart(plotTitle)
+//            histogram.contentPane = chartPanel
+//            return histogram
+//        }
+
+
         fun probabilityPaper(coordinates: List<Point2D>): Chart {
 
             val dataset = XYSeriesCollection().apply {
@@ -193,7 +291,6 @@ class Chart(title: String) : ApplicationFrame(title) {
 
             return xyChart
         }
-
 
         fun empericalDistributionFunctionVariationSeries(variationalSeries: VariationalSeries): Chart {
             val dataset = DefaultCategoryDataset().apply {
@@ -237,6 +334,18 @@ class Chart(title: String) : ApplicationFrame(title) {
             barChart.contentPane = chartPanel
             return barChart
 
+        }
+
+
+        private fun histogramDataset(variationalSeriesDividedByClasses: VariationalSeries.VariationalSeriesDividedByClasses): HistogramDataset {
+            return HistogramDataset().apply {
+                variationalSeriesDividedByClasses.variationalSeriesDividedByClasses
+                        .filter { it.rows.isNotEmpty() }
+                        .forEachIndexed { index, variationalClass ->
+                            val data = variationalClass.rows.map { it.result }.toDoubleArray()
+                            addSeries(index + 1, data, 1, variationalClass.range.start, variationalClass.range.endInclusive)
+                        }
+            }
         }
 
     }

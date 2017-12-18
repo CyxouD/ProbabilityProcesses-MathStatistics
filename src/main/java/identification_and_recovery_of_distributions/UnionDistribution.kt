@@ -3,6 +3,7 @@ package identification_and_recovery_of_distributions
 import javafx.geometry.Point2D
 import primary_statistical_analysis.VariationalSeries
 import primary_statistical_analysis.square
+import java.awt.Point
 
 /**
  * Created by Cyxou on 12/11/17.
@@ -16,12 +17,22 @@ class UnionDistribution {
         return listOf(Point2D(a, yCoordinate), Point2D(b, yCoordinate))
     }
 
-    fun coordinates(variationalSeries: VariationalSeries, classWidth: Double) = coordinates(
+    private fun coordinates2(a: Double, b: Double): List<Point2D> {
+        return listOf(Point2D(a, 0.0), Point2D(a, 0.0))
+    }
+
+    fun normalizedDensityFunctionCoordinates(variationalSeries: VariationalSeries, classWidth: Double) = coordinates(
             ocenkaA(variationalSeries),
             ocenkaB(variationalSeries),
             classWidth,
             variationalSeries.orderedSample.size
     )
+
+    fun distributionFunctionCoordinates(variationalSeries: VariationalSeries, classesN: Int)
+            = listOf(Point2D(0.0, 0.0),
+            Point2D(ocenkaA(variationalSeries), 0.0),
+            Point2D(ocenkaB(variationalSeries), 1.0),
+            Point2D(ocenkaB(variationalSeries) + Math.abs(ocenkaA(variationalSeries)), 1.0))
 
     //    fun M1(variationalSeries: VariationalSeries) = variationalSeries.Average().unBiasedValue()
 //    fun M2(variationalSeries: VariationalSeries) = variationalSeries.variationalSeriesRows.map { it.result }.let { results ->
