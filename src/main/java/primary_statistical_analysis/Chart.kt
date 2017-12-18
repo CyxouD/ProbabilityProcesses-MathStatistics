@@ -172,7 +172,7 @@ class Chart(title: String) : ApplicationFrame(title) {
 
             plot.datasetRenderingOrder = DatasetRenderingOrder.FORWARD
 
-            val plotTitle = "Эмперическая функция ряда, разбитого на классы с функцией плотности"
+            val plotTitle = "Эмперическая функция ряда, разбитого на классы с функцией распределения"
             val chart = JFreeChart(plotTitle,
                     JFreeChart.DEFAULT_TITLE_FONT, plot, true);
             val chartPanel = ChartPanel(chart, false)
