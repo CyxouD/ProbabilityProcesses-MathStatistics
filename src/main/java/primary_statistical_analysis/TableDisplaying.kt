@@ -123,7 +123,7 @@ class TableDisplaying : JPanel() {
                                       variationalSeriesDividedByClasses: VariationalSeries.VariationalSeriesDividedByClasses,
                                       distribution: UnionDistribution): TableDisplaying {
             val columnNames = arrayOf("Статистическое X^2", "Критическое X^2", "Висновок")
-            val poisson = СomplianceСriteria.poisson(variationalSeries,
+            val poisson = СomplianceСriteria.pirson(variationalSeries,
                     variationalSeriesDividedByClasses,
                     variationalSeries.N.toInt(),
                     distribution)

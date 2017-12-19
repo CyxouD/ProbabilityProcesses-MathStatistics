@@ -64,32 +64,8 @@ private fun processInput(sc: Scanner, lastVariationalSeries: VariationalSeries, 
             variationalSeries.excludeAbnormalValues(excVariable)
         }
     }
+    val dividedAtClasses = displayEverything(variationalSeries, enteredClassNumber)
 
-//    println(variationalSeries)
-    TableDisplaying.variationSeries(variationalSeries).createAndShowGUI()
-    TableDisplaying.samplingCharacteristics(variationalSeries).createAndShowGUI()
-    Chart.empiricalDistributionFunctionVariationSeries(variationalSeries).createAndShowGUI()
-    val dividedAtClasses = if (enteredClassNumber != null) {
-        variationalSeries.divideAtClasses(enteredClassNumber)
-    } else {
-        variationalSeries.divideAtClasses()
-    }
-//    println(dividedAtClasses)
-    TableDisplaying.variationSeriesByClasses(dividedAtClasses).createAndShowGUI()
-    Chart.histogramVariationSeriesByClasses(dividedAtClasses).createAndShowGUI()
-    Chart.empiricalDistributionFunctionSeriesByClasses(dividedAtClasses).createAndShowGUI()
-    val probabilityPaper = ProbabilityPaper(variationalSeries)
-    probabilityPaper.identifyUnionDistribution()
-    TableDisplaying.ocenkiParametrov(variationalSeries, UnionDistribution()).createAndShowGUI()
-    Chart.histogramVariationSeriesByClassesWithDensityFunction(dividedAtClasses,
-            UnionDistribution().normalizedDensityFunctionCoordinates(variationalSeries, dividedAtClasses.classWidth)
-    ).createAndShowGUI()
-    Chart.empiricalDistributionFunctionVariationalSeriesWithDistributionFunction(variationalSeries,
-            UnionDistribution().distributionFunctionCoordinates(variationalSeries, dividedAtClasses.variationalSeriesDividedByClasses.size),
-            UnionDistribution().confidenceIntervalOcenkaA(variationalSeries),
-            UnionDistribution().confidenceIntervalOcenkaB(variationalSeries)
-    ).createAndShowGUI()
-    TableDisplaying.poissonComplianceCriteria(variationalSeries, dividedAtClasses, UnionDistribution()).createAndShowGUI()
 
 
     println("Divided at ${enteredClassNumber?.let { it } ?: dividedAtClasses.variationalSeriesDividedByClasses.size} classes")
@@ -104,18 +80,49 @@ private fun processInput(sc: Scanner, lastVariationalSeries: VariationalSeries, 
             'n' -> {
                 false
             }
-            else -> {
-                false
-            }
+            else -> null
         }
-        if (exclude) {
-            variationalSeriesStack.add(variationalSeries)
-        } else {
-            println("No values excluded")
+        if (exclude != null) {
+            if (exclude) {
+                println("Values excluded")
+                variationalSeriesStack.add(variationalSeries)
+            } else {
+                println("No values excluded")
+                displayEverything(lastVariationalSeries, enteredClassNumber)
+            }
         }
     } else {
         println("No values excluded")
     }
+}
+
+private fun displayEverything(variationalSeries: VariationalSeries, enteredClassNumber: Int?): VariationalSeries.VariationalSeriesDividedByClasses {
+    //    println(variationalSeries)
+    TableDisplaying.variationSeries(variationalSeries).createAndShowGUI()
+//    TableDisplaying.samplingCharacteristics(variationalSeries).createAndShowGUI()
+//    Chart.empiricalDistributionFunctionVariationSeries(variationalSeries).createAndShowGUI()
+    val dividedAtClasses = if (enteredClassNumber != null) {
+        variationalSeries.divideAtClasses(enteredClassNumber)
+    } else {
+        variationalSeries.divideAtClasses()
+    }
+//    println(dividedAtClasses)
+    TableDisplaying.variationSeriesByClasses(dividedAtClasses).createAndShowGUI()
+//    Chart.histogramVariationSeriesByClasses(dividedAtClasses).createAndShowGUI()
+//    Chart.empiricalDistributionFunctionSeriesByClasses(dividedAtClasses).createAndShowGUI()
+//    val probabilityPaper = ProbabilityPaper(variationalSeries)
+//    probabilityPaper.identifyUnionDistribution()
+//    TableDisplaying.ocenkiParametrov(variationalSeries, UnionDistribution()).createAndShowGUI()
+    Chart.histogramVariationSeriesByClassesWithDensityFunction(dividedAtClasses,
+            UnionDistribution().normalizedDensityFunctionCoordinates(variationalSeries, dividedAtClasses.classWidth)
+    ).createAndShowGUI()
+//    Chart.empiricalDistributionFunctionVariationalSeriesWithDistributionFunction(variationalSeries,
+//            UnionDistribution().distributionFunctionCoordinates(variationalSeries, dividedAtClasses.variationalSeriesDividedByClasses.size),
+//            UnionDistribution().confidenceIntervalOcenkaA(variationalSeries),
+//            UnionDistribution().confidenceIntervalOcenkaB(variationalSeries)
+//    ).createAndShowGUI()
+    TableDisplaying.poissonComplianceCriteria(variationalSeries, dividedAtClasses, UnionDistribution()).createAndShowGUI()
+    return dividedAtClasses
 }
 
 class Main {

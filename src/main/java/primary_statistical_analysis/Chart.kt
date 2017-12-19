@@ -24,8 +24,6 @@ import org.jfree.chart.renderer.category.StandardBarPainter
 import org.jfree.chart.renderer.category.BarRenderer
 
 
-
-
 fun main(args: Array<String>) {
     val demo = Chart("JFreeChart: BarChartDemo1.java")
     demo.pack()
