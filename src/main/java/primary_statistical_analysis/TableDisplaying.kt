@@ -7,6 +7,7 @@ package primary_statistical_analysis
 import identification_and_recovery_of_distributions.UnionDistribution
 import identification_and_recovery_of_distributions.СomplianceСriteria
 import primary_statistical_analysis.Main.Companion.preciseFloatingPoints
+import primary_statistical_analysis.sample_characteristics.*
 import javax.swing.JFrame
 import javax.swing.JPanel
 import javax.swing.JScrollPane
@@ -34,58 +35,29 @@ class TableDisplaying : JPanel() {
             return addTable(tableRows, columnNames)
         }
 
-        fun samplingCharacteristics(variationalSeries: VariationalSeries): TableDisplaying {
+        fun samplingCharacteristics(variationalSeries: VariationalSeries,
+                                    sampleCharacteristicsToShow: List<SampleCharacteristic>
+                                    = listOf(Average(variationalSeries.orderedSample),
+                                            Median(variationalSeries.orderedSample),
+                                            StandartDeviation(variationalSeries.orderedSample),
+                                            Skewness(variationalSeries.orderedSample),
+                                            Kurtosis(variationalSeries.orderedSample),
+                                            AntiKurtosis(variationalSeries.orderedSample),
+                                            CV(variationalSeries.orderedSample)))
+                : TableDisplaying {
             val columnNames = arrayOf("", "Значення", "Середньоквадратичне відхилення", "95% Довірчий інтервал")
 
             val tableRows = arrayOf(
-                    with(variationalSeries.Average()) {
-                        arrayOf("Середнє арифметичне",
-                                unBiasedValue()?.toPreciseFloatingPoints(preciseFloatingPoints)?.toDouble() ?: VALUE_NOT_EXIST,
-                                standartDeviation()?.toPreciseFloatingPoints(preciseFloatingPoints) ?: VALUE_NOT_EXIST,
-                                confidenceInterval() ?: VALUE_NOT_EXIST
-                        )
-                    },
-                    arrayOf("Медіана",
-                            variationalSeries.median()?.toPreciseFloatingPoints(preciseFloatingPoints)?.toDouble() ?: VALUE_NOT_EXIST,
-                            VALUE_NOT_EXIST,
-                            VALUE_NOT_EXIST),
-                    with(variationalSeries.StandartDeviation()) {
-                        arrayOf("Середньоквадратичне відхилення",
-                                unBiasedValue()?.toPreciseFloatingPoints(preciseFloatingPoints)?.toDouble() ?: VALUE_NOT_EXIST,
-                                standartDeviation()?.toPreciseFloatingPoints(preciseFloatingPoints) ?: VALUE_NOT_EXIST,
-                                confidenceInterval() ?: VALUE_NOT_EXIST
-
-                        )
-                    },
-                    with(variationalSeries.Skewness()) {
-                        arrayOf("Коефіцієнт асиметрії",
-                                unBiasedValue()?.toPreciseFloatingPoints(preciseFloatingPoints)?.toDouble() ?: VALUE_NOT_EXIST,
-                                standartDeviation()?.toPreciseFloatingPoints(preciseFloatingPoints) ?: VALUE_NOT_EXIST,
-                                confidenceInterval() ?: VALUE_NOT_EXIST
-                        )
-                    },
-                    with(variationalSeries.Kurtosis()) {
-                        arrayOf("Коефіцієнт ексцесу",
-                                unBiasedValue()?.toPreciseFloatingPoints(preciseFloatingPoints)?.toDouble() ?: VALUE_NOT_EXIST,
-                                standartDeviation()?.toPreciseFloatingPoints(preciseFloatingPoints) ?: VALUE_NOT_EXIST,
-                                confidenceInterval() ?: VALUE_NOT_EXIST
-                        )
-                    },
-                    with(variationalSeries.AntiKurtosis()) {
-                        arrayOf("Коефіцієнт контрексцесу",
-                                unBiasedValue()?.toPreciseFloatingPoints(preciseFloatingPoints)?.toDouble() ?: VALUE_NOT_EXIST,
-                                standartDeviation()?.toPreciseFloatingPoints(preciseFloatingPoints) ?: VALUE_NOT_EXIST,
-                                confidenceInterval() ?: VALUE_NOT_EXIST
-                        )
-                    },
-                    with(variationalSeries.CV()) {
-                        arrayOf("Коефіцієнт варіації",
-                                biasedValue()?.toPreciseFloatingPoints(preciseFloatingPoints)?.toDouble() ?: VALUE_NOT_EXIST,
-                                standartDeviation()?.toPreciseFloatingPoints(preciseFloatingPoints) ?: VALUE_NOT_EXIST,
-                                confidenceInterval() ?: VALUE_NOT_EXIST
-
-                        )
+                    *(sampleCharacteristicsToShow.map { sampleCharacteristic ->
+                        with(sampleCharacteristic) {
+                            arrayOf(sampleCharacteristic.name(),
+                                    unBiasedValue()?.toPreciseFloatingPoints(preciseFloatingPoints)?.toDouble() ?: VALUE_NOT_EXIST,
+                                    standartDeviation()?.toPreciseFloatingPoints(preciseFloatingPoints) ?: VALUE_NOT_EXIST,
+                                    confidenceInterval() ?: VALUE_NOT_EXIST
+                            )
+                        }
                     }
+                            ).toTypedArray()
             ).map { it.map { it.toString() }.toTypedArray() }.toTypedArray()
             return addTable(tableRows, columnNames)
         }
@@ -155,9 +127,9 @@ class TableDisplaying : JPanel() {
      * this method should be invoked from the
      * event-dispatching thread.
      */
-    fun createAndShowGUI() {
+    fun createAndShowGUI(jframeTitle: String = "TableDisplaying") {
         //Create and set up the window.
-        val frame = JFrame("TableDisplaying")
+        val frame = JFrame(jframeTitle)
         frame.defaultCloseOperation = JFrame.EXIT_ON_CLOSE
 
         isOpaque = true //content panes must be opaque

@@ -1,9 +1,10 @@
 package identification_and_recovery_of_distributions
 
 import javafx.geometry.Point2D
+import primary_statistical_analysis.sample_characteristics.Average
+import primary_statistical_analysis.sample_characteristics.StandartDeviation
 import primary_statistical_analysis.VariationalSeries
 import primary_statistical_analysis.square
-import java.awt.Point
 
 /**
  * Created by Cyxou on 12/11/17.
@@ -53,11 +54,11 @@ class UnionDistribution {
                     confidenceIntervalOcenkaB(variationalSeries))
     )
 
-    fun ocenkaA(variationalSeries: VariationalSeries) = variationalSeries.Average().unBiasedValue()!! -
-            Math.sqrt(3.0) * variationalSeries.StandartDeviation().unBiasedValue()!!
+    fun ocenkaA(variationalSeries: VariationalSeries) = Average(variationalSeries.orderedSample).unBiasedValue()!! -
+            Math.sqrt(3.0) * StandartDeviation(variationalSeries.orderedSample).unBiasedValue()!!
 
-    fun ocenkaB(variationalSeries: VariationalSeries) = variationalSeries.Average().unBiasedValue()!! +
-            Math.sqrt(3.0) * variationalSeries.StandartDeviation().unBiasedValue()!!
+    fun ocenkaB(variationalSeries: VariationalSeries) = Average(variationalSeries.orderedSample).unBiasedValue()!! +
+            Math.sqrt(3.0) * StandartDeviation(variationalSeries.orderedSample).unBiasedValue()!!
 
 
     fun confidenceIntervalOcenkaA(variationalSeries: VariationalSeries): VariationalSeries.DoubleRange {

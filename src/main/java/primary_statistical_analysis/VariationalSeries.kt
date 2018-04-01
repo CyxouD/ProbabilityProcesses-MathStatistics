@@ -1,6 +1,7 @@
 package primary_statistical_analysis
 
 import primary_statistical_analysis.Main.Companion.preciseFloatingPoints
+import primary_statistical_analysis.sample_characteristics.Median
 
 /**
  * Created by Cyxou on 12/2/17.
@@ -24,9 +25,9 @@ class VariationalSeries(val unorderedSample: List<Double>) {
         1 -> ExcludeResult(listOf(), VariationalSeries(listOf(orderedSample.single())))
         else -> {
             //first quartile
-            val Q1 = findMedian(orderedSample.toList().dropLast(N.toInt() / 2))
+            val Q1 = Median.findMedian(orderedSample.toList().dropLast(N.toInt() / 2))
             //third quartile
-            val Q3 = findMedian(orderedSample.drop(N.toInt() / 2))
+            val Q3 = Median.findMedian(orderedSample.drop(N.toInt() / 2))
             val a = Q1 - k * (Q3 - Q1)
             val b = Q3 + k * (Q3 - Q1)
             val notExcludedSamples = unorderedSample.filter { it in a..b }
@@ -46,180 +47,8 @@ class VariationalSeries(val unorderedSample: List<Double>) {
                     .sum()
 
 
-    fun median() = orderedSample.let { results ->
-        if (N != 0.0) {
-            findMedian(results)
-        } else {
-            null
-        }
-    }
-
     fun rootMeanSquare() = variationalSeriesRows.map { it.result }.let { results ->
         Math.sqrt(results.map { it.square() }.sum().div(results.size))
-    }
-
-    inner class Variance : SampleCharacteristic() {
-        override fun biasedValue() = orderedSample.let { results ->
-            when (N) {
-                0.0 -> null
-                1.0 -> 0.0
-                else -> deviationSum(results).div(results.size)
-            }
-        }
-
-        override fun unBiasedValue() = orderedSample.let { results ->
-            when (N) {
-                0.0 -> null
-                1.0 -> 0.0
-                else -> deviationSum(results).div(results.size.dec())
-            }
-        }
-
-        override fun standartDeviation() = unBiasedValue()!!.div(Math.sqrt(2 * N)).square()
-
-
-        private fun deviationSum(results: List<Double>) = results.map { result -> (result - Average().unBiasedValue()!!).square() }.sum()
-    }
-
-    inner class Average : SampleCharacteristic() {
-        override fun biasedValue() = if (N != 0.0) {
-            orderedSample.average()
-        } else null
-
-
-        override fun unBiasedValue() = biasedValue()
-
-        override fun standartDeviation() = if (N != 0.0) {
-            StandartDeviation().unBiasedValue()!! / Math.sqrt(N)
-        } else {
-            null
-        }
-
-    }
-
-    inner class Skewness : SampleCharacteristic() {
-        override fun biasedValue() = if (N > 1.0) {
-            orderedSample.let { results ->
-                results.map { result ->
-                    Math.pow(result - Average().unBiasedValue()!!, 3.0)
-                }.sum().div(results.size * Math.pow(StandartDeviation().biasedValue()!!, 3.0))
-            }
-        } else {
-            null
-        }
-
-
-        override fun unBiasedValue() = when (N) {
-            0.0, 1.0 -> null
-            2.0 -> 0.0
-            else -> biasedValue()!! * Math.sqrt(N * N.dec()).div(N - 2)
-        }
-
-
-        override fun standartDeviation() = if (N > 1) {
-            Math.sqrt(
-                    6 * (N - 2) / N.inc() / (N + 3)
-            )
-        } else {
-            null
-        }
-
-    }
-
-    inner class Kurtosis : SampleCharacteristic() {
-        override fun biasedValue() = if (N > 1.0) {
-            orderedSample.let { results ->
-                results.map { result ->
-                    Math.pow(result - Average().unBiasedValue()!!, 4.0)
-                }.sum().div(results.size * Math.pow(StandartDeviation().biasedValue()!!, 4.0))
-            }
-        } else {
-            null
-        }
-
-
-        override fun unBiasedValue() = if (N > 3) {
-            N.square().dec().div((N - 2) * (N - 3)) * ((biasedValue()!! - 3) + (6 / N.inc()))
-        } else {
-            null
-        }
-
-        override fun standartDeviation() = if (N > 3) {
-            Math.sqrt(24.div(N) * (1 - (225 / (15 * N + 124))))
-        } else {
-            null
-        }
-
-    }
-
-    inner class AntiKurtosis : SampleCharacteristic() {
-        override fun biasedValue() = if (N > 1) {
-            1.div(Math.sqrt(Math.abs(Kurtosis().biasedValue()!!)))
-        } else {
-            null
-        }
-
-
-        override fun unBiasedValue() = biasedValue()
-
-        override fun standartDeviation() = if (N > 1) {
-            Math.sqrt(Kurtosis().biasedValue()!!.div(29 * N)) *
-                    Math.pow(Math.pow(Math.abs(Kurtosis().biasedValue()!!.square().dec()), 3.0), 1 / 4.0)
-        } else {
-            null
-        }
-
-    }
-
-    inner class StandartDeviation : SampleCharacteristic() {
-        override fun biasedValue() = if (N != 0.0) {
-            Math.sqrt(Variance().biasedValue()!!)
-        } else {
-            null
-        }
-
-        override fun unBiasedValue() = if (N != 0.0) {
-            Math.sqrt(Variance().unBiasedValue()!!)
-        } else {
-            null
-        }
-
-        override fun standartDeviation() = if (N != 0.0) {
-            unBiasedValue()!!.div(Math.sqrt(2 * N))
-        } else {
-            null
-        }
-
-    }
-
-    inner class CV : SampleCharacteristic() {
-        override fun biasedValue() =
-                if (N != 0.0) {
-                    StandartDeviation().unBiasedValue()!! / Average().unBiasedValue()!!
-                } else {
-                    null
-                }
-
-        override fun unBiasedValue() = biasedValue()
-
-        override fun standartDeviation() =
-                if (N != 0.0) {
-                    unBiasedValue()!! * Math.sqrt((2 * unBiasedValue()!!.square() + 1).div(2 * N))
-                } else {
-                    null
-                }
-
-    }
-
-    abstract class SampleCharacteristic {
-        abstract fun biasedValue(): Double?
-        abstract fun unBiasedValue(): Double?
-        abstract fun standartDeviation(): Double?
-        fun confidenceInterval() = unBiasedValue()?.let { value ->
-            val difference = 1.96 * standartDeviation()!!
-            DoubleRange(value - difference, value + difference)
-        }
-
     }
 
     fun divideAtClasses(classNumber: Int): VariationalSeriesDividedByClasses {
@@ -262,13 +91,6 @@ class VariationalSeries(val unorderedSample: List<Double>) {
     private fun divideAtClasses(classWidth: Double, ranges: List<DoubleRange>)
             = VariationalSeriesDividedByClasses(classWidth, ranges)
 
-    private fun findMedian(results: List<Double>): Double {
-        return if (results.size % 2 == 0) {
-            results[results.size / 2].plus(results[(results.size / 2).dec()]).div(2)
-        } else {
-            results[results.size / 2]
-        }
-    }
 
     inner class VariationalSeriesDividedByClasses(val classWidth: Double, ranges: List<DoubleRange>) {
         val variationalSeriesDividedByClasses: List<VariationalClass>
