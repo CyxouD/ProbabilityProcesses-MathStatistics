@@ -1,5 +1,6 @@
 package correlation_analysis
 
+import javafx.geometry.Point2D
 import primary_statistical_analysis.*
 import primary_statistical_analysis.sample_characteristics.Average
 import primary_statistical_analysis.sample_characteristics.Kurtosis
@@ -13,7 +14,7 @@ import java.util.regex.Pattern
  */
 fun main(args: Array<String>) {
     val file = File(args.toList()[0])
-    val input = file.readLines().map { it.split(Pattern.compile("\\s\\s")) }
+    val input = file.readLines().map { it.split(Pattern.compile("\\s+")) }
             .map { it.filter { !it.isBlank() } }
             .map { it.map { it.replace(",", ".").toDouble() } }.toTypedArray()
     Chart("Кор").correlationField(input).createAndShowGUI()
@@ -30,4 +31,10 @@ fun main(args: Array<String>) {
             Kurtosis(yVariationalSeries.orderedSample))
 
     TableDisplaying.samplingCharacteristics(yVariationalSeries, ySampleCharacteristicsToShow).createAndShowGUI("Y ознака")
+
+
+    val pirsonRCorrelationCoefficient = PirsonRCorrelationCoefficient(input)
+    println("r = ${pirsonRCorrelationCoefficient.coefficient()}")
+    println("statistics = ${pirsonRCorrelationCoefficient.statistics()}")
+    println("significance = ${pirsonRCorrelationCoefficient.significance(0.95)}")
 }

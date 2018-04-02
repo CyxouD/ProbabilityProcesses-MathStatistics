@@ -2,193 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ff210ac-b392-496c-839d-183fa470f4c5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/META-INF/ProbProc&amp;mathStatistics&amp;EmpericalMethods.kotlin_module" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/correlation_analysis/Chart.kt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/correlation_analysis/Main.kt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/sample_characteristics/AntiKurtosis.kt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/sample_characteristics/Average.kt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/sample_characteristics/CV.kt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/sample_characteristics/Kurtosis.kt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/sample_characteristics/Median.kt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/sample_characteristics/SampleCharacteristic.kt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/sample_characteristics/Skewness.kt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/sample_characteristics/StandartDeviation.kt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/sample_characteristics/Variance.kt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/01_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/01_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/01_3 (100).txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/01_3.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/01_4.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/02_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/02_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/03_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/03_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/04_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/04_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/05_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/05_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/06_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/06_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/07_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/07_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/08_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/08_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/09_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/09_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/10_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/10_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/11_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/11_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/12_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/12_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/13_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/13_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/14_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/14_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/15_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/15_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/16_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/16_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/17_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/17_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/18_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/18_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/19_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/19_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/20_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/20_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/21_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/21_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/22_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/22_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/23_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/23_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/24_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/24_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/25_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/25_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/26_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/26_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/27_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/27_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/28_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/28_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/29_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/29_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/30_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/30_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/anomal1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/anomal2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/lin-0.4.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/lin-0.7.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/lin-0.9.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/lin0.4.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/lin0.7.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/lin0.9.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/lin1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/no1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/no2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/no3.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/no4.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/no5.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/period1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/period2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/period3.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/x3_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/x3_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/x3_3.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/x3_4.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/01_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/01_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/01_3 (100).txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/01_3.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/01_4.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/02_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/02_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/03_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/03_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/04_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/04_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/05_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/05_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/06_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/06_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/07_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/07_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/08_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/08_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/09_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/09_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/10_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/10_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/11_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/11_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/12_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/12_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/13_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/13_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/14_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/14_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/15_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/15_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/16_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/16_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/17_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/17_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/18_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/18_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/19_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/19_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/20_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/20_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/21_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/21_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/22_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/22_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/23_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/23_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/24_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/24_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/25_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/25_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/26_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/26_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/27_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/27_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/28_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/28_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/29_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/29_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/30_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/30_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/anomal1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/anomal2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/lin-0.4.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/lin-0.7.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/lin-0.9.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/lin0.4.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/lin0.7.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/lin0.9.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/lin1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/no1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/no2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/no3.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/no4.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/no5.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/period1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/period2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/period3.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/x3_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/x3_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/x3_3.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/emperical_methods/x3_4.txt" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/META-INF/ProbProcMathStatistics.kotlin_module" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ProbProc&amp;mathStatistics.iml" afterPath="$PROJECT_DIR$/ProbProc&amp;mathStatistics&amp;EmpericalMethods.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/correlation_analysis/CorrelationCoefficient.kt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/correlation_analysis/PirsonRCorrelationCoefficient.kt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_math3_3_6_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_math3_3_0.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/emperical_methods/01_3 (100).txt" afterPath="$PROJECT_DIR$/src/main/resources/emperical_methods/01_3_(100).txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/identification_and_recovery_of_distributions/UnionDistribution.kt" afterPath="$PROJECT_DIR$/src/main/java/identification_and_recovery_of_distributions/UnionDistribution.kt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/TableDisplaying.kt" afterPath="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/TableDisplaying.kt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/VariationalSeries.kt" afterPath="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/VariationalSeries.kt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ProbProc&amp;mathStatistics&amp;EmpericalMethods.iml" afterPath="$PROJECT_DIR$/ProbProc&amp;mathStatistics&amp;EmpericalMethods.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/correlation_analysis/Main.kt" afterPath="$PROJECT_DIR$/src/main/java/correlation_analysis/Main.kt" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -202,25 +24,34 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.kt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/primary_statistical_analysis/Main.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
+            <state relative-caret-position="1470">
               <caret line="102" column="37" lean-forward="false" selection-start-line="102" selection-start-column="37" selection-end-line="102" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VariationalSeries.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/primary_statistical_analysis/VariationalSeries.kt">
+      <file leaf-file-name="CorrelationCoefficient.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/correlation_analysis/CorrelationCoefficient.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="795">
-              <caret line="53" column="4" lean-forward="false" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="4" />
+            <state relative-caret-position="230">
+              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding>
-                <element signature="e#38#176#0" expanded="true" />
-                <element signature="n#!!block;n#VariationalClass#0;n#!!block;n#VariationalSeriesDividedByClasses#0;n#!!block;n#VariationalSeries#0" expanded="false" />
+                <element signature="e#30#266#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OutOfRangeException.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-math3/3.0/commons-math3-3.0-sources.jar!/org/apache/commons/math3/exception/OutOfRangeException.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="42">
+              <caret line="42" column="11" lean-forward="false" selection-start-line="42" selection-start-column="11" selection-end-line="42" selection-end-column="11" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -228,28 +59,30 @@
       <file leaf-file-name="TableDisplaying.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/primary_statistical_analysis/TableDisplaying.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="45" column="78" lean-forward="false" selection-start-line="45" selection-start-column="78" selection-end-line="45" selection-end-column="78" />
+            <state relative-caret-position="205">
+              <caret line="37" column="12" lean-forward="false" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="12" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SampleCharacteristic.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/primary_statistical_analysis/sample_characteristics/SampleCharacteristic.kt">
+      <file leaf-file-name="PirsonRCorrelationCoefficient.kt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/correlation_analysis/PirsonRCorrelationCoefficient.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="8" lean-forward="false" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
-              <folding />
+            <state relative-caret-position="230">
+              <caret line="34" column="63" lean-forward="false" selection-start-line="34" selection-start-column="63" selection-end-line="34" selection-end-column="63" />
+              <folding>
+                <element signature="e#30#390#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Skewness.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/primary_statistical_analysis/sample_characteristics/Skewness.kt">
+      <file leaf-file-name="AbstractRealDistribution.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-math3/3.0/commons-math3-3.0-sources.jar!/org/apache/commons/math3/distribution/AbstractRealDistribution.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="6" lean-forward="false" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+            <state relative-caret-position="137">
+              <caret line="106" column="4" lean-forward="true" selection-start-line="106" selection-start-column="4" selection-end-line="109" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -258,50 +91,40 @@
       <file leaf-file-name="Main.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/correlation_analysis/Main.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" column="92" lean-forward="false" selection-start-line="31" selection-start-column="92" selection-end-line="31" selection-end-column="92" />
+            <state relative-caret-position="275">
+              <caret line="38" column="67" lean-forward="false" selection-start-line="38" selection-start-column="67" selection-end-line="38" selection-end-column="67" />
               <folding>
-                <element signature="e#30#398#0" expanded="true" />
+                <element signature="e#30#429#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Kurtosis.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/primary_statistical_analysis/sample_characteristics/Kurtosis.kt">
+      <file leaf-file-name="01_4.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/emperical_methods/01_4.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="42" lean-forward="false" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AntiKurtosis.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/primary_statistical_analysis/sample_characteristics/AntiKurtosis.kt">
+      <file leaf-file-name="01_3.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/emperical_methods/01_3.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="33" lean-forward="false" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+            <state relative-caret-position="0">
+              <caret line="0" column="12" lean-forward="false" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StandartDeviation.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/primary_statistical_analysis/sample_characteristics/StandartDeviation.kt">
+      <file leaf-file-name="01_2.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/emperical_methods/01_2.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="18" lean-forward="false" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UnionDistribution.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/identification_and_recovery_of_distributions/UnionDistribution.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="840">
-              <caret line="60" column="47" lean-forward="false" selection-start-line="60" selection-start-column="47" selection-end-line="60" selection-end-column="47" />
+            <state relative-caret-position="255">
+              <caret line="17" column="28" lean-forward="true" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -314,6 +137,7 @@
       <list>
         <option value="Kotlin Object" />
         <option value="Kotlin File" />
+        <option value="Kotlin Interface" />
         <option value="Kotlin Class" />
       </list>
     </option>
@@ -345,6 +169,7 @@
       <find>XyPlot</find>
       <find>XYPlot</find>
       <find>Median</find>
+      <find>0.769497663	-1.491376637</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -358,10 +183,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/primary_statistical_analysis/libs/StdOut.java" />
-        <option value="$PROJECT_DIR$/src/primary_statistical_analysis/libs/StdStats.java" />
-        <option value="$PROJECT_DIR$/src/primary_statistical_analysis/Histogram.java" />
-        <option value="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/BarChartDemo1.java" />
         <option value="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/HistogramExample.java" />
         <option value="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/StatAnalysisUtils.kt" />
         <option value="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/SimpleTableDemo.java" />
@@ -372,7 +193,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/3/3.txt" />
         <option value="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/Ext.kt" />
         <option value="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/Histogram.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/Histogram.kt" />
         <option value="$PROJECT_DIR$/src/main/resources/25/exp.txt" />
         <option value="$PROJECT_DIR$/src/main/resources/25/some.txt" />
@@ -406,9 +226,14 @@
         <option value="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/sample_characteristics/Variance.kt" />
         <option value="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/TableDisplaying.kt" />
         <option value="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/sample_characteristics/Kurtosis.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/correlation_analysis/Main.kt" />
         <option value="$PROJECT_DIR$/src/main/java/identification_and_recovery_of_distributions/UnionDistribution.kt" />
         <option value="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/Main.kt" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/emperical_methods/01_2.txt" />
+        <option value="$PROJECT_DIR$/src/main/resources/emperical_methods/01_3.txt" />
+        <option value="$PROJECT_DIR$/src/main/java/correlation_analysis/CorrelationCoefficient.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/correlation_analysis/Main.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/correlation_analysis/PirsonRCorrelationCoefficient.kt" />
       </list>
     </option>
   </component>
@@ -471,8 +296,8 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -580,6 +405,92 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="primary_statistical_analysis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProbProc&amp;mathStatistics" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProbProc&amp;mathStatistics" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="primary_statistical_analysis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sample_characteristics" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProbProc&amp;mathStatistics" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProbProc&amp;mathStatistics" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="identification_and_recovery_of_distributions" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProbProc&amp;mathStatistics" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProbProc&amp;mathStatistics" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="correlation_analysis" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -927,7 +838,7 @@
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="correlation_analysis.MainKt" />
       <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="$PROJECT_DIR$/src/main/resources/emperical_methods/01_1.txt" />
+      <option name="PROGRAM_PARAMETERS" value="$PROJECT_DIR$/src/main/resources/emperical_methods/03_1.txt" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -979,6 +890,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="709" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -995,8 +907,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18828125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.49375" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18828125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1008,6 +919,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.49375" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -1041,10 +953,10 @@
           <option name="timeStamp" value="82" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/java/correlation_analysis/Main.kt</url>
-          <line>15</line>
+          <url>file://$PROJECT_DIR$/src/main/java/correlation_analysis/PirsonRCorrelationCoefficient.kt</url>
+          <line>42</line>
           <properties />
-          <option name="timeStamp" value="86" />
+          <option name="timeStamp" value="89" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/math/BigDecimal.java</url>
@@ -1053,7 +965,7 @@
           <option name="timeStamp" value="36" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="87" />
+      <option name="time" value="90" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1062,83 +974,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/200/RAVN.DAT">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="1917" lean-forward="false" selection-start-line="0" selection-start-column="1917" selection-end-line="0" selection-end-column="1917" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$KOTLIN_BUNDLED$/lib/kotlin-runtime-sources.jar!/kotlin/text/Strings.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17055">
-          <caret line="1151" column="24" lean-forward="false" selection-start-line="1151" selection-start-column="24" selection-end-line="1151" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/200/RAVN2.DAT">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/jfree/jfreechart/1.5.0/jfreechart-1.5.0.jar!/org/jfree/chart/ChartPanel.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1350">
-          <caret line="167" column="11" lean-forward="false" selection-start-line="167" selection-start-column="11" selection-end-line="167" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/primary_statistical_analysis/Ext.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="11" lean-forward="false" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/jfree/jfreechart/1.5.0/jfreechart-1.5.0.jar!/org/jfree/chart/renderer/xy/XYBarRenderer.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="82" column="11" lean-forward="false" selection-start-line="82" selection-start-column="11" selection-end-line="82" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$KOTLIN_BUNDLED$/lib/kotlin-runtime-sources.jar!/kotlin/Primitives.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="1022" column="24" lean-forward="false" selection-start-line="1022" selection-start-column="24" selection-end-line="1022" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/jetbrains/kotlin/kotlin-stdlib/1.1.51/kotlin-stdlib-1.1.51-sources.jar!/generated/_Collections.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="1283" column="0" lean-forward="false" selection-start-line="1283" selection-start-column="0" selection-end-line="1283" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/500/norm1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/jfree/jfreechart/1.5.0/jfreechart-1.5.0.jar!/org/jfree/chart/plot/XYPlot.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="680" column="16" lean-forward="false" selection-start-line="680" selection-start-column="16" selection-end-line="680" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/500/norm1_2.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="297" column="4" lean-forward="false" selection-start-line="297" selection-start-column="0" selection-end-line="297" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/jfree/jfreechart/1.5.0/jfreechart-1.5.0.jar!/org/jfree/chart/JFreeChart.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20">
@@ -1243,7 +1078,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="1" lean-forward="false" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1251,17 +1085,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="12375">
           <caret line="918" column="29" lean-forward="false" selection-start-line="918" selection-start-column="29" selection-end-line="918" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/identification_and_recovery_of_distributions/СomplianceСriteria.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="14" column="5" lean-forward="false" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-          <folding>
-            <element signature="e#54#150#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1269,10 +1092,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2055">
           <caret line="166" column="25" lean-forward="false" selection-start-line="163" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#6358#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1280,7 +1099,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="7" lean-forward="true" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1310,29 +1128,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/correlation_analysis/Chart.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="33" column="22" lean-forward="false" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
-          <folding>
-            <element signature="e#30#285#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$KOTLIN_BUNDLED$/lib/kotlin-runtime-sources.jar!/generated/_Collections.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="134">
           <caret line="824" column="43" lean-forward="false" selection-start-line="824" selection-start-column="43" selection-end-line="824" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/primary_statistical_analysis/sample_characteristics/Average.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="8" lean-forward="false" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1340,7 +1139,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="6" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1348,23 +1146,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="41" lean-forward="false" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/primary_statistical_analysis/sample_characteristics/Variance.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="110" lean-forward="false" selection-start-line="21" selection-start-column="110" selection-end-line="21" selection-end-column="110" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/primary_statistical_analysis/sample_characteristics/StandartDeviation.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="18" lean-forward="false" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1376,29 +1157,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/primary_statistical_analysis/VariationalSeries.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="53" column="4" lean-forward="false" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="4" />
-          <folding>
-            <element signature="e#38#176#0" expanded="true" />
-            <element signature="n#!!block;n#VariationalClass#0;n#!!block;n#VariationalSeriesDividedByClasses#0;n#!!block;n#VariationalSeries#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/primary_statistical_analysis/sample_characteristics/SampleCharacteristic.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="8" lean-forward="false" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/primary_statistical_analysis/TableDisplaying.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="45" column="78" lean-forward="false" selection-start-line="45" selection-start-column="78" selection-end-line="45" selection-end-column="78" />
           <folding />
         </state>
       </provider>
@@ -1419,29 +1181,183 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/correlation_analysis/Main.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="92" lean-forward="false" selection-start-line="31" selection-start-column="92" selection-end-line="31" selection-end-column="92" />
-          <folding>
-            <element signature="e#30#398#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/identification_and_recovery_of_distributions/UnionDistribution.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="840">
           <caret line="60" column="47" lean-forward="false" selection-start-line="60" selection-start-column="47" selection-end-line="60" selection-end-column="47" />
+          <folding>
+            <element signature="e#54#325#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/identification_and_recovery_of_distributions/СomplianceСriteria.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="14" column="5" lean-forward="false" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/primary_statistical_analysis/VariationalSeries.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-57">
+          <caret line="53" column="4" lean-forward="false" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="4" />
+          <folding>
+            <element signature="n#!!block;n#VariationalClass#0;n#!!block;n#VariationalSeriesDividedByClasses#0;n#!!block;n#VariationalSeries#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/primary_statistical_analysis/sample_characteristics/Variance.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="14" lean-forward="false" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/primary_statistical_analysis/sample_characteristics/Average.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="17" lean-forward="false" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/primary_statistical_analysis/sample_characteristics/StandartDeviation.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="17" lean-forward="false" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-math3/3.0/commons-math3-3.0.jar!/org/apache/commons/math3/distribution/TDistribution.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="28" column="11" lean-forward="false" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-math3/3.0/commons-math3-3.0.jar!/org/apache/commons/math3/distribution/AbstractRealDistribution.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="34" column="18" lean-forward="false" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-math3/3.0/commons-math3-3.0-sources.jar!/org/apache/commons/math3/distribution/TDistribution.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="108" column="18" lean-forward="false" selection-start-line="108" selection-start-column="18" selection-end-line="108" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="29" column="42" lean-forward="false" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/correlation_analysis/Chart.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="17" column="24" lean-forward="false" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="59" />
+          <folding>
+            <element signature="e#30#285#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/primary_statistical_analysis/TableDisplaying.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="37" column="12" lean-forward="false" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/emperical_methods/01_3.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="12" lean-forward="false" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/emperical_methods/01_2.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="28" lean-forward="true" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/primary_statistical_analysis/Main.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
+        <state relative-caret-position="1470">
           <caret line="102" column="37" lean-forward="false" selection-start-line="102" selection-start-column="37" selection-end-line="102" selection-end-column="37" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/emperical_methods/01_4.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-math3/3.0/commons-math3-3.0-sources.jar!/org/apache/commons/math3/exception/OutOfRangeException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="42" column="11" lean-forward="false" selection-start-line="42" selection-start-column="11" selection-end-line="42" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-math3/3.0/commons-math3-3.0-sources.jar!/org/apache/commons/math3/distribution/AbstractRealDistribution.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="106" column="4" lean-forward="true" selection-start-line="106" selection-start-column="4" selection-end-line="109" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/correlation_analysis/CorrelationCoefficient.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding>
+            <element signature="e#30#266#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/correlation_analysis/Main.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="38" column="67" lean-forward="false" selection-start-line="38" selection-start-column="67" selection-end-line="38" selection-end-column="67" />
+          <folding>
+            <element signature="e#30#429#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/correlation_analysis/PirsonRCorrelationCoefficient.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="34" column="63" lean-forward="false" selection-start-line="34" selection-start-column="63" selection-end-line="34" selection-end-column="63" />
+          <folding>
+            <element signature="e#30#390#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ProbProc&amp;mathStatistics" />
+        <module name="ProbProc&amp;mathStatistics&amp;EmpericalMethods" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="ProbProc&amp;mathStatistics" target="1.5" />
+      <module name="ProbProc&amp;mathStatistics&amp;EmpericalMethods" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
