@@ -1,6 +1,7 @@
 package identification_and_recovery_of_distributions
 
 import javafx.geometry.Point2D
+import primary_statistical_analysis.DoubleRange
 import primary_statistical_analysis.sample_characteristics.Average
 import primary_statistical_analysis.sample_characteristics.StandartDeviation
 import primary_statistical_analysis.VariationalSeries
@@ -61,16 +62,16 @@ class UnionDistribution {
             Math.sqrt(3.0) * StandartDeviation(variationalSeries.orderedSample).unBiasedValue()!!
 
 
-    fun confidenceIntervalOcenkaA(variationalSeries: VariationalSeries): VariationalSeries.DoubleRange {
+    fun confidenceIntervalOcenkaA(variationalSeries: VariationalSeries): DoubleRange {
         val difference = 1.96.times(Math.sqrt(variationOcenkaA(variationalSeries)))
-        return VariationalSeries.DoubleRange(
+        return DoubleRange(
                 ocenkaA(variationalSeries).minus(difference),
                 ocenkaA(variationalSeries).plus(difference))
     }
 
-    fun confidenceIntervalOcenkaB(variationalSeries: VariationalSeries): VariationalSeries.DoubleRange {
+    fun confidenceIntervalOcenkaB(variationalSeries: VariationalSeries): DoubleRange {
         val difference = 1.96.times(Math.sqrt(variationOcenkaB(variationalSeries)))
-        return VariationalSeries.DoubleRange(
+        return DoubleRange(
                 ocenkaB(variationalSeries).minus(difference),
                 ocenkaB(variationalSeries).plus(difference))
     }
@@ -106,5 +107,5 @@ class UnionDistribution {
                 +2 * firstPart * secondPart * (ocenkaA + ocenkaB) * (ocenkaB - ocenkaA).square() / (12.0 * N)
     }
 
-    data class OcenkaParametra(val param: String, val ocenka: Double, val ocenkaStandartDeviation: Double, val confidenceInterval: VariationalSeries.DoubleRange)
+    data class OcenkaParametra(val param: String, val ocenka: Double, val ocenkaStandartDeviation: Double, val confidenceInterval: DoubleRange)
 }

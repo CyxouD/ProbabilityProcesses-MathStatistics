@@ -1,22 +1,21 @@
 package correlation_analysis
 
 import javafx.geometry.Point2D
-import org.apache.commons.math3.exception.OutOfRangeException
-import primary_statistical_analysis.sample_characteristics.Average
-import primary_statistical_analysis.sample_characteristics.StandartDeviation
+import primary_statistical_analysis.DoubleRange
 
 /**
  * Created by Cyxou on 4/2/18.
  */
-interface CorrelationCoefficient {
+abstract class CorrelationCoefficient(val points: Array<Point2D>) {
     operator fun Point2D.component1() = this.x
     operator fun Point2D.component2() = this.y
 
-    val points: Array<Point2D>
+    constructor(points2d: Array<List<Double>>) : this(points2d.map { Point2D(it[0], it[1]) }.toTypedArray())
 
-    fun coefficient(): Double?
+    abstract val statistics: Double?
+    abstract val coefficient: Double?
 
-    fun statistics(): Double?
+    abstract fun coefficientConfidenceInterval(probability: Double): DoubleRange?
 
-    fun significance(probability: Double): Boolean?
+    abstract fun isSignificant(probability: Double): Boolean?
 }

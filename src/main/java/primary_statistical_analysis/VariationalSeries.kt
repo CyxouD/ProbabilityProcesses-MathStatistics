@@ -1,6 +1,5 @@
 package primary_statistical_analysis
 
-import primary_statistical_analysis.Main.Companion.preciseFloatingPoints
 import primary_statistical_analysis.sample_characteristics.Median
 
 /**
@@ -132,23 +131,6 @@ class VariationalSeries(val unorderedSample: List<Double>) {
 
 
     data class VariationalSeriesRow(val result: Double, val frequency: Int, val relativeFrequency: Double)
-
-    class DoubleRange(override val start: Double, override val endInclusive: Double) :
-            ClosedRange<Double>,
-            Comparable<DoubleRange> {
-        override fun toString(): String {
-            return "[${start.toPreciseFloatingPoints(preciseFloatingPoints)};${endInclusive.toPreciseFloatingPoints(3)}]"
-        }
-
-        override fun compareTo(other: DoubleRange): Int {
-            return this.start.compareTo(other.start).let { startCompare ->
-                if (startCompare != 0) startCompare
-                else {
-                    this.endInclusive.compareTo(other.endInclusive)
-                }
-            }
-        }
-    }
 
 
 }

@@ -1,6 +1,5 @@
 package correlation_analysis
 
-import javafx.geometry.Point2D
 import primary_statistical_analysis.*
 import primary_statistical_analysis.sample_characteristics.Average
 import primary_statistical_analysis.sample_characteristics.Kurtosis
@@ -34,7 +33,16 @@ fun main(args: Array<String>) {
 
 
     val pirsonRCorrelationCoefficient = PirsonRCorrelationCoefficient(input)
-    println("r = ${pirsonRCorrelationCoefficient.coefficient()}")
-    println("statistics = ${pirsonRCorrelationCoefficient.statistics()}")
-    println("significance = ${pirsonRCorrelationCoefficient.significance(0.95)}")
+    println("r = ${pirsonRCorrelationCoefficient.coefficient}")
+    println("statistics = ${pirsonRCorrelationCoefficient.statistics}")
+    println("isSignificant = ${pirsonRCorrelationCoefficient.isSignificant(0.95)}")
+    println("coefficientConfidenceInterval = ${pirsonRCorrelationCoefficient.coefficientConfidenceInterval(0.95)}")
+
+
+    val spearmanRankCorrelationCoefficient = SpearmanRankCorrelationCoefficient(input)
+    println("r = ${spearmanRankCorrelationCoefficient.coefficient}")
+    println("statistics = ${spearmanRankCorrelationCoefficient.statistics}")
+    println("isSignificant = ${spearmanRankCorrelationCoefficient.isSignificant(0.95)}")
+    println("coefficientConfidenceInterval = ${spearmanRankCorrelationCoefficient.coefficientConfidenceInterval(0.95)}")
+
 }

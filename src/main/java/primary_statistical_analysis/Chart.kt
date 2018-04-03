@@ -11,17 +11,13 @@ import org.jfree.data.statistics.HistogramDataset
 import org.jfree.chart.ChartPanel
 import org.jfree.chart.ChartFactory
 import org.jfree.chart.JFreeChart
-import org.jfree.chart.StandardChartTheme
 import org.jfree.chart.axis.*
 import org.jfree.chart.plot.DatasetRenderingOrder
-import org.jfree.chart.plot.Plot
 import org.jfree.chart.plot.XYPlot
 import org.jfree.chart.renderer.xy.*
 import org.jfree.data.xy.XYSeries
 import org.jfree.data.xy.XYSeriesCollection
 import java.awt.geom.Ellipse2D
-import org.jfree.chart.renderer.category.StandardBarPainter
-import org.jfree.chart.renderer.category.BarRenderer
 
 
 fun main(args: Array<String>) {
@@ -124,8 +120,8 @@ class Chart(title: String) : ApplicationFrame(title) {
 
         fun empiricalDistributionFunctionVariationalSeriesWithDistributionFunction(variationalSeries: VariationalSeries,
                                                                                    coordinates: List<Point2D>,
-                                                                                   confidenceIntervalOcenkaA: VariationalSeries.DoubleRange,
-                                                                                   confidenceIntervalOcenkaB: VariationalSeries.DoubleRange): Chart {
+                                                                                   confidenceIntervalOcenkaA: DoubleRange,
+                                                                                   confidenceIntervalOcenkaB: DoubleRange): Chart {
             val categoryAxis = NumberAxis("класс")
             categoryAxis.setLowerMargin(0.0)
             categoryAxis.setUpperMargin(.01)
