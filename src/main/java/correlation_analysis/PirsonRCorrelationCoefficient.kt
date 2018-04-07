@@ -34,7 +34,6 @@ class PirsonRCorrelationCoefficient : CorrelationCoefficient {
     }.invoke()
 
     override val statistics: Double? = {
-        val N = points.size.toDouble()
         coefficient?.let { r -> (r * Math.sqrt(N - 2)) / Math.sqrt(1 - r.square()) }
     }.invoke()
 
@@ -45,14 +44,13 @@ class PirsonRCorrelationCoefficient : CorrelationCoefficient {
         }
 
         return statistics?.let { t ->
-            Math.abs(t) <= TDistribution(points.size.toDouble() - 2).inverseCumulativeProbability(probability)
+            Math.abs(t) > TDistribution(points.size.toDouble() - 2).inverseCumulativeProbability(probability)
         }
     }
 
     override fun coefficientConfidenceInterval(probability: Double) =
             isSignificant(probability)?.let {
                 val r = coefficient!!
-                val N = points.size.toDouble()
                 val leftSum = r + r * (1 - r.square()) / (2 * N)
                 val rightSum = UniformRealDistribution().inverseCumulativeProbability(probability) * (1 - r.square()) / (Math.sqrt(N - 1))
                 DoubleRange(leftSum - rightSum, leftSum + rightSum)

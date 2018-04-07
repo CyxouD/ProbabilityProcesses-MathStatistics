@@ -22,14 +22,14 @@ fun main(args: Array<String>) {
             StandartDeviation(xVariationalSeries.orderedSample),
             Skewness(xVariationalSeries.orderedSample),
             Kurtosis(xVariationalSeries.orderedSample))
-    TableDisplaying.samplingCharacteristics(xVariationalSeries, xSampleCharacteristicsToShow).createAndShowGUI("X ознака")
+//    TableDisplaying.samplingCharacteristics(xVariationalSeries, xSampleCharacteristicsToShow).createAndShowGUI("X ознака")
     val yVariationalSeries = VariationalSeries(input.map { it[1] })
     val ySampleCharacteristicsToShow = listOf(Average(yVariationalSeries.orderedSample),
             StandartDeviation(yVariationalSeries.orderedSample),
             Skewness(yVariationalSeries.orderedSample),
             Kurtosis(yVariationalSeries.orderedSample))
 
-    TableDisplaying.samplingCharacteristics(yVariationalSeries, ySampleCharacteristicsToShow).createAndShowGUI("Y ознака")
+//    TableDisplaying.samplingCharacteristics(yVariationalSeries, ySampleCharacteristicsToShow).createAndShowGUI("Y ознака")
 
 
     val pirsonRCorrelationCoefficient = PirsonRCorrelationCoefficient(input)
@@ -43,6 +43,5 @@ fun main(args: Array<String>) {
     println("r = ${spearmanRankCorrelationCoefficient.coefficient}")
     println("statistics = ${spearmanRankCorrelationCoefficient.statistics}")
     println("isSignificant = ${spearmanRankCorrelationCoefficient.isSignificant(0.95)}")
-    println("coefficientConfidenceInterval = ${spearmanRankCorrelationCoefficient.coefficientConfidenceInterval(0.95)}")
 
 }
