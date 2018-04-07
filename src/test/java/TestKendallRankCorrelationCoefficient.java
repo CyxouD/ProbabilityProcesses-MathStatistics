@@ -1,4 +1,5 @@
 import correlation_analysis.CorrelationCoefficient;
+import correlation_analysis.KendallRankCorrelationCoefficient;
 import correlation_analysis.SpearmanRankCorrelationCoefficient;
 import javafx.geometry.Point2D;
 import org.junit.Test;
@@ -10,7 +11,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * Created by Cyxou on 4/7/18.
  */
-public class TestSpearmanRankCorrelationCoefficient {
+public class TestKendallRankCorrelationCoefficient {
 
     private Point2D[] notDistinctElements = {
             new Point2D(10, 13),
@@ -31,36 +32,36 @@ public class TestSpearmanRankCorrelationCoefficient {
             new Point2D(6, 7),
             new Point2D(8, 9)
     };
-    private CorrelationCoefficient notDistinctCorrelationCoefficient = new SpearmanRankCorrelationCoefficient(notDistinctElements);
-    private CorrelationCoefficient distinctCorrelationCoefficient = new SpearmanRankCorrelationCoefficient(distinctElements);
+    private CorrelationCoefficient notDistinctCorrelationCoefficient = new KendallRankCorrelationCoefficient(notDistinctElements);
+    private CorrelationCoefficient distinctCorrelationCoefficient = new KendallRankCorrelationCoefficient(distinctElements);
 
 
     @Test
     public void testCoefficientForNotDistinctElements() {
         BigDecimal actualValue = new BigDecimal(notDistinctCorrelationCoefficient.getCoefficient())
                 .setScale(3, BigDecimal.ROUND_HALF_EVEN);
-        BigDecimal wantedValue = BigDecimal.valueOf(0.897);
+        BigDecimal wantedValue = BigDecimal.valueOf(0.786);
         assertEquals(wantedValue, actualValue);
     }
 
     @Test
     public void testCoefficientForDistinctElements() {
         BigDecimal actualValue = new BigDecimal(distinctCorrelationCoefficient.getCoefficient())
-                .setScale(1, BigDecimal.ROUND_HALF_EVEN);
-        BigDecimal wantedValue = BigDecimal.valueOf(0.4);
+                .setScale(3, BigDecimal.ROUND_HALF_EVEN);
+        BigDecimal wantedValue = BigDecimal.valueOf(0.556);
         assertEquals(wantedValue, actualValue);
     }
 
     @Test
     public void testStatistics() {
         BigDecimal actualValue = new BigDecimal(notDistinctCorrelationCoefficient.getStatistics())
-                .setScale(2, BigDecimal.ROUND_HALF_EVEN);
-        BigDecimal wantedValue = BigDecimal.valueOf(4.06);
+                .setScale(3, BigDecimal.ROUND_HALF_EVEN);
+        BigDecimal wantedValue = BigDecimal.valueOf(2.214);
         assertEquals(wantedValue, actualValue);
 
         BigDecimal actualValue2 = new BigDecimal(distinctCorrelationCoefficient.getStatistics())
                 .setScale(3, BigDecimal.ROUND_HALF_EVEN);
-        BigDecimal wantedValue2 = BigDecimal.valueOf(1.155);
+        BigDecimal wantedValue2 = BigDecimal.valueOf(2.085);
         assertEquals(wantedValue2, actualValue2);
     }
 
@@ -70,7 +71,7 @@ public class TestSpearmanRankCorrelationCoefficient {
         assertEquals(true, actualValue);
 
         boolean actualValue2 = distinctCorrelationCoefficient.isSignificant(0.05);
-        assertEquals(false, actualValue2);
+        assertEquals(true, actualValue2);
 
     }
 

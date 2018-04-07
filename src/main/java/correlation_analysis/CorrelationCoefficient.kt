@@ -14,10 +14,10 @@ abstract class CorrelationCoefficient(val points: Array<Point2D>) {
 
     constructor(points2d: Array<List<Double>>) : this(points2d.map { Point2D(it[0], it[1]) }.toTypedArray())
 
-    abstract val statistics: Double?
     abstract val coefficient: Double?
+    abstract val statistics: Double?
 
-    abstract fun coefficientConfidenceInterval(probability: Double): DoubleRange?
+    abstract fun coefficientConfidenceInterval(mistakeProbability: Double): DoubleRange?
 
-    abstract fun isSignificant(probability: Double): Boolean?
+    abstract fun isSignificant(mistakeProbability: Double): Boolean?
 }

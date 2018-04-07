@@ -3,28 +3,19 @@ package correlation_analysis
 import javafx.geometry.Point2D
 import org.apache.commons.math3.distribution.TDistribution
 import org.apache.commons.math3.exception.OutOfRangeException
-import primary_statistical_analysis.DoubleRange
 import primary_statistical_analysis.square
 
 /**
  * Created by Cyxou on 4/3/18.
  */
-class SpearmanRankCorrelationCoefficient : CorrelationCoefficient {
-
-    private val allX = points.map { (x, _) -> x }
-    private val allY = points.map { (_, y) -> y }
+class SpearmanRankCorrelationCoefficient : RankCorrelationCoefficient {
 
     constructor(points: Array<Point2D>) : super(points)
     constructor(points2d: Array<List<Double>>) : super(points2d)
 
-
     override val coefficient: Double? = run {
-        val onlyDistinctElements = run {
-            allX.size == allX.distinct().size && allY.size == allY.distinct().size
-        }
-
         val sum = rx().mapIndexed { index: Int, rxi: Double -> (rxi - ry()[index]) }.map { it.square() }.sum()
-        if (onlyDistinctElements) {
+        if (hasOnlyDistinctElements) {
             1 - 6 / (N * (N.square() - 1)) * sum
         } else {
             val A = AorB(allX)
@@ -40,51 +31,21 @@ class SpearmanRankCorrelationCoefficient : CorrelationCoefficient {
     }
 
     private fun AorB(elements: List<Double>): Double {
-        val groupedElements = elements.sorted().groupBy { number -> number }
-                .filter { (_, equalNumbers) -> equalNumbers.size > 1 }
-                .map { (number, equalNumbers) -> Pair(number, equalNumbers.size) }
-                .mapIndexed { index, (_, equalNumbersSize) -> Pair(index, equalNumbersSize) }.toMap()
+        val groupedElements = groupedElements(elements)
         return 1 / 12.0 * (1..groupedElements.size).map { index ->
-            val aj = groupedElements[index - 1]!!.toDouble()
-            Math.pow(aj, 3.0) - aj
+            val element = AjOrBj(groupedElements, index)
+            Math.pow(element, 3.0) - element
         }.sum()
     }
 
-    override fun coefficientConfidenceInterval(probability: Double): DoubleRange? {
-        throw Exception()
-    }
-
-    override fun isSignificant(probability: Double): Boolean? {
-        if (probability < 0.0 || probability > 1.0) {
-            throw OutOfRangeException(probability, 0, 1)
+    override fun isSignificant(mistakeProbability: Double): Boolean? {
+        if (mistakeProbability < 0.0 || mistakeProbability > 1.0) {
+            throw OutOfRangeException(mistakeProbability, 0, 1)
         }
 
         return statistics?.let { t ->
-            Math.abs(t) > TDistribution(points.size.toDouble() - 2).inverseCumulativeProbability(probability)
+            Math.abs(t) > TDistribution(points.size.toDouble() - 2).inverseCumulativeProbability(1 - mistakeProbability / 2)
         }
-    }
-
-    private fun rx(): List<Double> {
-        val sortedRanks = sortedRanks(allX)
-
-        return allX.map { x -> sortedRanks[x]!! }
-    }
-
-    private fun ry(): List<Double> {
-        val sortedRanks = sortedRanks(allY)
-        return allY.map { y -> sortedRanks[y]!! }
-    }
-
-    private fun sortedRanks(values: List<Double>): Map<Double, Double> {
-        val sorted = values.sorted()
-        val sortedRanks = sorted.map { number ->
-            val indexNumberOfFirstNumber = sorted.indexOfFirst { it == number } + 1
-            val indexNumberOfLastNumber = sorted.indexOfLast { it == number } + 1
-            val identicalNumbers = indexNumberOfLastNumber - indexNumberOfFirstNumber + 1
-            val rank = (indexNumberOfFirstNumber..indexNumberOfLastNumber).fold(0, { acc, next -> acc + next }) / identicalNumbers.toDouble()
-            Pair(number, rank)
-        }.toMap()
-        return sortedRanks
     }
 
 }

@@ -35,13 +35,18 @@ fun main(args: Array<String>) {
     val pirsonRCorrelationCoefficient = PirsonRCorrelationCoefficient(input)
     println("r = ${pirsonRCorrelationCoefficient.coefficient}")
     println("statistics = ${pirsonRCorrelationCoefficient.statistics}")
-    println("isSignificant = ${pirsonRCorrelationCoefficient.isSignificant(0.95)}")
-    println("coefficientConfidenceInterval = ${pirsonRCorrelationCoefficient.coefficientConfidenceInterval(0.95)}")
+    val mistakeProbability = 0.05
+    println("isSignificant = ${pirsonRCorrelationCoefficient.isSignificant(mistakeProbability)}")
+    println("coefficientConfidenceInterval = ${pirsonRCorrelationCoefficient.coefficientConfidenceInterval(mistakeProbability)}")
 
 
     val spearmanRankCorrelationCoefficient = SpearmanRankCorrelationCoefficient(input)
     println("r = ${spearmanRankCorrelationCoefficient.coefficient}")
     println("statistics = ${spearmanRankCorrelationCoefficient.statistics}")
-    println("isSignificant = ${spearmanRankCorrelationCoefficient.isSignificant(0.95)}")
+    println("isSignificant = ${spearmanRankCorrelationCoefficient.isSignificant(mistakeProbability)}")
 
+    val kendallRankCorrelationCoefficient = KendallRankCorrelationCoefficient(input)
+    println("r = ${kendallRankCorrelationCoefficient.coefficient}")
+    println("statistics = ${kendallRankCorrelationCoefficient.statistics}")
+    println("isSignificant = ${kendallRankCorrelationCoefficient.isSignificant(mistakeProbability)}")
 }
