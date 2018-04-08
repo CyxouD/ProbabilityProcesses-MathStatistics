@@ -1,5 +1,6 @@
 package primary_statistical_analysis
 
+import common.Utils.rangesByClassNumber
 import primary_statistical_analysis.sample_characteristics.Median
 
 /**
@@ -52,16 +53,7 @@ class VariationalSeries(val unorderedSample: List<Double>) {
 
     fun divideAtClasses(classNumber: Int): VariationalSeriesDividedByClasses {
         return if (N > 0) {
-            val minValue = orderedSample.min()!!
-            val maxValue = orderedSample.max()!!
-            val classWidth = maxValue.minus(minValue).div(classNumber)
-            val ranges = (1..classNumber).map { index ->
-                val startClassValue = minValue + classWidth * (index - 1)
-                val endClassValue = if (index != classNumber) {
-                    minValue + classWidth * index
-                } else maxValue //because of classWidth rounding
-                DoubleRange(startClassValue, endClassValue)
-            }
+            val (classWidth, ranges) = rangesByClassNumber(classNumber, orderedSample)
             divideAtClasses(classWidth, ranges)
         } else {
             VariationalSeriesDividedByClasses(-1.0, listOf())

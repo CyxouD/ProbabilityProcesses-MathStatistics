@@ -8,15 +8,8 @@ import primary_statistical_analysis.DoubleRange
  */
 abstract class RankCorrelationCoefficient : CorrelationCoefficient {
 
-    protected val allX = points.map { (x, _) -> x }
-    protected val allY = points.map { (_, y) -> y }
-
     constructor(points: Array<Point2D>) : super(points)
     constructor(points2d: Array<List<Double>>) : super(points2d)
-
-    override fun coefficientConfidenceInterval(mistakeProbability: Double): DoubleRange? {
-        throw Exception("coefficientConfidenceInterval not exist")
-    }
 
     protected val hasOnlyDistinctElements =
             allX.size == allX.distinct().size && allY.size == allY.distinct().size

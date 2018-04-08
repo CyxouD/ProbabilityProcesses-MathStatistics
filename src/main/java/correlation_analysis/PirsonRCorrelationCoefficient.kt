@@ -19,8 +19,6 @@ class PirsonRCorrelationCoefficient : CorrelationCoefficient {
 
     override val coefficient: Double? = {
         val averageXY = Average(points.map { (x, y) -> x * y }).unBiasedValue()
-        val allX = points.map { (x, _) -> x }
-        val allY = points.map { (_, y) -> y }
         val averageX = Average(allX).unBiasedValue()
         val averageY = Average(allY).unBiasedValue()
         val biasedStandartDeviationX = StandartDeviation(allX).biasedValue()
@@ -47,7 +45,7 @@ class PirsonRCorrelationCoefficient : CorrelationCoefficient {
         }
     }
 
-    override fun coefficientConfidenceInterval(mistakeProbability: Double) =
+    fun coefficientConfidenceInterval(mistakeProbability: Double) =
             isSignificant(mistakeProbability)?.let {
                 val r = coefficient!!
                 val leftSum = r + r * (1 - r.square()) / (2 * N)

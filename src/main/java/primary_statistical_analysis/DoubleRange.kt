@@ -3,6 +3,9 @@ package primary_statistical_analysis
 class DoubleRange(override val start: Double, override val endInclusive: Double) :
         ClosedRange<Double>,
         Comparable<DoubleRange> {
+    operator fun component1() = start
+    operator fun component2() = endInclusive
+
     override fun toString(): String {
         return "[${start.toPreciseFloatingPoints(Main.preciseFloatingPoints)};${endInclusive.toPreciseFloatingPoints(3)}]"
     }
