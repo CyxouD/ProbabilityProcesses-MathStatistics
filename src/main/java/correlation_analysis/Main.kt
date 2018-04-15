@@ -48,14 +48,14 @@ private fun readInput(sc: Scanner, input: Array<List<Double>>) {
                 StandartDeviation(xVariationalSeries.orderedSample),
                 Skewness(xVariationalSeries.orderedSample),
                 Kurtosis(xVariationalSeries.orderedSample))
-//    TableDisplaying.samplingCharacteristics(xVariationalSeries, xSampleCharacteristicsToShow).createAndShowGUI("X ознака")
+        primary_statistical_analysis.TableDisplaying.samplingCharacteristics(xVariationalSeries, xSampleCharacteristicsToShow).createAndShowGUI("X ознака")
         val yVariationalSeries = VariationalSeries(needToProcess.map { it[1] })
         val ySampleCharacteristicsToShow = listOf(Average(yVariationalSeries.orderedSample),
                 StandartDeviation(yVariationalSeries.orderedSample),
                 Skewness(yVariationalSeries.orderedSample),
                 Kurtosis(yVariationalSeries.orderedSample))
 
-//    TableDisplaying.samplingCharacteristics(yVariationalSeries, ySampleCharacteristicsToShow).createAndShowGUI("Y ознака")
+        primary_statistical_analysis.TableDisplaying.samplingCharacteristics(yVariationalSeries, ySampleCharacteristicsToShow).createAndShowGUI("Y ознака")
         val mistakeProbability = 0.05
         TableDisplaying.samplingCharacteristics(needToProcess, mistakeProbability).createAndShowGUI("Коефіцієнти кореляції")
 
