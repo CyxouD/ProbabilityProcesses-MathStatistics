@@ -1,6 +1,7 @@
+package sample_uniformity
+
 import junit.framework.Assert.assertEquals
 import org.junit.Test
-import sample_uniformity.MeansEqualityPairedTTest
 import java.math.BigDecimal
 
 /**

@@ -2,9 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ff210ac-b392-496c-839d-183fa470f4c5" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/TestMeansEqualityParedTTest.kt" afterPath="$PROJECT_DIR$/src/test/java/TestMeansEqualityPairedTTest.kt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/common/Ranks.kt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sample_uniformity/MannWhitneyTest.kt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sample_uniformity/WilcoxonSignedRankPairedTest.kt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sample_uniformity/WilcoxonUnpairedTest.kt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/sample_uniformity/TestMannWhitneyTest.kt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/sample_uniformity/TestWilcoxonSignedRankPairedTest.kt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/sample_uniformity/TestWilcoxonUnpairedTest.kt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/TestCorrelationRatio.kt" afterPath="$PROJECT_DIR$/src/test/java/emperical_methods/TestCorrelationRatio.kt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/TestKendallRankCorrelationCoefficient.java" afterPath="$PROJECT_DIR$/src/test/java/emperical_methods/TestKendallRankCorrelationCoefficient.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/TestMeansEqualityPairedTTest.kt" afterPath="$PROJECT_DIR$/src/test/java/sample_uniformity/TestMeansEqualityPairedTTest.kt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/TestMeansEqualityTwoSampleTTest.kt" afterPath="$PROJECT_DIR$/src/test/java/sample_uniformity/TestMeansEqualityTwoSampleTTest.kt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/TestSpearmanRankCorrelationCoefficient.java" afterPath="$PROJECT_DIR$/src/test/java/emperical_methods/TestSpearmanRankCorrelationCoefficient.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/TestVarianceEqualityFTest.kt" afterPath="$PROJECT_DIR$/src/test/java/sample_uniformity/TestVarianceEqualityFTest.kt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sample_uniformity/MeansEqualityPairedTTest.kt" afterPath="$PROJECT_DIR$/src/main/java/sample_uniformity/MeansEqualityPairedTTest.kt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/correlation_analysis/RankCorrelationCoefficient.kt" afterPath="$PROJECT_DIR$/src/main/java/correlation_analysis/RankCorrelationCoefficient.kt" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -18,51 +30,66 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MeansEqualityPairedTTest.kt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/sample_uniformity/MeansEqualityPairedTTest.kt">
+      <file leaf-file-name="TestWilcoxonSignedRankPairedTest.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/sample_uniformity/TestWilcoxonSignedRankPairedTest.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="60" lean-forward="false" selection-start-line="25" selection-start-column="60" selection-end-line="25" selection-end-column="60" />
-              <folding>
-                <element signature="e#27#274#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Numbers.kt" pinned="false" current-in-tab="false">
-        <entry file="jar://$KOTLIN_BUNDLED$/lib/kotlin-runtime-sources.jar!/kotlin/util/Numbers.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="111">
-              <caret line="23" column="71" lean-forward="false" selection-start-line="23" selection-start-column="71" selection-end-line="23" selection-end-column="71" />
+            <state relative-caret-position="210">
+              <caret line="14" column="1" lean-forward="false" selection-start-line="14" selection-start-column="1" selection-end-line="15" selection-end-column="74" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Double.java" pinned="false" current-in-tab="false">
-        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/lang/Double.java">
+      <file leaf-file-name="WilcoxonUnpairedTest.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sample_uniformity/WilcoxonUnpairedTest.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="111">
-              <caret line="560" column="26" lean-forward="false" selection-start-line="560" selection-start-column="26" selection-end-line="560" selection-end-column="26" />
+            <state relative-caret-position="289">
+              <caret line="22" column="17" lean-forward="false" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
               <folding>
-                <element signature="e#22024#22025#0" expanded="true" />
-                <element signature="e#22055#22056#0" expanded="true" />
-                <element signature="e#22432#22433#0" expanded="true" />
-                <element signature="e#22507#22508#0" expanded="true" />
+                <element signature="e#27#110#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Primitives.kt" pinned="false" current-in-tab="false">
-        <entry file="jar://$KOTLIN_BUNDLED$/lib/kotlin-runtime-sources.jar!/kotlin/Primitives.kt">
+      <file leaf-file-name="MannWhitneyTest.kt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sample_uniformity/MannWhitneyTest.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="966" column="19" lean-forward="false" selection-start-line="966" selection-start-column="19" selection-end-line="966" selection-end-column="19" />
+            <state relative-caret-position="275">
+              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestMannWhitneyTest.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/sample_uniformity/TestMannWhitneyTest.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WilcoxonSignedRankPairedTest.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sample_uniformity/WilcoxonSignedRankPairedTest.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="292">
+              <caret line="37" column="84" lean-forward="false" selection-start-line="37" selection-start-column="84" selection-end-line="37" selection-end-column="84" />
               <folding>
-                <element signature="n#!!doc" expanded="false" />
+                <element signature="e#27#144#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Criterion.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sample_uniformity/Criterion.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="13" column="17" lean-forward="false" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -70,8 +97,8 @@
       <file leaf-file-name="MeansEqualityTwoSampleTTest.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/sample_uniformity/MeansEqualityTwoSampleTTest.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="28" column="12" lean-forward="false" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="23" />
+            <state relative-caret-position="-175">
+              <caret line="11" column="46" lean-forward="true" selection-start-line="10" selection-start-column="33" selection-end-line="11" selection-end-column="46" />
               <folding>
                 <element signature="e#27#263#0" expanded="true" />
               </folding>
@@ -79,62 +106,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="miles_per_gallon_us_vs_japan" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/sample_uniformity/miles_per_gallon_us_vs_japan">
+      <file leaf-file-name="MeansEqualityPairedTTest.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sample_uniformity/MeansEqualityPairedTTest.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3735">
-              <caret line="249" column="0" lean-forward="false" selection-start-line="249" selection-start-column="0" selection-end-line="249" selection-end-column="0" />
+            <state relative-caret-position="165">
+              <caret line="11" column="46" lean-forward="true" selection-start-line="10" selection-start-column="30" selection-end-line="11" selection-end-column="46" />
+              <folding>
+                <element signature="e#27#274#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestWilcoxonUnpairedTest.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/sample_uniformity/TestWilcoxonUnpairedTest.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="47" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestMeansEqualityTwoSampleTTest.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/TestMeansEqualityTwoSampleTTest.kt">
+      <file leaf-file-name="Assert.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.11/junit-4.11.jar!/junit/framework/Assert.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="41" column="60" lean-forward="true" selection-start-line="41" selection-start-column="60" selection-end-line="41" selection-end-column="60" />
-              <folding>
-                <element signature="e#0#145#0" expanded="true" />
-                <element signature="n#!!doc;n#TestMeansEqualityTwoSampleTTest#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VarianceEqualityFTest.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/sample_uniformity/VarianceEqualityFTest.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="17" column="5" lean-forward="false" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
-              <folding>
-                <element signature="e#27#227#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestMeansEqualityPairedTTest.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/TestMeansEqualityPairedTTest.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="30" column="52" lean-forward="false" selection-start-line="30" selection-start-column="52" selection-end-line="30" selection-end-column="52" />
-              <folding>
-                <element signature="e#0#142#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestVarianceEqualityFTest.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/TestVarianceEqualityFTest.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="41" column="15" lean-forward="false" selection-start-line="41" selection-start-column="15" selection-end-line="41" selection-end-column="15" />
-              <folding>
-                <element signature="e#0#184#0" expanded="true" />
-                <element signature="n#!!doc;n#TestVarianceEqualityFTest#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="90">
+              <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -147,8 +146,8 @@
         <option value="Kotlin Interface" />
         <option value="Class" />
         <option value="Kotlin Object" />
-        <option value="Kotlin Class" />
         <option value="Kotlin File" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -197,19 +196,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/Median.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/Variance.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/Average.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/StandartDeviation.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/CV.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/AntiKurtosis.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/Kurtosis.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/Skewness.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/SampleCharacteristic.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/sample_characteristics/Skewness.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/sample_characteristics/Average.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/sample_characteristics/Median.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/sample_characteristics/SampleCharacteristic.kt" />
         <option value="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/sample_characteristics/StandartDeviation.kt" />
         <option value="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/sample_characteristics/Variance.kt" />
         <option value="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/TableDisplaying.kt" />
@@ -230,7 +216,6 @@
         <option value="$PROJECT_DIR$/src/main/java/common/Utils.kt" />
         <option value="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/VariationalSeries.kt" />
         <option value="$PROJECT_DIR$/src/main/java/primary_statistical_analysis/DoubleRange.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/correlation_analysis/RankCorrelationCoefficient.kt" />
         <option value="$PROJECT_DIR$/src/main/java/correlation_analysis/PirsonRCorrelationCoefficient.kt" />
         <option value="$PROJECT_DIR$/src/main/java/correlation_analysis/CorrelationRatio.kt" />
         <option value="$PROJECT_DIR$/src/test/java/TestCorrelationRatio.kt" />
@@ -248,6 +233,20 @@
         <option value="$PROJECT_DIR$/src/test/java/TestMeansEqualityParedTTest.kt" />
         <option value="$PROJECT_DIR$/src/test/java/TestMeansEqualityPairedTTest.kt" />
         <option value="$PROJECT_DIR$/src/main/java/sample_uniformity/MeansEqualityPairedTTest.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/sample_uniformity/WilcoxonSignedRanktest.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/correlation_analysis/RankCorrelationCoefficient.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/common/Ranks.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/sample_uniformity/WilcoxonSignedRankTest.kt" />
+        <option value="$PROJECT_DIR$/src/test/java/TestWilcoxonSignedRankTest.kt" />
+        <option value="$PROJECT_DIR$/src/test/java/TestWilcoxonUnpairedTest.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/sample_uniformity/WilcoxonUnpairedTest.kt" />
+        <option value="$PROJECT_DIR$/src/test/java/TestWilcoxonSignedRankPairedTest.kt" />
+        <option value="$PROJECT_DIR$/src/test/java/sample_uniformity/TestVarianceEqualityFTest.kt" />
+        <option value="$PROJECT_DIR$/src/test/java/sample_uniformity/TestWilcoxonSignedRankPairedTest.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/sample_uniformity/WilcoxonSignedRankPairedTest.kt" />
+        <option value="$PROJECT_DIR$/src/test/java/sample_uniformity/TestWilcoxonUnpairedTest.kt" />
+        <option value="$PROJECT_DIR$/src/test/java/sample_uniformity/TestMannWhitneyTest.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/sample_uniformity/MannWhitneyTest.kt" />
       </list>
     </option>
   </component>
@@ -355,6 +354,32 @@
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sample_uniformity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProbProc&amp;mathStatistics" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProbProc&amp;mathStatistics" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -426,6 +451,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProbProc&amp;mathStatistics" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProbProc&amp;mathStatistics" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -439,6 +490,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="sample_uniformity" />
       <recent name="" />
       <recent name="primary_statistical_analysis.sample_characteristics" />
     </key>
@@ -453,6 +505,7 @@
       <recent name="main.java.primary_statistical_analysis" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/java/emperical_methods" />
       <recent name="$PROJECT_DIR$/src/main/resources/sample_uniformity" />
       <recent name="$PROJECT_DIR$/src/main/resources/emperical_methods" />
       <recent name="$PROJECT_DIR$/src/main/resources/1" />
@@ -471,15 +524,20 @@
     </option>
   </component>
   <component name="RunManager" selected="JUnit.All in ProbProc&amp;mathStatistics&amp;EmpericalMethods">
-    <configuration default="false" name="TestMeansEqualityTwoSampleTTest.testSignificanceWithAssumptionOfNotEqualVariance" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+    <configuration default="false" name="TestWilcoxonSignedRankPairedTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="sample_uniformity.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <module name="ProbProc&amp;mathStatistics&amp;EmpericalMethods" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestMeansEqualityTwoSampleTTest" />
-      <option name="METHOD_NAME" value="testSignificanceWithAssumptionOfNotEqualVariance" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="sample_uniformity" />
+      <option name="MAIN_CLASS_NAME" value="sample_uniformity.TestWilcoxonSignedRankPairedTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -492,15 +550,72 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="TestVarianceEqualityFTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+    <configuration default="false" name="TestWilcoxonUnpairedTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="sample_uniformity.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <module name="ProbProc&amp;mathStatistics&amp;EmpericalMethods" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestVarianceEqualityFTest" />
+      <option name="PACKAGE_NAME" value="sample_uniformity" />
+      <option name="MAIN_CLASS_NAME" value="sample_uniformity.TestWilcoxonUnpairedTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="TestMannWhitneyTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="sample_uniformity.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="ProbProc&amp;mathStatistics&amp;EmpericalMethods" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="sample_uniformity" />
+      <option name="MAIN_CLASS_NAME" value="sample_uniformity.TestMannWhitneyTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="TestMannWhitneyTest.testStatistics" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="sample_uniformity.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="ProbProc&amp;mathStatistics&amp;EmpericalMethods" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="sample_uniformity" />
+      <option name="MAIN_CLASS_NAME" value="sample_uniformity.TestMannWhitneyTest" />
+      <option name="METHOD_NAME" value="testStatistics" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -522,48 +637,6 @@
       <option name="MAIN_CLASS_NAME" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="package" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="TestMeansEqualityPairedTTest.testSignificance" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="ProbProc&amp;mathStatistics&amp;EmpericalMethods" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestMeansEqualityPairedTTest" />
-      <option name="METHOD_NAME" value="testSignificance" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="TestMeansEqualityPairedTTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="ProbProc&amp;mathStatistics&amp;EmpericalMethods" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestMeansEqualityPairedTTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -816,19 +889,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Kotlin.correlation_analysis.MainKt" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.TestMeansEqualityTwoSampleTTest.testSignificanceWithAssumptionOfNotEqualVariance" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.TestVarianceEqualityFTest" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.All in ProbProc&amp;mathStatistics&amp;EmpericalMethods" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.TestMeansEqualityPairedTTest.testSignificance" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.TestMeansEqualityPairedTTest" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.TestWilcoxonSignedRankPairedTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.TestWilcoxonUnpairedTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.TestMannWhitneyTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.TestMannWhitneyTest.testStatistics" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.All in ProbProc&amp;mathStatistics&amp;EmpericalMethods" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="JUnit.All in ProbProc&amp;mathStatistics&amp;EmpericalMethods" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.TestMeansEqualityPairedTTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.TestMeansEqualityPairedTTest.testSignificance" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.TestVarianceEqualityFTest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.TestMeansEqualityTwoSampleTTest.testSignificanceWithAssumptionOfNotEqualVariance" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.TestMannWhitneyTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.TestMannWhitneyTest.testStatistics" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.TestWilcoxonUnpairedTest" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.TestWilcoxonSignedRankPairedTest" />
       </list>
     </recent_temporary>
   </component>
@@ -849,35 +922,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_ProbProc&amp;mathStatistics&amp;EmpericalMethods - 2018.04.15 at 23h 24m 31s.xml">
+    <history-entry file="All_in_ProbProc&amp;mathStatistics&amp;EmpericalMethods - 2018.04.16 at 01h 38m 34s.xml">
       <configuration name="All in ProbProc&amp;mathStatistics&amp;EmpericalMethods" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_ProbProc&amp;mathStatistics&amp;EmpericalMethods - 2018.04.15 at 23h 28m 53s.xml">
-      <configuration name="All in ProbProc&amp;mathStatistics&amp;EmpericalMethods" configurationId="JUnit" />
+    <history-entry file="TestMannWhitneyTest - 2018.04.16 at 01h 31m 07s.xml">
+      <configuration name="TestMannWhitneyTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestMeansEqualityPairedTTest - 2018.04.15 at 23h 27m 51s.xml">
-      <configuration name="TestMeansEqualityPairedTTest" configurationId="JUnit" />
+    <history-entry file="TestMannWhitneyTest - 2018.04.16 at 01h 32m 09s.xml">
+      <configuration name="TestMannWhitneyTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestMeansEqualityPairedTTest_testSignificance - 2018.04.15 at 23h 27m 16s.xml">
-      <configuration name="TestMeansEqualityPairedTTest.testSignificance" configurationId="JUnit" />
+    <history-entry file="TestMannWhitneyTest - 2018.04.16 at 01h 36m 21s.xml">
+      <configuration name="TestMannWhitneyTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestMeansEqualityTwoSampleTTest_testSignificanceWithAssumptionOfNotEqualVariance - 2018.04.15 at 23h 18m 54s.xml">
-      <configuration name="TestMeansEqualityTwoSampleTTest.testSignificanceWithAssumptionOfNotEqualVariance" configurationId="JUnit" />
+    <history-entry file="TestMannWhitneyTest - 2018.04.16 at 01h 37m 05s.xml">
+      <configuration name="TestMannWhitneyTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestVarianceEqualityFTest - 2018.04.15 at 23h 20m 42s.xml">
-      <configuration name="TestVarianceEqualityFTest" configurationId="JUnit" />
+    <history-entry file="TestMannWhitneyTest_testStatistics - 2018.04.16 at 01h 32m 12s.xml">
+      <configuration name="TestMannWhitneyTest.testStatistics" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestVarianceEqualityFTest - 2018.04.15 at 23h 21m 30s.xml">
-      <configuration name="TestVarianceEqualityFTest" configurationId="JUnit" />
+    <history-entry file="TestMannWhitneyTest_testStatistics - 2018.04.16 at 01h 34m 07s.xml">
+      <configuration name="TestMannWhitneyTest.testStatistics" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestVarianceEqualityFTest - 2018.04.15 at 23h 22m 23s.xml">
-      <configuration name="TestVarianceEqualityFTest" configurationId="JUnit" />
+    <history-entry file="TestMannWhitneyTest_testStatistics - 2018.04.16 at 01h 34m 27s.xml">
+      <configuration name="TestMannWhitneyTest.testStatistics" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestVarianceEqualityFTest - 2018.04.15 at 23h 22m 47s.xml">
-      <configuration name="TestVarianceEqualityFTest" configurationId="JUnit" />
+    <history-entry file="TestMannWhitneyTest_testStatistics - 2018.04.16 at 01h 35m 06s.xml">
+      <configuration name="TestMannWhitneyTest.testStatistics" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestVarianceEqualityFTest - 2018.04.15 at 23h 23m 03s.xml">
-      <configuration name="TestVarianceEqualityFTest" configurationId="JUnit" />
+    <history-entry file="TestMannWhitneyTest_testStatistics - 2018.04.16 at 01h 35m 28s.xml">
+      <configuration name="TestMannWhitneyTest.testStatistics" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -987,24 +1060,6 @@
           <option name="timeStamp" value="128" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/test/java/TestCorrelationRatio.kt</url>
-          <line>23</line>
-          <properties />
-          <option name="timeStamp" value="131" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/test/java/TestCorrelationRatio.kt</url>
-          <line>31</line>
-          <properties />
-          <option name="timeStamp" value="138" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/test/java/TestCorrelationRatio.kt</url>
-          <line>28</line>
-          <properties />
-          <option name="timeStamp" value="139" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/java/correlation_analysis/CorrelationRatio.kt</url>
           <line>37</line>
           <properties />
@@ -1023,8 +1078,8 @@
           <option name="timeStamp" value="147" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/test/java/TestMeansEqualityPairedTTest.kt</url>
-          <line>25</line>
+          <url>file://$PROJECT_DIR$/src/test/java/sample_uniformity/TestMeansEqualityPairedTTest.kt</url>
+          <line>26</line>
           <properties />
           <option name="timeStamp" value="152" />
         </line-breakpoint>
@@ -1052,6 +1107,30 @@
           <properties />
           <option name="timeStamp" value="168" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/java/sample_uniformity/WilcoxonSignedRankPairedTest.kt</url>
+          <line>36</line>
+          <properties />
+          <option name="timeStamp" value="172" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/java/sample_uniformity/WilcoxonUnpairedTest.kt</url>
+          <line>23</line>
+          <properties />
+          <option name="timeStamp" value="173" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/java/sample_uniformity/WilcoxonSignedRankPairedTest.kt</url>
+          <line>31</line>
+          <properties />
+          <option name="timeStamp" value="174" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/java/sample_uniformity/MannWhitneyTest.kt</url>
+          <line>28</line>
+          <properties />
+          <option name="timeStamp" value="177" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/math/BigDecimal.java</url>
           <line>1671</line>
@@ -1059,8 +1138,8 @@
           <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/TestKendallRankCorrelationCoefficient.java</url>
-          <line>50</line>
+          <url>file://$PROJECT_DIR$/src/test/java/emperical_methods/TestKendallRankCorrelationCoefficient.java</url>
+          <line>52</line>
           <properties />
           <option name="timeStamp" value="124" />
         </line-breakpoint>
@@ -1071,7 +1150,7 @@
           <option name="timeStamp" value="134" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="169" />
+      <option name="time" value="178" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1080,111 +1159,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/primary_statistical_analysis/DoubleRange.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="44" lean-forward="false" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/primary_statistical_analysis/VariationalSeries.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="55" column="53" lean-forward="false" selection-start-line="55" selection-start-column="53" selection-end-line="55" selection-end-column="53" />
-          <folding>
-            <element signature="e#38#143#0" expanded="false" />
-            <element signature="n#!!block;n#VariationalClass#0;n#!!block;n#VariationalSeriesDividedByClasses#0;n#!!block;n#VariationalSeries#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-math3/3.0/commons-math3-3.0.jar!/org/apache/commons/math3/distribution/TDistribution.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="13" column="41" lean-forward="false" selection-start-line="13" selection-start-column="41" selection-end-line="13" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-math3/3.0/commons-math3-3.0-sources.jar!/org/apache/commons/math3/distribution/AbstractRealDistribution.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="38" column="23" lean-forward="false" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-math3/3.0/commons-math3-3.0-sources.jar!/org/apache/commons/math3/distribution/RealDistribution.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="27" column="17" lean-forward="false" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-math3/3.0/commons-math3-3.0-sources.jar!/org/apache/commons/math3/distribution/FDistribution.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-30">
-          <caret line="64" column="11" lean-forward="false" selection-start-line="64" selection-start-column="11" selection-end-line="64" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/correlation_analysis/RankCorrelationCoefficient.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="8" column="15" lean-forward="false" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
-          <folding>
-            <element signature="e#30#108#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/correlation_analysis/Chart.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="17" column="24" lean-forward="false" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/primary_statistical_analysis/TableDisplaying.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="72" column="27" lean-forward="false" selection-start-line="72" selection-start-column="27" selection-end-line="72" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/primary_statistical_analysis/Main.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="33" column="23" lean-forward="false" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/correlation_analysis/KendallRankCorrelationCoefficient.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="60" column="17" lean-forward="false" selection-start-line="60" selection-start-column="17" selection-end-line="60" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/correlation_analysis/SpearmanRankCorrelationCoefficient.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="46" column="58" lean-forward="false" selection-start-line="46" selection-start-column="40" selection-end-line="46" selection-end-column="66" />
-          <folding>
-            <element signature="e#30#224#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/primary_statistical_analysis/Ext.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="11" lean-forward="false" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/correlation_analysis/TableDisplaying.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
@@ -1235,7 +1209,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/TestKendallRankCorrelationCoefficient.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/emperical_methods/TestKendallRankCorrelationCoefficient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="780">
           <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
@@ -1307,14 +1281,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample_uniformity/Criterion.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="25" lean-forward="false" selection-start-line="7" selection-start-column="25" selection-end-line="8" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar!/org/hamcrest/MatcherAssert.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -1331,7 +1297,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/TestSpearmanRankCorrelationCoefficient.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/emperical_methods/TestSpearmanRankCorrelationCoefficient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-106">
           <caret line="40" column="17" lean-forward="true" selection-start-line="37" selection-start-column="4" selection-end-line="43" selection-end-column="5" />
@@ -1362,16 +1328,6 @@
           <folding>
             <element signature="e#37053#37054#0" expanded="true" />
             <element signature="e#37100#37101#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/TestCorrelationRatio.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="37" column="26" lean-forward="false" selection-start-line="37" selection-start-column="26" selection-end-line="37" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#230#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1441,10 +1397,10 @@
         <state relative-caret-position="111">
           <caret line="560" column="26" lean-forward="false" selection-start-line="560" selection-start-column="26" selection-end-line="560" selection-end-column="26" />
           <folding>
-            <element signature="e#22024#22025#0" expanded="true" />
-            <element signature="e#22055#22056#0" expanded="true" />
-            <element signature="e#22432#22433#0" expanded="true" />
-            <element signature="e#22507#22508#0" expanded="true" />
+            <element signature="e#22024#22025#0" expanded="false" />
+            <element signature="e#22055#22056#0" expanded="false" />
+            <element signature="e#22432#22433#0" expanded="false" />
+            <element signature="e#22507#22508#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1457,30 +1413,69 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/TestMeansEqualityTwoSampleTTest.kt">
+    <entry file="file://$PROJECT_DIR$/src/main/java/correlation_analysis/KendallRankCorrelationCoefficient.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="41" column="60" lean-forward="true" selection-start-line="41" selection-start-column="60" selection-end-line="41" selection-end-column="60" />
+        <state relative-caret-position="155">
+          <caret line="16" column="25" lean-forward="false" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/correlation_analysis/SpearmanRankCorrelationCoefficient.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="16" column="18" lean-forward="false" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/common/Ranks.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/correlation_analysis/RankCorrelationCoefficient.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="21" column="31" lean-forward="false" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
           <folding>
-            <element signature="e#0#145#0" expanded="true" />
-            <element signature="n#!!doc;n#TestMeansEqualityTwoSampleTTest#0" expanded="false" />
+            <element signature="e#30#80#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample_uniformity/MeansEqualityTwoSampleTTest.kt">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-math3/3.0/commons-math3-3.0-sources.jar!/org/apache/commons/math3/util/FastMath.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="28" column="12" lean-forward="false" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="23" />
+        <state relative-caret-position="960">
+          <caret line="79" column="13" lean-forward="false" selection-start-line="79" selection-start-column="13" selection-end-line="79" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/emperical_methods/TestCorrelationRatio.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding>
-            <element signature="e#27#263#0" expanded="true" />
+            <element signature="e#27#257#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-math3/3.0/commons-math3-3.0-sources.jar!/org/apache/commons/math3/stat/inference/WilcoxonSignedRankTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="171" column="18" lean-forward="false" selection-start-line="171" selection-start-column="18" selection-end-line="171" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sample_uniformity/VarianceEqualityFTest.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
+        <state relative-caret-position="155">
           <caret line="17" column="5" lean-forward="false" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
           <folding>
             <element signature="e#27#227#0" expanded="true" />
@@ -1488,34 +1483,122 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/TestVarianceEqualityFTest.kt">
+    <entry file="file://$PROJECT_DIR$/src/test/java/sample_uniformity/TestMeansEqualityPairedTTest.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="41" column="15" lean-forward="false" selection-start-line="41" selection-start-column="15" selection-end-line="41" selection-end-column="15" />
+        <state relative-caret-position="-3">
+          <caret line="30" column="28" lean-forward="true" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
           <folding>
-            <element signature="e#0#184#0" expanded="true" />
+            <element signature="e#27#119#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/sample_uniformity/TestMeansEqualityTwoSampleTTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="41" column="31" lean-forward="true" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
+          <folding>
+            <element signature="n#!!doc;n#TestMeansEqualityTwoSampleTTest#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/sample_uniformity/TestVarianceEqualityFTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="55" column="39" lean-forward="false" selection-start-line="55" selection-start-column="39" selection-end-line="55" selection-end-column="39" />
+          <folding>
+            <element signature="e#27#114#0" expanded="true" />
             <element signature="n#!!doc;n#TestVarianceEqualityFTest#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/TestMeansEqualityPairedTTest.kt">
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample_uniformity/MeansEqualityTwoSampleTTest.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="30" column="52" lean-forward="false" selection-start-line="30" selection-start-column="52" selection-end-line="30" selection-end-column="52" />
+        <state relative-caret-position="-175">
+          <caret line="11" column="46" lean-forward="true" selection-start-line="10" selection-start-column="33" selection-end-line="11" selection-end-column="46" />
           <folding>
-            <element signature="e#0#142#0" expanded="true" />
+            <element signature="e#27#263#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample_uniformity/WilcoxonSignedRankPairedTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="37" column="84" lean-forward="false" selection-start-line="37" selection-start-column="84" selection-end-line="37" selection-end-column="84" />
+          <folding>
+            <element signature="e#27#144#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/sample_uniformity/TestWilcoxonSignedRankPairedTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="1" lean-forward="false" selection-start-line="14" selection-start-column="1" selection-end-line="15" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.11/junit-4.11.jar!/junit/framework/Assert.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample_uniformity/WilcoxonUnpairedTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="22" column="17" lean-forward="false" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
+          <folding>
+            <element signature="e#27#110#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sample_uniformity/MeansEqualityPairedTTest.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="60" lean-forward="false" selection-start-line="25" selection-start-column="60" selection-end-line="25" selection-end-column="60" />
+        <state relative-caret-position="165">
+          <caret line="11" column="46" lean-forward="true" selection-start-line="10" selection-start-column="30" selection-end-line="11" selection-end-column="46" />
           <folding>
             <element signature="e#27#274#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/sample_uniformity/TestWilcoxonUnpairedTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="47" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample_uniformity/Criterion.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="17" lean-forward="false" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/sample_uniformity/TestMannWhitneyTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample_uniformity/MannWhitneyTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -1,3 +1,5 @@
+package emperical_methods;
+
 import correlation_analysis.CorrelationCoefficient;
 import correlation_analysis.SpearmanRankCorrelationCoefficient;
 import javafx.geometry.Point2D;

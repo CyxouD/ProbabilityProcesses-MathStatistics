@@ -1,3 +1,5 @@
+package emperical_methods
+
 import correlation_analysis.CorrelationRatio
 import correlation_analysis.KendallRankCorrelationCoefficient
 import javafx.geometry.Point2D
