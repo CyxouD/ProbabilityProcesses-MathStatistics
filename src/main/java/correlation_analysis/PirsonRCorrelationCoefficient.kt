@@ -49,7 +49,7 @@ class PirsonRCorrelationCoefficient : CorrelationCoefficient {
             isSignificant(mistakeProbability)?.let {
                 val r = coefficient!!
                 val leftSum = r + r * (1 - r.square()) / (2 * N)
-                val rightSum = NormalDistribution().inverseCumulativeProbability(1 - mistakeProbability / 2) * (1 - r.square()) / (Math.sqrt(N - 1))
+                val rightSum = TDistribution(points.size.toDouble() - 2).inverseCumulativeProbability(1 - mistakeProbability / 2) * (1 - r.square()) / (Math.sqrt(N - 1))
                 DoubleRange(leftSum - rightSum, leftSum + rightSum)
             }
 }
