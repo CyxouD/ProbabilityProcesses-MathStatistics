@@ -6,7 +6,7 @@ import java.math.BigDecimal
 /**
  * Created by Cyxou on 4/15/18.
  */
-class TestMeansEqualityParedTTest {
+class TestMeansEqualityPairedTTest {
 
     private val firstSample = (1..3).map { it.toDouble() }
     private val secondSample = (3..5).map { it.toDouble() }

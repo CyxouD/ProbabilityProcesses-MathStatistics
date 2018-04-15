@@ -14,16 +14,21 @@ class MeansEqualityPairedTTest(firstSample: List<Double>, secondSample: List<Dou
         assertThat("Samples must have equal size", firstSample.size == secondSample.size)
     }
 
+    companion object {
+        private val nanValueReplacement = Double.POSITIVE_INFINITY
+    }
+
     override val statistics: Double = run {
         val zSample = firstSample.mapIndexed { i: Int, value: Double -> value - secondSample[i] }
         val zAverage = Average(zSample).unBiasedValue()!!
         val sz = StandartDeviation(zSample).unBiasedValue()!!
         val result = zAverage * Math.sqrt(N1) / sz
-        if (!result.isNaN()) result else Double.POSITIVE_INFINITY
+        if (!result.isNaN()) result else nanValueReplacement
     }
 
-    override fun isCriterionTrue(mistakeProbability: Double) =
-            Math.abs(statistics) <= TDistribution(N1 - 1).inverseCumulativeProbability(1 - mistakeProbability / 2) ||
-                    statistics.isInfinite() //not expected by formula value
+    override fun isCriterionTrue(mistakeProbability: Double): Boolean {
+        return Math.abs(statistics) <= TDistribution(N1 - 1).inverseCumulativeProbability(1 - mistakeProbability / 2) ||
+                statistics == nanValueReplacement //not expected by formula value
+    }
 
 }
