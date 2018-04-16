@@ -18,11 +18,18 @@ class TableDisplaying : JPanel() {
             val columnNames = arrayOf("Название критерия", "Статистика", "Что проверяет", "Результат", "Вероятность ошибки")
 
             val varianceEqualityFTest = VarianceEqualityFTest(firstSample, secondSample)
-            val meansEqualityPairedTTest = MeansEqualityPairedTTest(firstSample, secondSample)
+            val meansEqualityPairedTTest = if (firstSample.size == secondSample.size)
+                MeansEqualityPairedTTest(firstSample, secondSample)
+            else
+                null
             val meansEqualityTwoSampleTTest = MeansEqualityTwoSampleTTest(firstSample, secondSample)
-            val wilcoxonSignedRankPairedTest = WilcoxonSignedRankPairedTest(firstSample, secondSample)
+            val wilcoxonSignedRankPairedTest = if (firstSample.size == secondSample.size)
+                WilcoxonSignedRankPairedTest(firstSample, secondSample)
+            else
+                null
             val wilcoxonUnpairedTest = WilcoxonUnpairedTest(firstSample, secondSample)
             val mannWhitneyTest = MannWhitneyTest(firstSample, secondSample)
+            val criterionCantBeCalculated = arrayOf("-", "-", "-", "-", "-")
             val tableRows = arrayOf(
                     arrayOf(varianceEqualityFTest::class.java.simpleName,
                             varianceEqualityFTest.statistics.toPreciseFloatingPoints(3),
@@ -30,24 +37,28 @@ class TableDisplaying : JPanel() {
                             if (varianceEqualityFTest.isCriterionTrue(mistakeProbability)!!) "Равны" else "Не равны",
                             mistakeProbability
                     ),
-                    arrayOf(meansEqualityPairedTTest::class.java.simpleName,
-                            meansEqualityPairedTTest.statistics.toPreciseFloatingPoints(3),
-                            "Равенство мат ожиданий",
-                            if (meansEqualityPairedTTest.isCriterionTrue(mistakeProbability)) "Равны" else "Не равны",
-                            mistakeProbability
-                    ),
+                    meansEqualityPairedTTest?.let { meansEqualityPairedTTest ->
+                        arrayOf(meansEqualityPairedTTest::class.java.simpleName,
+                                meansEqualityPairedTTest.statistics.toPreciseFloatingPoints(3),
+                                "Равенство мат ожиданий",
+                                if (meansEqualityPairedTTest.isCriterionTrue(mistakeProbability)) "Равны" else "Не равны",
+                                mistakeProbability
+                        )
+                    } ?: criterionCantBeCalculated,
                     arrayOf(meansEqualityTwoSampleTTest::class.java.simpleName,
                             meansEqualityTwoSampleTTest.statistics.toPreciseFloatingPoints(3),
                             "Равенство мат ожиданий",
                             if (meansEqualityTwoSampleTTest.isCriterionTrue(mistakeProbability)!!) "Равны" else "Не равны",
                             mistakeProbability
                     ),
-                    arrayOf(wilcoxonSignedRankPairedTest::class.java.simpleName,
-                            wilcoxonSignedRankPairedTest.statistics.toPreciseFloatingPoints(3),
-                            "Равенство смещений",
-                            if (wilcoxonSignedRankPairedTest.isCriterionTrue(mistakeProbability)) "Равны" else "Не равны",
-                            mistakeProbability
-                    ),
+                    wilcoxonSignedRankPairedTest?.let { wilcoxonSignedRankPairedTest ->
+                        arrayOf(wilcoxonSignedRankPairedTest::class.java.simpleName,
+                                wilcoxonSignedRankPairedTest.statistics.toPreciseFloatingPoints(3),
+                                "Равенство смещений",
+                                if (wilcoxonSignedRankPairedTest.isCriterionTrue(mistakeProbability)) "Равны" else "Не равны",
+                                mistakeProbability
+                        )
+                    } ?: criterionCantBeCalculated,
                     arrayOf(wilcoxonUnpairedTest::class.java.simpleName,
                             wilcoxonUnpairedTest.statistics.toPreciseFloatingPoints(3),
                             "Равенство смещений",
