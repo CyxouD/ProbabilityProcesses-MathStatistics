@@ -57,7 +57,7 @@ private fun readInput(sc: Scanner, input: Array<List<Double>>) {
 
         primary_statistical_analysis.TableDisplaying.samplingCharacteristics(yVariationalSeries, ySampleCharacteristicsToShow).createAndShowGUI("Y ознака")
         val mistakeProbability = 0.05
-        TableDisplaying.samplingCharacteristics(needToProcess, mistakeProbability).createAndShowGUI("Коефіцієнти кореляції")
+        TableDisplaying.correlationCoefficients(needToProcess, mistakeProbability).createAndShowGUI("Коефіцієнти кореляції")
 
 //    val pirsonRCorrelationCoefficient = PirsonRCorrelationCoefficient(needToProcess)
 //    println("r = ${pirsonRCorrelationCoefficient.coefficient}")
