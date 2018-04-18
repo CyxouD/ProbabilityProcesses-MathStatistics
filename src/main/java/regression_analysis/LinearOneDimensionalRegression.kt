@@ -36,6 +36,8 @@ class LinearOneDimensionalRegression(val points: Array<Point2D>) {
 
     val a2Statistics = a2 / Math.sqrt(a2Variance)
 
+    val coefficientOfDetermination = PirsonRCorrelationCoefficient(points).coefficient!!.square()
+
     fun regressionConfidenceInterval(x: Double, mistakeProbability: Double): DoubleRange {
         val samePart = tDistributionInverseCumulativeProbability(mistakeProbability) * Math.sqrt(regressionVariance(x))
         return DoubleRange(regression(x) - samePart, regression(x) + samePart)
@@ -45,7 +47,6 @@ class LinearOneDimensionalRegression(val points: Array<Point2D>) {
         val samePart = tDistributionInverseCumulativeProbability(mistakeProbability) * Math.sqrt(predictedValueVariance(x))
         return DoubleRange(regression(x) - samePart, regression(x) + samePart)
     }
-
 
     fun regressionVariance(x: Double) = residualVariance * 1 / N + a1Variance * (x - Average(allX).unBiasedValue()!!).square()
 
@@ -86,7 +87,6 @@ class LinearOneDimensionalRegression(val points: Array<Point2D>) {
                 val interval = predictingValueConfidenceInterval(x, mistakeProbability)
                 Pair(Point2D(x, interval.start), Point2D(x, interval.endInclusive))
             }.toTypedArray()
-
 
     private fun regression(x: Double) = a1 + a2 * x
 }

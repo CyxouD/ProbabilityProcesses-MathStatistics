@@ -40,6 +40,7 @@ fun main(args: Array<String>) {
         println("a2 = [$a2; $a2Variance; $a2Statistics; ${tDistributionInverseCumulativeProbability(mistakeProbability)}; " +
                 "${isA2Significant(mistakeProbability)}; ${a2ConfidenceInterval(mistakeProbability)};" +
                 "${if (isA2Significant(mistakeProbability)) "=0" else "!=0"} ")
+        println("R^2 (CoefficientOfDetermination) = $coefficientOfDetermination")
 
     }
 
