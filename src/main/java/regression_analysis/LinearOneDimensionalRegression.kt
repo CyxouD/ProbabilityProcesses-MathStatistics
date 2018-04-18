@@ -28,19 +28,17 @@ class LinearOneDimensionalRegression(val points: Array<Point2D>) {
     val nFunctionParameters = 2
     val s = points.map { (xi, yi) -> yi - regression(xi) }.map { ei -> ei.square() }.sum() / (N - nFunctionParameters)
 
-    private fun regression(x: Double) = a1 + a2 * x
-
     val a1Variance = s * (1 / N + Average(allX).unBiasedValue()!!.square() / (N * Variance(allX).unBiasedValue()!!))
+
     val a2Variance = s / (N * Variance(allX).unBiasedValue()!!)
-
     val a1Statistics = a1 / Math.sqrt(a1Variance)
-    val a2Statistics = a2 / Math.sqrt(a2Variance)
 
+    val a2Statistics = a2 / Math.sqrt(a2Variance)
     fun isA1Significant(mistakeProbability: Double) =
             Math.abs(a1Statistics) <= tDistributionInverseCumulativeProbability(mistakeProbability) || a1Statistics.isNaN()
 
     fun isA2Significant(mistakeProbability: Double) =
-            Math.abs(a2Statistics) <= tDistributionInverseCumulativeProbability(mistakeProbability)|| a2Statistics.isNaN()
+            Math.abs(a2Statistics) <= tDistributionInverseCumulativeProbability(mistakeProbability) || a2Statistics.isNaN()
 
     fun a1ConfidenceInterval(mistakeProbability: Double): DoubleRange {
         val repeatedPart = Math.sqrt(a1Variance) * tDistributionInverseCumulativeProbability(mistakeProbability)
@@ -55,5 +53,10 @@ class LinearOneDimensionalRegression(val points: Array<Point2D>) {
     fun tDistributionInverseCumulativeProbability(mistakeProbability: Double) =
             TDistribution(N - 2).inverseCumulativeProbability(1 - mistakeProbability / 2)
 
+    fun pointsToRegressionFunction() = points.map { (x, _) ->
+        val y = regression(x)
+        Point2D(x, y)
+    }.toTypedArray()
 
+    private fun regression(x: Double) = a1 + a2 * x
 }

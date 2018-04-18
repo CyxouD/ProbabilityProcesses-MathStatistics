@@ -1,6 +1,7 @@
 package regression_analysis
 
 import javafx.geometry.Point2D
+import java.util.*
 
 /**
  * Created by Cyxou on 4/17/18.
@@ -27,9 +28,9 @@ fun main(args: Array<String>) {
             Point2D(4.0, -4.0),
             Point2D(5.0, -4.0))
 
+    val randomPoints = (0..100).map { Point2D(Random().nextDouble() * 100, Random().nextDouble() * 100)}.toTypedArray()
 
-
-    val linearOneDimensionalRegression = LinearOneDimensionalRegression(tt)
+    val linearOneDimensionalRegression = LinearOneDimensionalRegression(randomPoints)
     val mistakeProbability = 0.05
     with(linearOneDimensionalRegression) {
         println("a1 = [$a1; $a1Variance; $a1Statistics; ${tDistributionInverseCumulativeProbability(mistakeProbability)}; " +
@@ -39,4 +40,8 @@ fun main(args: Array<String>) {
                 "${isA2Significant(mistakeProbability)}; ${a2ConfidenceInterval(mistakeProbability)} ")
 
     }
+
+    Chart("Some chart").correlationFieldAndRegression(linearOneDimensionalRegression.points,
+            linearOneDimensionalRegression.pointsToRegressionFunction()
+    ).createAndShowGUI()
 }
