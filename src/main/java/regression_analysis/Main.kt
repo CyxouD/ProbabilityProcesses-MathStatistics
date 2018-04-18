@@ -30,6 +30,14 @@ fun main(args: Array<String>) {
 
     val randomPoints = (0..100).map { Point2D(Random().nextDouble() * 100, Random().nextDouble() * 100) }.toTypedArray()
 
+    regressionAnalysisForLinearOneDimensionalRegression(randomPoints)
+    regressionAnalysisForLinearOneDimensionalRegression(OneDimensionCoordinateMapping.map(randomPoints,
+            xToT = { x -> Math.log(x) },
+            yToZ = { y -> Math.log(y) })
+    )
+}
+
+private fun regressionAnalysisForLinearOneDimensionalRegression(randomPoints: Array<Point2D>) {
     val linearOneDimensionalRegression = LinearOneDimensionalRegression(randomPoints)
     val mistakeProbability = 0.05
     with(linearOneDimensionalRegression) {
