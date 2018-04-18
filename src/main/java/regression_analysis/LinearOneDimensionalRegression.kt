@@ -2,6 +2,7 @@ package regression_analysis
 
 import correlation_analysis.PirsonRCorrelationCoefficient
 import javafx.geometry.Point2D
+import org.apache.commons.math3.distribution.FDistribution
 import org.apache.commons.math3.distribution.TDistribution
 import primary_statistical_analysis.DoubleRange
 import primary_statistical_analysis.sample_characteristics.Average
@@ -26,7 +27,8 @@ class LinearOneDimensionalRegression(val points: Array<Point2D>) {
     val a1 = Average(allY).unBiasedValue()!! - a2 * Average(allX).unBiasedValue()!!
 
     val nFunctionParameters = 2
-    val residualVariance = points.map { (xi, yi) -> yi - regression(xi) }.map { ei -> ei.square() }.sum() / (N - nFunctionParameters)
+    val residualVariance = points.mapIndexed { index, _ -> ei(index) }.map { ei -> ei.square() }.sum() / (N - nFunctionParameters)
+
 
     val a1Variance = residualVariance * (1 / N + Average(allX).unBiasedValue()!!.square() / (N * Variance(allX).unBiasedValue()!!))
 
@@ -88,5 +90,17 @@ class LinearOneDimensionalRegression(val points: Array<Point2D>) {
                 Pair(Point2D(x, interval.start), Point2D(x, interval.endInclusive))
             }.toTypedArray()
 
+    // residual plot
+    fun pointsToRegressionValuesAsXAndPredictingValueAsY() = points.mapIndexed { index, (xi, _) -> Point2D(regression(xi), ei(index)) }.toTypedArray()
+
+    fun isRegressionSignificantBasedOnCoffOfDetermination(mistakeProbability: Double): Boolean {
+        val denominatorDegreesOfFreedom = N - nFunctionParameters - 1
+        val f = coefficientOfDetermination / (1 - coefficientOfDetermination) *
+                denominatorDegreesOfFreedom / nFunctionParameters
+        return f > FDistribution(nFunctionParameters.toDouble(), denominatorDegreesOfFreedom).inverseCumulativeProbability(1 - mistakeProbability)
+    }
+
     private fun regression(x: Double) = a1 + a2 * x
+
+    private fun ei(i: Int) = allY[i] - regression(allX[i])
 }

@@ -41,6 +41,7 @@ fun main(args: Array<String>) {
                 "${isA2Significant(mistakeProbability)}; ${a2ConfidenceInterval(mistakeProbability)};" +
                 "${if (isA2Significant(mistakeProbability)) "=0" else "!=0"} ")
         println("R^2 (CoefficientOfDetermination) = $coefficientOfDetermination")
+        println("isRegressionSignificantBasedOnCoffOfDetermination? = ${isRegressionSignificantBasedOnCoffOfDetermination(mistakeProbability)}")
 
     }
 
@@ -60,4 +61,7 @@ fun main(args: Array<String>) {
                             predictingValueConfidenceIntervalPoints.map { it.second })
 
             ).createAndShowGUI()
+    Chart("діагностична діаграма, residual plot")
+            .residualPlot(linearOneDimensionalRegression.pointsToRegressionValuesAsXAndPredictingValueAsY())
+            .createAndShowGUI()
 }
