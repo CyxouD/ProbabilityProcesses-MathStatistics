@@ -13,20 +13,28 @@ import primary_statistical_analysis.square
  * Created by Cyxou on 4/2/18.
  */
 class PirsonRCorrelationCoefficient : CorrelationCoefficient {
+    companion object {
+        const val noCorrelation = 0.0
+    }
 
     constructor(points: Array<Point2D>) : super(points)
     constructor(points2d: Array<List<Double>>) : super(points2d)
 
     override val coefficient: Double? = {
-        val averageXY = Average(points.map { (x, y) -> x * y }).unBiasedValue()
-        val averageX = Average(allX).unBiasedValue()
-        val averageY = Average(allY).unBiasedValue()
-        val biasedStandartDeviationX = StandartDeviation(allX).biasedValue()
-        val biasedStandartDeviationY = StandartDeviation(allY).biasedValue()
-        if (listOf(averageX, averageY, averageXY, biasedStandartDeviationX, biasedStandartDeviationY).all { it != null }) {
-            (averageXY!! - averageX!! * averageY!!) / (biasedStandartDeviationX!! * biasedStandartDeviationY!!)
+        //some of parameters doesn't change at all, meaning that changes in one doesn't change another
+        if (allX.distinct().size == allX.size || allY.distinct().size == allY.size) {
+            noCorrelation
         } else {
-            null
+            val averageXY = Average(points.map { (x, y) -> x * y }).unBiasedValue()
+            val averageX = Average(allX).unBiasedValue()
+            val averageY = Average(allY).unBiasedValue()
+            val biasedStandartDeviationX = StandartDeviation(allX).biasedValue()
+            val biasedStandartDeviationY = StandartDeviation(allY).biasedValue()
+            if (listOf(averageX, averageY, averageXY, biasedStandartDeviationX, biasedStandartDeviationY).all { it != null }) {
+                (averageXY!! - averageX!! * averageY!!) / (biasedStandartDeviationX!! * biasedStandartDeviationY!!)
+            } else {
+                null
+            }
         }
     }.invoke()
 
@@ -52,4 +60,5 @@ class PirsonRCorrelationCoefficient : CorrelationCoefficient {
                 val rightSum = TDistribution(points.size.toDouble() - 2).inverseCumulativeProbability(1 - mistakeProbability / 2) * (1 - r.square()) / (Math.sqrt(N - 1))
                 DoubleRange(leftSum - rightSum, leftSum + rightSum)
             }
+
 }
