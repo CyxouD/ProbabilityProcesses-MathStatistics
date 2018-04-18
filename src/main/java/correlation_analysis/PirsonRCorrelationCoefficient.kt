@@ -22,7 +22,7 @@ class PirsonRCorrelationCoefficient : CorrelationCoefficient {
 
     override val coefficient: Double? = {
         //some of parameters doesn't change at all, meaning that changes in one doesn't change another
-        if (allX.distinct().size == allX.size || allY.distinct().size == allY.size) {
+        if (allX.distinct().size == 1 || allY.distinct().size == 1) {
             noCorrelation
         } else {
             val averageXY = Average(points.map { (x, y) -> x * y }).unBiasedValue()

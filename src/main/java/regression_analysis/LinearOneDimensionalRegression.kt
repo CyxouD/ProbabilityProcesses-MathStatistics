@@ -26,14 +26,31 @@ class LinearOneDimensionalRegression(val points: Array<Point2D>) {
     val a1 = Average(allY).unBiasedValue()!! - a2 * Average(allX).unBiasedValue()!!
 
     val nFunctionParameters = 2
-    val s = points.map { (xi, yi) -> yi - regression(xi) }.map { ei -> ei.square() }.sum() / (N - nFunctionParameters)
+    val residualVariance = points.map { (xi, yi) -> yi - regression(xi) }.map { ei -> ei.square() }.sum() / (N - nFunctionParameters)
 
-    val a1Variance = s * (1 / N + Average(allX).unBiasedValue()!!.square() / (N * Variance(allX).unBiasedValue()!!))
+    val a1Variance = residualVariance * (1 / N + Average(allX).unBiasedValue()!!.square() / (N * Variance(allX).unBiasedValue()!!))
 
-    val a2Variance = s / (N * Variance(allX).unBiasedValue()!!)
+    val a2Variance = residualVariance / (N * Variance(allX).unBiasedValue()!!)
+
     val a1Statistics = a1 / Math.sqrt(a1Variance)
 
     val a2Statistics = a2 / Math.sqrt(a2Variance)
+
+    fun regressionConfidenceInterval(x: Double, mistakeProbability: Double): DoubleRange {
+        val samePart = tDistributionInverseCumulativeProbability(mistakeProbability) * Math.sqrt(regressionVariance(x))
+        return DoubleRange(regression(x) - samePart, regression(x) + samePart)
+    }
+
+    fun predictingValueConfidenceInterval(x: Double, mistakeProbability: Double): DoubleRange {
+        val samePart = tDistributionInverseCumulativeProbability(mistakeProbability) * Math.sqrt(predictedValueVariance(x))
+        return DoubleRange(regression(x) - samePart, regression(x) + samePart)
+    }
+
+
+    fun regressionVariance(x: Double) = residualVariance * 1 / N + a1Variance * (x - Average(allX).unBiasedValue()!!).square()
+
+    fun predictedValueVariance(x: Double) = regressionVariance(x) + residualVariance
+
     fun isA1Significant(mistakeProbability: Double) =
             Math.abs(a1Statistics) <= tDistributionInverseCumulativeProbability(mistakeProbability) || a1Statistics.isNaN()
 
@@ -57,6 +74,19 @@ class LinearOneDimensionalRegression(val points: Array<Point2D>) {
         val y = regression(x)
         Point2D(x, y)
     }.toTypedArray()
+
+    fun pointsToRegressionFunctionConfidenceInterval(mistakeProbability: Double) =
+            allX.map { x ->
+                val interval = regressionConfidenceInterval(x, mistakeProbability)
+                Pair(Point2D(x, interval.start), Point2D(x, interval.endInclusive))
+            }.toTypedArray()
+
+    fun pointsToRegressionFunctionPredictingValue(mistakeProbability: Double) =
+            allX.map { x ->
+                val interval = predictingValueConfidenceInterval(x, mistakeProbability)
+                Pair(Point2D(x, interval.start), Point2D(x, interval.endInclusive))
+            }.toTypedArray()
+
 
     private fun regression(x: Double) = a1 + a2 * x
 }
