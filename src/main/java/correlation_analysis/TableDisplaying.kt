@@ -14,7 +14,7 @@ class TableDisplaying : JPanel() {
     companion object {
         fun correlationCoefficients(points2d: Array<List<Double>>, mistakeProbability: Double)
                 : TableDisplaying {
-            val columnNames = arrayOf("Коефіцієнт", "Статистика", "Значущість", "Зв'язок", "${1 - mistakeProbability}% довірчий інтервал")
+            val columnNames = arrayOf("Коефіцієнт", "Значення коєфіцієнту", "Статистика", "Значущість", "Зв'язок", "${1 - mistakeProbability}% довірчий інтервал")
 
             val pirsonRCorrelationCoefficient = PirsonRCorrelationCoefficient(points2d)
             val spearmanRankCorrelationCoefficient = SpearmanRankCorrelationCoefficient(points2d)
@@ -22,7 +22,8 @@ class TableDisplaying : JPanel() {
             val correlationRatio = CorrelationRatio(points2d)
             val notExististingConfidenceInterval = "Не існує"
             val tableRows = arrayOf(
-                    arrayOf(pirsonRCorrelationCoefficient.coefficient?.toPreciseFloatingPoints(3),
+                    arrayOf(pirsonRCorrelationCoefficient::class.java.simpleName,
+                            pirsonRCorrelationCoefficient.coefficient?.toPreciseFloatingPoints(3),
                             pirsonRCorrelationCoefficient.statistics?.toPreciseFloatingPoints(3),
                             if (pirsonRCorrelationCoefficient.isSignificant(mistakeProbability)!!) "Значущій" else "Незначущій",
                             if (pirsonRCorrelationCoefficient.isSignificant(mistakeProbability)!!) "Лінійний" else "Нелінійний",
@@ -31,19 +32,22 @@ class TableDisplaying : JPanel() {
                             else
                                 "-"
                     ),
-                    arrayOf(spearmanRankCorrelationCoefficient.coefficient?.toPreciseFloatingPoints(3),
+                    arrayOf(spearmanRankCorrelationCoefficient::class.java.simpleName,
+                            spearmanRankCorrelationCoefficient.coefficient?.toPreciseFloatingPoints(3),
                             spearmanRankCorrelationCoefficient.statistics?.toPreciseFloatingPoints(3),
                             if (spearmanRankCorrelationCoefficient.isSignificant(mistakeProbability)!!) "Значущій" else "Незначущій",
                             if (spearmanRankCorrelationCoefficient.isSignificant(mistakeProbability)!!) "Монотонний" else "Не монотонний",
                             notExististingConfidenceInterval
                     ),
-                    arrayOf(kendallRankCorrelationCoefficient.coefficient?.toPreciseFloatingPoints(3),
+                    arrayOf(kendallRankCorrelationCoefficient::class.java.simpleName,
+                            kendallRankCorrelationCoefficient.coefficient?.toPreciseFloatingPoints(3),
                             kendallRankCorrelationCoefficient.statistics?.toPreciseFloatingPoints(3),
                             if (kendallRankCorrelationCoefficient.isSignificant(mistakeProbability)!!) "Значущій" else "Незначущій",
                             if (kendallRankCorrelationCoefficient.isSignificant(mistakeProbability)!!) "Монотонний" else "Не монотонний",
                             notExististingConfidenceInterval)
                     ,
-                    arrayOf(correlationRatio.coefficient.toPreciseFloatingPoints(3),
+                    arrayOf(correlationRatio::class.java.simpleName,
+                            correlationRatio.coefficient.toPreciseFloatingPoints(3),
                             correlationRatio.statistics.toPreciseFloatingPoints(3),
                             if (correlationRatio.isSignificant(mistakeProbability)!!) "Значущій" else "Незначущій",
                             if (correlationRatio.isSignificant(mistakeProbability)!!) "Нелінійний" else "Лінійний",

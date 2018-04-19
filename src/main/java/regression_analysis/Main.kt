@@ -1,6 +1,11 @@
 package regression_analysis
 
 import javafx.geometry.Point2D
+import primary_statistical_analysis.VariationalSeries
+import primary_statistical_analysis.sample_characteristics.AntiKurtosis
+import primary_statistical_analysis.sample_characteristics.Average
+import primary_statistical_analysis.sample_characteristics.Kurtosis
+import primary_statistical_analysis.sample_characteristics.StandartDeviation
 import java.util.*
 
 /**
@@ -40,18 +45,28 @@ fun main(args: Array<String>) {
 private fun regressionAnalysisForLinearOneDimensionalRegression(randomPoints: Array<Point2D>) {
     val linearOneDimensionalRegression = LinearOneDimensionalRegression(randomPoints)
     val mistakeProbability = 0.05
-    with(linearOneDimensionalRegression) {
-        println("a1 = [$a1; $a1Variance; $a1Statistics; ${tDistributionInverseCumulativeProbability(mistakeProbability)}; " +
-                "${isA1Significant(mistakeProbability)}; ${a1ConfidenceInterval(mistakeProbability)}; " +
-                "${if (isA1Significant(mistakeProbability)) "=0" else "!=0"} ")
 
-        println("a2 = [$a2; $a2Variance; $a2Statistics; ${tDistributionInverseCumulativeProbability(mistakeProbability)}; " +
-                "${isA2Significant(mistakeProbability)}; ${a2ConfidenceInterval(mistakeProbability)};" +
-                "${if (isA2Significant(mistakeProbability)) "=0" else "!=0"} ")
-        println("R^2 (CoefficientOfDetermination) = $coefficientOfDetermination")
-        println("isRegressionSignificantBasedOnCoffOfDetermination? = ${isRegressionSignificantBasedOnCoffOfDetermination(mistakeProbability)}")
+    val x = linearOneDimensionalRegression.allX
+    primary_statistical_analysis.TableDisplaying.samplingCharacteristics(
+            VariationalSeries(x), listOf(Average(x), StandartDeviation(x), AntiKurtosis(x), Kurtosis(x))
+    ).createAndShowGUI("X ознака")
 
-    }
+    val y = linearOneDimensionalRegression.allX
+    primary_statistical_analysis.TableDisplaying.samplingCharacteristics(
+            VariationalSeries(y), listOf(Average(y), StandartDeviation(y), AntiKurtosis(y), Kurtosis(y))
+    ).createAndShowGUI("Y ознака")
+
+    correlation_analysis.TableDisplaying.correlationCoefficients(
+            linearOneDimensionalRegression.points.map { listOf(it.x, it.y) }.toTypedArray(),
+            mistakeProbability
+    ).createAndShowGUI("Коефіцієнти кореляції")
+
+    TableDisplaying.ocenkiParametrovLinearOneDimensionalRegression(linearOneDimensionalRegression.points, mistakeProbability)
+            .createAndShowGUI("Оцінки параметрів регресії")
+
+    TableDisplaying.adequacyOfRegressionCriterias(linearOneDimensionalRegression.points, mistakeProbability)
+            .createAndShowGUI("Перевірка адекватності відтворених регресійних залежностей")
+
 
     Chart("Кореляционное поле с функцией регрессии").correlationFieldAndRegression(linearOneDimensionalRegression.points,
             linearOneDimensionalRegression.pointsToRegressionFunction()

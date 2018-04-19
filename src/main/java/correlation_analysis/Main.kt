@@ -58,27 +58,5 @@ private fun readInput(sc: Scanner, input: Array<List<Double>>) {
         primary_statistical_analysis.TableDisplaying.samplingCharacteristics(yVariationalSeries, ySampleCharacteristicsToShow).createAndShowGUI("Y ознака")
         val mistakeProbability = 0.05
         TableDisplaying.correlationCoefficients(needToProcess, mistakeProbability).createAndShowGUI("Коефіцієнти кореляції")
-
-//    val pirsonRCorrelationCoefficient = PirsonRCorrelationCoefficient(needToProcess)
-//    println("r = ${pirsonRCorrelationCoefficient.coefficient}")
-//    println("statistics = ${pirsonRCorrelationCoefficient.statistics}")
-//    println("isSignificant = ${pirsonRCorrelationCoefficient.isSignificant(mistakeProbability)}")
-//    println("coefficientConfidenceInterval = ${pirsonRCorrelationCoefficient.coefficientConfidenceInterval(mistakeProbability)}")
-//
-//
-//    val spearmanRankCorrelationCoefficient = SpearmanRankCorrelationCoefficient(needToProcess)
-//    println("r = ${spearmanRankCorrelationCoefficient.coefficient}")
-//    println("statistics = ${spearmanRankCorrelationCoefficient.statistics}")
-//    println("isSignificant = ${spearmanRankCorrelationCoefficient.isSignificant(mistakeProbability)}")
-//
-//    val kendallRankCorrelationCoefficient = KendallRankCorrelationCoefficient(needToProcess)
-//    println("r = ${kendallRankCorrelationCoefficient.coefficient}")
-//    println("statistics = ${kendallRankCorrelationCoefficient.statistics}")
-//    println("isSignificant = ${kendallRankCorrelationCoefficient.isSignificant(mistakeProbability)}")
-//
-//    val correlationRatio = CorrelationRatio(needToProcess)
-//    println("r = ${correlationRatio.coefficient}")
-//    println("statistics = ${correlationRatio.statistics}")
-//    println("isSignificant = ${correlationRatio.isSignificant(mistakeProbability)}")
     }
 }

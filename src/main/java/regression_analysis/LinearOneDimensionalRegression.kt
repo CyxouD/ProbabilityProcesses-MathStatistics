@@ -17,8 +17,8 @@ class LinearOneDimensionalRegression(val points: Array<Point2D>) {
     operator fun Point2D.component1() = this.x
     operator fun Point2D.component2() = this.y
 
-    protected val allX = points.map { (x, _) -> x }
-    protected val allY = points.map { (_, y) -> y }
+    val allX = points.map { (x, _) -> x }
+    val allY = points.map { (_, y) -> y }
 
     protected val N = points.size.toDouble()
 
@@ -97,8 +97,13 @@ class LinearOneDimensionalRegression(val points: Array<Point2D>) {
         val denominatorDegreesOfFreedom = N - nFunctionParameters - 1
         val f = coefficientOfDetermination / (1 - coefficientOfDetermination) *
                 denominatorDegreesOfFreedom / nFunctionParameters
-        return f > FDistribution(nFunctionParameters.toDouble(), denominatorDegreesOfFreedom).inverseCumulativeProbability(1 - mistakeProbability)
+        return f > fTestDistributionInverseCumulativeProbability(denominatorDegreesOfFreedom, mistakeProbability)
     }
+
+    fun fTestDistributionInverseCumulativeProbability(denominatorDegreesOfFreedom: Double = N - nFunctionParameters - 1,
+                                                      mistakeProbability: Double) =
+            FDistribution(nFunctionParameters.toDouble(), denominatorDegreesOfFreedom)
+                    .inverseCumulativeProbability(1 - mistakeProbability)
 
     private fun regression(x: Double) = a1 + a2 * x
 
