@@ -61,8 +61,9 @@ class TableDisplaying : JPanel() {
             val tableRows = with(linearOneDimensionalRegression) {
                 arrayOf(
                         arrayOf("Коефіцієнт детермінації",
-                                linearOneDimensionalRegression.coefficientOfDetermination,
-                                linearOneDimensionalRegression.fTestDistributionInverseCumulativeProbability(mistakeProbability = mistakeProbability),
+                                linearOneDimensionalRegression.coefficientOfDetermination.toPreciseFloatingPoints(3),
+                                linearOneDimensionalRegression.fTestDistributionInverseCumulativeProbability(mistakeProbability = mistakeProbability)
+                                        .toPreciseFloatingPoints(3),
                                 if (linearOneDimensionalRegression.isRegressionSignificantBasedOnCoffOfDetermination(mistakeProbability)) {
                                     "Значущій"
                                 } else {
@@ -70,7 +71,7 @@ class TableDisplaying : JPanel() {
                                 }
 
                         )
-                ).map { it.map { it.toString() }.toTypedArray() }.toTypedArray()
+                ).map { it.map { it }.toTypedArray() }.toTypedArray()
             }
 
             return addTable(tableRows, columnNames)

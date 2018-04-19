@@ -17,6 +17,7 @@ class LinearOneDimensionalRegression(val points: Array<Point2D>) {
     operator fun Point2D.component1() = this.x
     operator fun Point2D.component2() = this.y
 
+
     val allX = points.map { (x, _) -> x }
     val allY = points.map { (_, y) -> y }
 
@@ -39,6 +40,8 @@ class LinearOneDimensionalRegression(val points: Array<Point2D>) {
     val a2Statistics = a2 / Math.sqrt(a2Variance)
 
     val coefficientOfDetermination = PirsonRCorrelationCoefficient(points).coefficient!!.square()
+
+    constructor(points2d: Array<List<Double>>) : this(points2d.map { Point2D(it[0], it[1]) }.toTypedArray())
 
     fun regressionConfidenceInterval(x: Double, mistakeProbability: Double): DoubleRange {
         val samePart = tDistributionInverseCumulativeProbability(mistakeProbability) * Math.sqrt(regressionVariance(x))

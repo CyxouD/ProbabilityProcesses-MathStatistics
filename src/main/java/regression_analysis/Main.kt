@@ -6,44 +6,61 @@ import primary_statistical_analysis.sample_characteristics.AntiKurtosis
 import primary_statistical_analysis.sample_characteristics.Average
 import primary_statistical_analysis.sample_characteristics.Kurtosis
 import primary_statistical_analysis.sample_characteristics.StandartDeviation
+import java.io.File
 import java.util.*
+import java.util.regex.Pattern
 
 /**
  * Created by Cyxou on 4/17/18.
  */
 fun main(args: Array<String>) {
-    val linearOneDimensionalFunctionThroughStartCoordinatesPositive = arrayOf(Point2D(3.0, 3.0),
-            Point2D(4.0, 4.0),
-            Point2D(5.0, 5.0))
+    val scanner = Scanner(System.`in`)
+    scanner.use { sc ->
+        try {
+            val file = File(args.toList()[0])
+            val input: Array<List<Double>> = processInput(file)
+            try {
+                readInput(sc, input)
+            } catch (e: Exception) {
+                try {
+                    e.printStackTrace()
+                    readInput(sc, input)
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                    readInput(sc, input)
+                }
+            }
 
-    val linearOneDimensionalFunctionThroughStartCoordinatesNegative = arrayOf(Point2D(3.0, -3.0),
-            Point2D(4.0, -4.0),
-            Point2D(5.0, -5.0))
-
-    val tt = arrayOf(Point2D(0.0, 1.0),
-            Point2D(1.0, 2.0),
-            Point2D(2.0, 3.0))
-
-
-    val lineParallexToAndAboveXAxis = arrayOf(Point2D(3.0, 4.0),
-            Point2D(4.0, 4.0),
-            Point2D(5.0, 4.0))
-
-    val lineParallexToAndBelowXAxis = arrayOf(Point2D(3.0, -4.0),
-            Point2D(4.0, -4.0),
-            Point2D(5.0, -4.0))
-
-    val randomPoints = (0..100).map { Point2D(Random().nextDouble() * 100, Random().nextDouble() * 100) }.toTypedArray()
-
-    regressionAnalysisForLinearOneDimensionalRegression(randomPoints)
-    regressionAnalysisForLinearOneDimensionalRegression(OneDimensionCoordinateMapping.map(randomPoints,
-            xToT = { x -> Math.log(x) },
-            yToZ = { y -> Math.log(y) })
-    )
+        } catch (e: Exception) {
+            readInput(scanner, arrayOf())
+        }
+    }
 }
 
-private fun regressionAnalysisForLinearOneDimensionalRegression(randomPoints: Array<Point2D>) {
-    val linearOneDimensionalRegression = LinearOneDimensionalRegression(randomPoints)
+private fun processInput(file: File): Array<List<Double>> {
+    val input: Array<List<Double>> = file.readLines().map { it.split(Pattern.compile("\\s+")) }
+            .map { it.filter { !it.isBlank() } }
+            .map { it.map { it.replace(",", ".").toDouble() } }.toTypedArray()
+    return input
+}
+
+private fun readInput(sc: Scanner, input: Array<List<Double>>) {
+    var needToProcess = input
+    while (true) {
+        needToProcess = processInput(File(sc.nextLine()))
+
+
+//        regressionAnalysisForLinearOneDimensionalRegression(needToProcess)
+        regressionAnalysisForLinearOneDimensionalRegression(OneDimensionCoordinateMapping.map(needToProcess,
+                xToT = { x -> Math.log(x) },
+                yToZ = { y -> Math.log(y) })
+        )
+    }
+}
+
+
+private fun regressionAnalysisForLinearOneDimensionalRegression(points: Array<List<Double>>) {
+    val linearOneDimensionalRegression = LinearOneDimensionalRegression(points)
     val mistakeProbability = 0.05
 
     val x = linearOneDimensionalRegression.allX

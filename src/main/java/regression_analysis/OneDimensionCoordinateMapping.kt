@@ -7,7 +7,7 @@ import java.awt.Point
  * Created by Cyxou on 4/19/18.
  */
 object OneDimensionCoordinateMapping {
-    fun map(points: Array<Point2D>, xToT: (Double) -> Double, yToZ: (Double) -> Double) =
-            points.map { Point2D(xToT(it.x), yToZ(it.y)) }.toTypedArray()
+    fun map(points: Array<List<Double>>, xToT: (Double) -> Double, yToZ: (Double) -> Double) =
+            points.map { (x, y) -> listOf(xToT(x), yToZ(y)) }.toTypedArray()
 
 }

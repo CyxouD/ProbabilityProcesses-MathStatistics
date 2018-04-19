@@ -59,7 +59,7 @@ class Chart(title: String) : ApplicationFrame(title) {
 
         plot.datasetRenderingOrder = DatasetRenderingOrder.FORWARD
 
-        val plotTitle = "Кореляционное поле с функцией регрессии"
+        val plotTitle = title
         val chart = JFreeChart(plotTitle,
                 JFreeChart.DEFAULT_TITLE_FONT, plot, true);
         val chartPanel = ChartPanel(chart, false)
@@ -125,7 +125,7 @@ class Chart(title: String) : ApplicationFrame(title) {
 
         plot.datasetRenderingOrder = DatasetRenderingOrder.FORWARD
 
-        val plotTitle = "Кореляционное поле с функцией регрессии"
+        val plotTitle = title
         val chart = JFreeChart(plotTitle,
                 JFreeChart.DEFAULT_TITLE_FONT, plot, true);
         val chartPanel = ChartPanel(chart, false)
